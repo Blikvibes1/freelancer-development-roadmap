@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="noir">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Dropzone — Drag-and-drop file upload with progress, validation, and true Theme Mode." />
+  <title>Dropzone — File Upload UI</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700&family=Syne:wght@600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <a class="skip-link" href="#upload">Skip to upload</a>
+
+  <header class="site-header">
+    <div class="header-inner">
+      <a href="#" class="brand" aria-label="Dropzone home">
+        <span class="brand__mark" aria-hidden="true">
+          <svg width="26" height="26" viewBox="0 0 26 26" fill="none">
+            <rect x="5" y="5" width="16" height="16" rx="3" class="brand-frame"/>
+            <path d="M13 9v8M9 13l4 4 4-4" class="brand-arrow" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </span>
+        <span class="brand__name">Dropzone</span>
+      </a>
+
+      <button
+        type="button"
+        class="theme-switch"
+        id="theme-switch"
+        role="switch"
+        aria-checked="false"
+        aria-label="Switch to Lumen theme"
+      >
+        <span class="theme-switch__track">
+          <span class="theme-switch__thumb">
+            <svg class="icon-moon" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true">
+              <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
+            </svg>
+            <svg class="icon-sun" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true">
+              <circle cx="12" cy="12" r="4"/>
+              <path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/>
+            </svg>
+          </span>
+        </span>
+      </button>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <p class="eyebrow">Week 10 · File Upload UI</p>
+      <h1 class="hero__title">Upload that feels solid</h1>
+      <p class="hero__text">
+        Drag-and-drop zone with file type & size validation, progress bars, image previews, and dual design languages.
+      </p>
+    </section>
+
+    <section class="upload-section" id="upload">
+      <div
+        class="dropzone"
+        id="dropzone"
+        role="button"
+        tabindex="0"
+        aria-label="File upload dropzone. Drag files here or press Enter to browse."
+      >
+        <input
+          type="file"
+          id="file-input"
+          class="dropzone__input"
+          multiple
+          accept="image/*,.pdf,.doc,.docx,.txt"
+          hidden
+        />
+        <div class="dropzone__content">
+          <div class="dropzone__icon" aria-hidden="true">
+            <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+              <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+              <polyline points="17 8 12 3 7 8"/>
+              <line x1="12" y1="3" x2="12" y2="15"/>
+            </svg>
+          </div>
+          <p class="dropzone__title">Drag & drop files here</p>
+          <p class="dropzone__sub">or <span class="dropzone__browse">browse</span> to choose files</p>
+          <p class="dropzone__meta">Images, PDF, DOC, TXT · Max 5 MB each</p>
+        </div>
+      </div>
+
+      <div class="file-list" id="file-list" aria-live="polite" aria-relevant="additions removals"></div>
+
+      <p class="upload-note" id="upload-note" hidden></p>
+    </section>
+
+    <section class="section">
+      <div class="section__inner">
+        <h2 class="section__title">What this handles</h2>
+        <ul class="feature-list">
+          <li>Drag and drop + click to browse</li>
+          <li>Multiple files at once</li>
+          <li>Type validation (images, PDF, DOC, TXT)</li>
+          <li>Size validation (max 5 MB)</li>
+          <li>Simulated upload progress per file</li>
+          <li>Image thumbnail previews</li>
+          <li>Remove individual files</li>
+          <li>Keyboard accessible dropzone</li>
+        </ul>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <p>Dropzone · Week 10 · Freelancer Development Program</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>

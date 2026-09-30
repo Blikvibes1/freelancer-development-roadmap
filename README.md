@@ -16,10 +16,13 @@ freelancer-development-roadmap/
 ├── week-07-modal-dialog/
 ├── week-08-skeleton-loaders/
 ├── week-09-form-validation/
+├── week-10-file-upload/
 └── ...
 ```
 
 ## Completed Projects
+
+### Phase 1 — Frontend UI Components (Weeks 1–10)
 
 | Week | Project                              | Status   |
 |------|--------------------------------------|----------|
@@ -31,13 +34,14 @@ freelancer-development-roadmap/
 | 07   | Modal Dialog (Portal)                | ✅ Done  |
 | 08   | Skeleton Loaders (Pulse)             | ✅ Done  |
 | 09   | Form Validation (Forma)              | ✅ Done  |
+| 10   | File Upload UI (Dropzone)            | ✅ Done  |
 
 ## How to run a project
 
 Open the `index.html` of any week folder in a browser, or serve it with:
 
 ```bash
-npx serve week-09-form-validation
+npx serve week-10-file-upload
 ```
 
 ---
