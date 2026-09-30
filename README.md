@@ -10,6 +10,7 @@ Each week is a self-contained, portfolio-quality project.
 freelancer-development-roadmap/
 ├── week-02-responsive-navbar/
 ├── week-03-theme-mode/
+├── week-04-image-carousel/
 └── ...
 ```
 
@@ -19,13 +20,14 @@ freelancer-development-roadmap/
 |------|--------------------------------------|----------|
 | 02   | Responsive Navbar (Vespera Nav)      | ✅ Done  |
 | 03   | Theme Mode System (Aura)             | ✅ Done  |
+| 04   | Image Carousel (Aperture)            | ✅ Done  |
 
 ## How to run a project
 
 Open the `index.html` of any week folder in a browser, or serve it with:
 
 ```bash
-npx serve week-03-theme-mode
+npx serve week-04-image-carousel
 ```
 
 ---
