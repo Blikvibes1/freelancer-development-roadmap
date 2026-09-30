@@ -15,6 +15,7 @@ freelancer-development-roadmap/
 ├── week-06-accordion-faq/
 ├── week-07-modal-dialog/
 ├── week-08-skeleton-loaders/
+├── week-09-form-validation/
 └── ...
 ```
 
@@ -29,13 +30,14 @@ freelancer-development-roadmap/
 | 06   | Accordion / FAQ (Helix)              | ✅ Done  |
 | 07   | Modal Dialog (Portal)                | ✅ Done  |
 | 08   | Skeleton Loaders (Pulse)             | ✅ Done  |
+| 09   | Form Validation (Forma)              | ✅ Done  |
 
 ## How to run a project
 
 Open the `index.html` of any week folder in a browser, or serve it with:
 
 ```bash
-npx serve week-08-skeleton-loaders
+npx serve week-09-form-validation
 ```
 
 ---
