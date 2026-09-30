@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="noir">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Aura — A true Theme Mode system. Not just dark and light. Two complete design languages." />
+  <title>Aura — Theme Mode System</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&family=Syne:wght@600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <!-- ========== HEADER ========== -->
+  <header class="site-header">
+    <div class="header-inner">
+      <a href="#" class="brand" aria-label="Aura home">
+        <span class="brand__mark" aria-hidden="true">
+          <svg width="28" height="28" viewBox="0 0 28 28" fill="none">
+            <circle cx="14" cy="14" r="12" class="brand-ring" />
+            <circle cx="14" cy="14" r="5" class="brand-core" />
+          </svg>
+        </span>
+        <span class="brand__name">Aura</span>
+      </a>
+
+      <div class="header-actions">
+        <span class="theme-label" id="theme-label">Noir</span>
+        <button
+          type="button"
+          class="theme-switch"
+          id="theme-switch"
+          role="switch"
+          aria-checked="false"
+          aria-label="Switch to Lumen theme"
+        >
+          <span class="theme-switch__track">
+            <span class="theme-switch__thumb">
+              <svg class="icon-moon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true">
+                <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
+              </svg>
+              <svg class="icon-sun" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true">
+                <circle cx="12" cy="12" r="4"/>
+                <path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/>
+              </svg>
+            </span>
+          </span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main id="main">
+    <!-- ========== HERO ========== -->
+    <section class="hero">
+      <div class="hero__content">
+        <p class="eyebrow">Week 03 · Theme Mode</p>
+        <h1 class="hero__title">Not just dark and light.</h1>
+        <p class="hero__text">
+          A real Theme Mode changes the design language — geometry, type, surfaces, motion, and atmosphere — not only the colors.
+        </p>
+        <div class="hero__cta">
+          <button type="button" class="btn btn--primary" id="hero-toggle">
+            Try the switch
+          </button>
+          <a href="#preview" class="btn btn--ghost">See components</a>
+        </div>
+      </div>
+      <div class="hero__visual" aria-hidden="true">
+        <div class="orb orb--1"></div>
+        <div class="orb orb--2"></div>
+      </div>
+    </section>
+
+    <!-- ========== WHAT CHANGES ========== -->
+    <section class="section" id="changes">
+      <div class="section__inner">
+        <h2 class="section__title">What actually changes</h2>
+        <p class="section__lead">Switch themes and watch every layer of the interface transform.</p>
+
+        <div class="diff-grid">
+          <article class="diff-card">
+            <div class="diff-card__icon" aria-hidden="true">Aa</div>
+            <h3 class="diff-card__title">Typography</h3>
+            <p class="diff-card__text">Weight, tracking, and scale shift between precise and editorial.</p>
+          </article>
+          <article class="diff-card">
+            <div class="diff-card__icon" aria-hidden="true">▢</div>
+            <h3 class="diff-card__title">Geometry</h3>
+            <p class="diff-card__text">Border radii and shape language move from sharp to soft.</p>
+          </article>
+          <article class="diff-card">
+            <div class="diff-card__icon" aria-hidden="true">◈</div>
+            <h3 class="diff-card__title">Surfaces</h3>
+            <p class="diff-card__text">Glass and depth versus solid, paper-like elevation.</p>
+          </article>
+          <article class="diff-card">
+            <div class="diff-card__icon" aria-hidden="true">✦</div>
+            <h3 class="diff-card__title">Atmosphere</h3>
+            <p class="diff-card__text">Background treatment, accent character, and lighting mood.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========== LIVE PREVIEW ========== -->
+    <section class="section section--preview" id="preview">
+      <div class="section__inner">
+        <h2 class="section__title">Live component preview</h2>
+        <p class="section__lead">These elements inherit the active theme. Switch and watch them transform.</p>
+
+        <div class="preview-panel">
+          <!-- Buttons -->
+          <div class="preview-group">
+            <h3 class="preview-group__label">Buttons</h3>
+            <div class="preview-row">
+              <button type="button" class="btn btn--primary">Primary</button>
+              <button type="button" class="btn btn--secondary">Secondary</button>
+              <button type="button" class="btn btn--ghost">Ghost</button>
+            </div>
+          </div>
+
+          <!-- Inputs -->
+          <div class="preview-group">
+            <h3 class="preview-group__label">Inputs</h3>
+            <div class="preview-row preview-row--stack">
+              <label class="field">
+                <span class="field__label">Email</span>
+                <input type="email" class="field__input" placeholder="you@studio.com" value="hello@aura.design" />
+              </label>
+              <label class="field">
+                <span class="field__label">Message</span>
+                <textarea class="field__input field__input--area" rows="3" placeholder="Tell us about your project…">Looking for a new design system.</textarea>
+              </label>
+            </div>
+          </div>
+
+          <!-- Cards -->
+          <div class="preview-group">
+            <h3 class="preview-group__label">Cards</h3>
+            <div class="card-row">
+              <article class="ui-card">
+                <div class="ui-card__media"></div>
+                <div class="ui-card__body">
+                  <h4 class="ui-card__title">Project Atlas</h4>
+                  <p class="ui-card__text">Analytics dashboard with real-time streams.</p>
+                  <button type="button" class="btn btn--ghost btn--sm">View case</button>
+                </div>
+              </article>
+              <article class="ui-card">
+                <div class="ui-card__media"></div>
+                <div class="ui-card__body">
+                  <h4 class="ui-card__title">Studio Lumen</h4>
+                  <p class="ui-card__text">Editorial brand site with soft motion.</p>
+                  <button type="button" class="btn btn--ghost btn--sm">View case</button>
+                </div>
+              </article>
+            </div>
+          </div>
+
+          <!-- Toggle / Status -->
+          <div class="preview-group">
+            <h3 class="preview-group__label">Controls & status</h3>
+            <div class="preview-row">
+              <label class="toggle">
+                <input type="checkbox" class="toggle__input" checked />
+                <span class="toggle__track"><span class="toggle__thumb"></span></span>
+                <span class="toggle__text">Notifications</span>
+              </label>
+              <span class="badge badge--success">Active</span>
+              <span class="badge badge--warning">Pending</span>
+              <span class="badge">Draft</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========== THEME SPECS ========== -->
+    <section class="section" id="specs">
+      <div class="section__inner">
+        <h2 class="section__title">Theme specifications</h2>
+        <div class="spec-grid">
+          <article class="spec-card" data-theme-preview="noir">
+            <div class="spec-card__header">
+              <span class="spec-card__swatch" style="--swatch: #0a0b0f"></span>
+              <h3 class="spec-card__name">Noir</h3>
+            </div>
+            <ul class="spec-card__list">
+              <li><strong>Mood</strong> Cinematic, precise, focused</li>
+              <li><strong>Surfaces</strong> Glass + subtle depth</li>
+              <li><strong>Geometry</strong> Tighter radii</li>
+              <li><strong>Accent</strong> Teal</li>
+              <li><strong>Type</strong> Tight tracking, strong display</li>
+            </ul>
+          </article>
+          <article class="spec-card" data-theme-preview="lumen">
+            <div class="spec-card__header">
+              <span class="spec-card__swatch" style="--swatch: #f4f1eb"></span>
+              <h3 class="spec-card__name">Lumen</h3>
+            </div>
+            <ul class="spec-card__list">
+              <li><strong>Mood</strong> Editorial, warm, open</li>
+              <li><strong>Surfaces</strong> Solid, paper-like</li>
+              <li><strong>Geometry</strong> Soft, generous radii</li>
+              <li><strong>Accent</strong> Terracotta</li>
+              <li><strong>Type</strong> Open tracking, medium weight</li>
+            </ul>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========== CTA ========== -->
+    <section class="section section--cta">
+      <div class="section__inner">
+        <h2 class="section__title">Theme preference is remembered</h2>
+        <p class="section__lead">
+          Your choice is stored in <code>localStorage</code> and restored on the next visit.
+          System preference is used only on the first visit.
+        </p>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <p>Aura Theme System · Week 03 · Freelancer Development Program</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>

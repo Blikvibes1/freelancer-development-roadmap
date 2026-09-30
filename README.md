@@ -8,26 +8,24 @@ Each week is a self-contained, portfolio-quality project.
 
 ```
 freelancer-development-roadmap/
-├── week-02-responsive-navbar/   ← Current
-│   ├── index.html
-│   ├── style.css
-│   ├── script.js
-│   └── README.md
+├── week-02-responsive-navbar/
+├── week-03-theme-mode/
 └── ...
 ```
 
 ## Completed Projects
 
-| Week | Project                          | Status   |
-|------|----------------------------------|----------|
-| 02   | Responsive Navbar (Vespera Nav)  | ✅ Done  |
+| Week | Project                              | Status   |
+|------|--------------------------------------|----------|
+| 02   | Responsive Navbar (Vespera Nav)      | ✅ Done  |
+| 03   | Theme Mode System (Aura)             | ✅ Done  |
 
 ## How to run a project
 
 Open the `index.html` of any week folder in a browser, or serve it with:
 
 ```bash
-npx serve week-02-responsive-navbar
+npx serve week-03-theme-mode
 ```
 
 ---
