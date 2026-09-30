@@ -12,6 +12,7 @@ freelancer-development-roadmap/
 ├── week-03-theme-mode/
 ├── week-04-image-carousel/
 ├── week-05-pricing-table/
+├── week-06-accordion-faq/
 └── ...
 ```
 
@@ -23,13 +24,14 @@ freelancer-development-roadmap/
 | 03   | Theme Mode System (Aura)             | ✅ Done  |
 | 04   | Image Carousel (Aperture)            | ✅ Done  |
 | 05   | Pricing Table (Nimbus)               | ✅ Done  |
+| 06   | Accordion / FAQ (Helix)              | ✅ Done  |
 
 ## How to run a project
 
 Open the `index.html` of any week folder in a browser, or serve it with:
 
 ```bash
-npx serve week-05-pricing-table
+npx serve week-06-accordion-faq
 ```
 
 ---
