@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="noir">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Vespera — Premium responsive navigation system with dual design languages, sticky behavior, and accessible mobile menu." />
+  <title>Vespera Nav — Responsive Navigation System</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&family=Syne:wght@600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <!-- Skip link for accessibility -->
+  <a class="skip-link" href="#main-content">Skip to content</a>
+
+  <!-- ========== NAVIGATION ========== -->
+  <header class="site-header" id="site-header" data-scrolled="false">
+    <nav class="nav" aria-label="Primary">
+      <div class="nav__inner">
+
+        <!-- Brand -->
+        <a href="#" class="nav__brand" aria-label="Vespera home">
+          <span class="nav__logo" aria-hidden="true">
+            <svg width="32" height="32" viewBox="0 0 32 32" fill="none">
+              <circle cx="16" cy="16" r="14" class="logo-ring" />
+              <path d="M10 16.5L14.5 21L22 11" class="logo-check" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" />
+            </svg>
+          </span>
+          <span class="nav__wordmark">Vespera</span>
+        </a>
+
+        <!-- Desktop links -->
+        <ul class="nav__list" role="list">
+          <li><a href="#home" class="nav__link is-active" data-link>Home</a></li>
+          <li><a href="#work" class="nav__link" data-link>Work</a></li>
+          <li><a href="#services" class="nav__link" data-link>Services</a></li>
+          <li><a href="#about" class="nav__link" data-link>About</a></li>
+          <li><a href="#contact" class="nav__link" data-link>Contact</a></li>
+        </ul>
+
+        <!-- Actions -->
+        <div class="nav__actions">
+          <button
+            type="button"
+            class="theme-toggle"
+            id="theme-toggle"
+            aria-label="Switch to Lumen theme"
+            title="Toggle theme"
+          >
+            <span class="theme-toggle__track" aria-hidden="true">
+              <span class="theme-toggle__thumb">
+                <svg class="icon-moon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z" />
+                </svg>
+                <svg class="icon-sun" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <circle cx="12" cy="12" r="5" />
+                  <path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42" />
+                </svg>
+              </span>
+            </span>
+          </button>
+
+          <a href="#contact" class="btn btn--primary nav__cta">
+            <span>Start a project</span>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true">
+              <path d="M5 12h14M12 5l7 7-7 7" />
+            </svg>
+          </a>
+
+          <!-- Mobile menu button -->
+          <button
+            type="button"
+            class="nav__hamburger"
+            id="menu-toggle"
+            aria-expanded="false"
+            aria-controls="mobile-menu"
+            aria-label="Open menu"
+          >
+            <span class="hamburger" aria-hidden="true">
+              <span class="hamburger__line"></span>
+              <span class="hamburger__line"></span>
+              <span class="hamburger__line"></span>
+            </span>
+          </button>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Mobile menu panel -->
+    <div
+      class="mobile-menu"
+      id="mobile-menu"
+      role="dialog"
+      aria-modal="true"
+      aria-label="Mobile navigation"
+      hidden
+    >
+      <div class="mobile-menu__backdrop" data-close-menu></div>
+      <div class="mobile-menu__panel">
+        <div class="mobile-menu__header">
+          <span class="nav__wordmark">Vespera</span>
+          <button type="button" class="mobile-menu__close" data-close-menu aria-label="Close menu">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M18 6L6 18M6 6l12 12" />
+            </svg>
+          </button>
+        </div>
+
+        <ul class="mobile-menu__list" role="list">
+          <li style="--i: 0"><a href="#home" class="mobile-menu__link is-active" data-link>Home</a></li>
+          <li style="--i: 1"><a href="#work" class="mobile-menu__link" data-link>Work</a></li>
+          <li style="--i: 2"><a href="#services" class="mobile-menu__link" data-link>Services</a></li>
+          <li style="--i: 3"><a href="#about" class="mobile-menu__link" data-link>About</a></li>
+          <li style="--i: 4"><a href="#contact" class="mobile-menu__link" data-link>Contact</a></li>
+        </ul>
+
+        <div class="mobile-menu__footer">
+          <a href="#contact" class="btn btn--primary btn--block">Start a project</a>
+          <p class="mobile-menu__note">Available for new projects · 2026</p>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- ========== PAGE CONTENT (demo sections) ========== -->
+  <main id="main-content">
+    <section class="hero" id="home">
+      <div class="hero__content">
+        <p class="hero__eyebrow">Week 02 · Navigation System</p>
+        <h1 class="hero__title">Navigation that feels intentional</h1>
+        <p class="hero__text">
+          A sticky, theme-aware navigation system with a fully accessible mobile menu,
+          scroll-aware behavior, and two distinct design languages.
+        </p>
+        <div class="hero__actions">
+          <a href="#work" class="btn btn--primary">Explore the system</a>
+          <a href="#about" class="btn btn--ghost">How it works</a>
+        </div>
+      </div>
+      <div class="hero__visual" aria-hidden="true">
+        <div class="hero__orb"></div>
+        <div class="hero__grid"></div>
+      </div>
+    </section>
+
+    <section class="section" id="work">
+      <div class="section__inner">
+        <h2 class="section__title">Selected Work</h2>
+        <p class="section__lead">Placeholder content so you can test sticky behavior and scroll interactions.</p>
+        <div class="card-grid">
+          <article class="card">
+            <div class="card__media"></div>
+            <h3 class="card__title">Atlas Dashboard</h3>
+            <p class="card__text">Analytics interface with live data streams.</p>
+          </article>
+          <article class="card">
+            <div class="card__media"></div>
+            <h3 class="card__title">Noir Commerce</h3>
+            <p class="card__text">Premium storefront with cinematic product views.</p>
+          </article>
+          <article class="card">
+            <div class="card__media"></div>
+            <h3 class="card__title">Lumen Studio</h3>
+            <p class="card__text">Creative agency site with editorial layout.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section--alt" id="services">
+      <div class="section__inner">
+        <h2 class="section__title">Services</h2>
+        <p class="section__lead">Scroll further to observe the header compacting and changing surface treatment.</p>
+        <ul class="feature-list">
+          <li>Brand identity systems</li>
+          <li>Interface design & prototyping</li>
+          <li>Frontend engineering</li>
+          <li>Design systems & documentation</li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="section" id="about">
+      <div class="section__inner">
+        <h2 class="section__title">About this project</h2>
+        <p class="section__lead">
+          Built as Week 02 of the Freelancer 100-week program. The navigation is the product —
+          everything else exists only to demonstrate real sticky behavior, theme switching,
+          and mobile interaction.
+        </p>
+      </div>
+    </section>
+
+    <section class="section section--cta" id="contact">
+      <div class="section__inner">
+        <h2 class="section__title">Ready to start?</h2>
+        <p class="section__lead">This is a static demo. In a real project the CTA would open a contact flow.</p>
+        <a href="#" class="btn btn--primary btn--lg">Get in touch</a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <p>Vespera Nav · Week 02 · Freelancer Development Program</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
