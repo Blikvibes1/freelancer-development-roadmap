@@ -14,6 +14,7 @@ freelancer-development-roadmap/
 ├── week-05-pricing-table/
 ├── week-06-accordion-faq/
 ├── week-07-modal-dialog/
+├── week-08-skeleton-loaders/
 └── ...
 ```
 
@@ -27,13 +28,14 @@ freelancer-development-roadmap/
 | 05   | Pricing Table (Nimbus)               | ✅ Done  |
 | 06   | Accordion / FAQ (Helix)              | ✅ Done  |
 | 07   | Modal Dialog (Portal)                | ✅ Done  |
+| 08   | Skeleton Loaders (Pulse)             | ✅ Done  |
 
 ## How to run a project
 
 Open the `index.html` of any week folder in a browser, or serve it with:
 
 ```bash
-npx serve week-07-modal-dialog
+npx serve week-08-skeleton-loaders
 ```
 
 ---
