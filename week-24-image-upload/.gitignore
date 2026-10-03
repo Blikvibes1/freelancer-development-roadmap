@@ -1,0 +1,9 @@
+node_modules/
+data/db.json
+uploads/original/*
+uploads/resized/*
+uploads/thumbs/*
+!uploads/**/.gitkeep
+.DS_Store
+.env
+*.log

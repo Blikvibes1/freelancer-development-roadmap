@@ -1,0 +1,18 @@
+{
+  "name": "hookdesk-webhook-logger",
+  "version": "1.0.0",
+  "description": "Webhook receiver & logger with signature validation. Week 26 Freelancer Program.",
+  "main": "src/server.js",
+  "scripts": {
+    "start": "node src/server.js",
+    "dev": "node --watch src/server.js"
+  },
+  "keywords": ["webhook", "stripe", "github", "express", "hmac"],
+  "license": "MIT",
+  "engines": { "node": ">=18" },
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.21.0",
+    "morgan": "^1.10.0"
+  }
+}

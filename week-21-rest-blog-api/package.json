@@ -1,0 +1,21 @@
+{
+  "name": "quill-rest-blog-api",
+  "version": "1.0.0",
+  "description": "RESTful Blog API with CRUD for users, posts, and comments. Week 21 — Freelancer Development Program.",
+  "main": "src/server.js",
+  "scripts": {
+    "start": "node src/server.js",
+    "dev": "node --watch src/server.js",
+    "seed": "node src/utils/seed.js"
+  },
+  "keywords": ["rest", "blog", "api", "express", "crud"],
+  "license": "MIT",
+  "engines": {
+    "node": ">=18"
+  },
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.21.0",
+    "morgan": "^1.10.0"
+  }
+}

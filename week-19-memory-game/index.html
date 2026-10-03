@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="noir">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Match — Memory card game with flip animations, move counter, timer, and win state." />
+  <title>Match — Memory Card Game</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700&family=Syne:wght@600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <a class="skip-link" href="#board">Skip to board</a>
+
+  <header class="site-header">
+    <div class="header-inner">
+      <a href="#" class="brand" aria-label="Match home">
+        <span class="brand__mark" aria-hidden="true">
+          <svg width="26" height="26" viewBox="0 0 26 26" fill="none">
+            <rect x="3" y="3" width="9" height="9" rx="2" class="brand-card"/>
+            <rect x="14" y="14" width="9" height="9" rx="2" class="brand-card"/>
+            <rect x="14" y="3" width="9" height="9" rx="2" class="brand-card brand-card--faint"/>
+            <rect x="3" y="14" width="9" height="9" rx="2" class="brand-card brand-card--faint"/>
+          </svg>
+        </span>
+        <span class="brand__name">Match</span>
+      </a>
+      <button type="button" class="theme-switch" id="theme-switch" role="switch" aria-checked="false" aria-label="Switch to Lumen theme">
+        <span class="theme-switch__track">
+          <span class="theme-switch__thumb">
+            <svg class="icon-moon" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+            <svg class="icon-sun" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/></svg>
+          </span>
+        </span>
+      </button>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <p class="eyebrow">Week 19 · Memory Card Game</p>
+      <h1 class="hero__title">Find every pair</h1>
+      <p class="hero__text">Flip two cards. Match the symbols. Beat the clock and keep moves low.</p>
+    </section>
+
+    <section class="hud" aria-label="Game stats">
+      <div class="stat">
+        <span class="stat__value" id="moves">0</span>
+        <span class="stat__label">Moves</span>
+      </div>
+      <div class="stat">
+        <span class="stat__value" id="timer">0:00</span>
+        <span class="stat__label">Time</span>
+      </div>
+      <div class="stat">
+        <span class="stat__value" id="pairs">0/8</span>
+        <span class="stat__label">Pairs</span>
+      </div>
+    </section>
+
+    <section class="board-wrap">
+      <div class="board" id="board" role="grid" aria-label="Memory card grid"></div>
+      <div class="win" id="win" hidden>
+        <div class="win__card">
+          <p class="win__eyebrow">You won</p>
+          <h2 class="win__title">All pairs matched</h2>
+          <p class="win__stats">
+            <span id="win-moves">0</span> moves · <span id="win-time">0:00</span>
+          </p>
+          <button type="button" class="btn btn--primary" id="btn-play-again">Play again</button>
+        </div>
+      </div>
+    </section>
+
+    <div class="actions">
+      <button type="button" class="btn btn--ghost" id="btn-restart">Restart</button>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <p>Match · Week 19 · Freelancer Development Program</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>

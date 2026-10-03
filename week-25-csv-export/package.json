@@ -1,0 +1,19 @@
+{
+  "name": "ledger-csv-export",
+  "version": "1.0.0",
+  "description": "CSV export API — query data and download as CSV. Week 25 Freelancer Program.",
+  "main": "src/server.js",
+  "scripts": {
+    "start": "node src/server.js",
+    "dev": "node --watch src/server.js",
+    "seed": "node src/utils/seed.js"
+  },
+  "keywords": ["csv", "export", "express", "download"],
+  "license": "MIT",
+  "engines": { "node": ">=18" },
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.21.0",
+    "morgan": "^1.10.0"
+  }
+}

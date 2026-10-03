@@ -1,0 +1,295 @@
+openapi: 3.0.3
+info:
+  title: Atlas Notes API
+  description: |
+    Documented REST API for notes — Week 30 of the Freelancer Development Program.
+
+    ## Authentication
+    Optional API key via header `X-API-Key`.
+
+    Demo key: `demo-key-atlas`
+
+    Set environment variable `REQUIRE_AUTH=true` to enforce authentication.
+  version: 1.0.0
+  contact:
+    name: Freelancer Development Program
+servers:
+  - url: http://localhost:3000
+    description: Local development
+tags:
+  - name: Health
+    description: Service health
+  - name: Notes
+    description: CRUD operations for notes
+paths:
+  /api/health:
+    get:
+      tags: [Health]
+      summary: Health check
+      operationId: getHealth
+      responses:
+        "200":
+          description: Service is healthy
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/HealthResponse"
+              example:
+                status: ok
+                uptime: 12.5
+                notes: 3
+  /api/notes:
+    get:
+      tags: [Notes]
+      summary: List notes
+      description: Returns all notes, optionally filtered by tag or search text.
+      operationId: listNotes
+      security:
+        - ApiKeyAuth: []
+      parameters:
+        - name: tag
+          in: query
+          schema:
+            type: string
+          description: Filter by tag
+          example: work
+        - name: q
+          in: query
+          schema:
+            type: string
+          description: Search in title and body
+          example: meeting
+      responses:
+        "200":
+          description: List of notes
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/NoteListResponse"
+        "401":
+          $ref: "#/components/responses/Unauthorized"
+    post:
+      tags: [Notes]
+      summary: Create a note
+      operationId: createNote
+      security:
+        - ApiKeyAuth: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/NoteCreate"
+            example:
+              title: Ship OpenAPI docs
+              body: Document every endpoint with examples.
+              tags: [work, docs]
+      responses:
+        "201":
+          description: Note created
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/NoteResponse"
+        "400":
+          $ref: "#/components/responses/ValidationError"
+        "401":
+          $ref: "#/components/responses/Unauthorized"
+  /api/notes/{id}:
+    get:
+      tags: [Notes]
+      summary: Get a note by ID
+      operationId: getNote
+      security:
+        - ApiKeyAuth: []
+      parameters:
+        - $ref: "#/components/parameters/NoteId"
+      responses:
+        "200":
+          description: Note found
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/NoteResponse"
+        "404":
+          $ref: "#/components/responses/NotFound"
+        "401":
+          $ref: "#/components/responses/Unauthorized"
+    put:
+      tags: [Notes]
+      summary: Update a note
+      operationId: updateNote
+      security:
+        - ApiKeyAuth: []
+      parameters:
+        - $ref: "#/components/parameters/NoteId"
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/NoteUpdate"
+            example:
+              title: Updated title
+              tags: [work]
+      responses:
+        "200":
+          description: Note updated
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/NoteResponse"
+        "400":
+          $ref: "#/components/responses/ValidationError"
+        "404":
+          $ref: "#/components/responses/NotFound"
+        "401":
+          $ref: "#/components/responses/Unauthorized"
+    delete:
+      tags: [Notes]
+      summary: Delete a note
+      operationId: deleteNote
+      security:
+        - ApiKeyAuth: []
+      parameters:
+        - $ref: "#/components/parameters/NoteId"
+      responses:
+        "204":
+          description: Note deleted
+        "404":
+          $ref: "#/components/responses/NotFound"
+        "401":
+          $ref: "#/components/responses/Unauthorized"
+components:
+  securitySchemes:
+    ApiKeyAuth:
+      type: apiKey
+      in: header
+      name: X-API-Key
+      description: Demo key is `demo-key-atlas`
+  parameters:
+    NoteId:
+      name: id
+      in: path
+      required: true
+      schema:
+        type: string
+        format: uuid
+      description: Note UUID
+  schemas:
+    Note:
+      type: object
+      required: [id, title, body, tags, createdAt, updatedAt]
+      properties:
+        id:
+          type: string
+          format: uuid
+        title:
+          type: string
+          example: Ship OpenAPI docs
+        body:
+          type: string
+          example: Document every endpoint with examples.
+        tags:
+          type: array
+          items:
+            type: string
+          example: [work, docs]
+        createdAt:
+          type: string
+          format: date-time
+        updatedAt:
+          type: string
+          format: date-time
+    NoteCreate:
+      type: object
+      required: [title]
+      properties:
+        title:
+          type: string
+        body:
+          type: string
+        tags:
+          type: array
+          items:
+            type: string
+    NoteUpdate:
+      type: object
+      properties:
+        title:
+          type: string
+        body:
+          type: string
+        tags:
+          type: array
+          items:
+            type: string
+    NoteResponse:
+      type: object
+      properties:
+        data:
+          $ref: "#/components/schemas/Note"
+    NoteListResponse:
+      type: object
+      properties:
+        data:
+          type: array
+          items:
+            $ref: "#/components/schemas/Note"
+        count:
+          type: integer
+    HealthResponse:
+      type: object
+      properties:
+        status:
+          type: string
+          example: ok
+        uptime:
+          type: number
+        notes:
+          type: integer
+    Error:
+      type: object
+      properties:
+        error:
+          type: object
+          properties:
+            code:
+              type: string
+            message:
+              type: string
+            details:
+              type: object
+  responses:
+    NotFound:
+      description: Resource not found
+      content:
+        application/json:
+          schema:
+            $ref: "#/components/schemas/Error"
+          example:
+            error:
+              code: NOTE_NOT_FOUND
+              message: Note not found
+    ValidationError:
+      description: Invalid request body
+      content:
+        application/json:
+          schema:
+            $ref: "#/components/schemas/Error"
+          example:
+            error:
+              code: VALIDATION_ERROR
+              message: title is required
+              details:
+                field: title
+    Unauthorized:
+      description: Missing or invalid API key
+      content:
+        application/json:
+          schema:
+            $ref: "#/components/schemas/Error"
+          example:
+            error:
+              code: UNAUTHORIZED
+              message: Valid X-API-Key header is required

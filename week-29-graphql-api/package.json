@@ -1,0 +1,21 @@
+{
+  "name": "quill-graphql-api",
+  "version": "1.0.0",
+  "description": "GraphQL Blog API — schema, resolvers, nested queries. Week 29 Freelancer Program.",
+  "main": "src/server.js",
+  "scripts": {
+    "start": "node src/server.js",
+    "dev": "node --watch src/server.js",
+    "seed": "node src/utils/seed.js"
+  },
+  "keywords": ["graphql", "blog", "api", "express"],
+  "license": "MIT",
+  "engines": { "node": ">=18" },
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.21.0",
+    "graphql": "^16.9.0",
+    "graphql-http": "^1.22.1",
+    "morgan": "^1.10.0"
+  }
+}

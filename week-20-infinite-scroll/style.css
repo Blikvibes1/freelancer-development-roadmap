@@ -1,0 +1,202 @@
+/* =========================================================
+   FEED — Week 20 Infinite Scroll
+   Intersection Observer, skeletons, Theme Mode.
+   ========================================================= */
+
+:root {
+  --font-sans: "DM Sans", system-ui, sans-serif;
+  --font-display: "Syne", var(--font-sans);
+  --space-2: 0.5rem; --space-3: 0.75rem; --space-4: 1rem; --space-5: 1.25rem;
+  --space-6: 1.5rem; --space-8: 2rem; --space-10: 2.5rem; --space-12: 3rem;
+  --header-h: 3.75rem;
+  --ease: cubic-bezier(0.22, 1, 0.36, 1);
+  --ease-spring: cubic-bezier(0.34, 1.4, 0.64, 1);
+  --dur: 280ms;
+  --focus: 0 0 0 3px var(--focus-color);
+}
+
+[data-theme="noir"] {
+  --bg: #08090d; --bg-elevated: rgba(14, 16, 22, 0.85); --bg-solid: #0e1016;
+  --surface: rgba(255, 255, 255, 0.04); --border: rgba(255, 255, 255, 0.09);
+  --border-strong: rgba(255, 255, 255, 0.16);
+  --text: #f0f1f5; --text-muted: #989cad; --text-subtle: #686c7a;
+  --accent: #2dd4bf; --accent-soft: rgba(45, 212, 191, 0.14); --accent-text: #042f2e;
+  --skeleton: rgba(255, 255, 255, 0.06); --skeleton-shine: rgba(255, 255, 255, 0.1);
+  --shadow: 0 12px 40px rgba(0, 0, 0, 0.45);
+  --radius: 0.5rem; --radius-lg: 0.875rem; --radius-xl: 1.25rem; --radius-full: 9999px;
+  --tracking: -0.025em; --weight-display: 800; --blur: 16px;
+  --focus-color: rgba(45, 212, 191, 0.45);
+  --switch-track: #1a1d28; --switch-thumb: #2dd4bf;
+}
+
+[data-theme="lumen"] {
+  --bg: #f2efe9; --bg-elevated: rgba(255, 255, 255, 0.92); --bg-solid: #ffffff;
+  --surface: rgba(0, 0, 0, 0.03); --border: rgba(0, 0, 0, 0.07);
+  --border-strong: rgba(0, 0, 0, 0.12);
+  --text: #1a1c22; --text-muted: #5a5f6c; --text-subtle: #8a8f9a;
+  --accent: #c2410c; --accent-soft: rgba(194, 65, 12, 0.1); --accent-text: #fff;
+  --skeleton: rgba(0, 0, 0, 0.06); --skeleton-shine: rgba(0, 0, 0, 0.09);
+  --shadow: 0 12px 40px rgba(26, 28, 34, 0.07);
+  --radius: 1rem; --radius-lg: 1.25rem; --radius-xl: 1.5rem; --radius-full: 9999px;
+  --tracking: -0.01em; --weight-display: 700; --blur: 20px;
+  --focus-color: rgba(194, 65, 12, 0.4);
+  --switch-track: #e4dfd6; --switch-thumb: #c2410c;
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+body {
+  font-family: var(--font-sans); font-size: 1rem; line-height: 1.6;
+  color: var(--text); background: var(--bg); min-height: 100vh;
+  transition: background-color var(--dur), color var(--dur);
+}
+a { color: inherit; text-decoration: none; }
+button { font: inherit; color: inherit; background: none; border: none; cursor: pointer; }
+:focus-visible { outline: none; box-shadow: var(--focus); }
+
+.skip-link {
+  position: absolute; top: -100%; left: var(--space-4); z-index: 9999;
+  padding: var(--space-3) var(--space-4); background: var(--accent); color: var(--accent-text);
+  border-radius: var(--radius); font-weight: 600;
+}
+.skip-link:focus { top: var(--space-4); }
+
+.site-header {
+  position: sticky; top: 0; z-index: 40; height: var(--header-h);
+  background: var(--bg-elevated); backdrop-filter: blur(var(--blur));
+  border-bottom: 1px solid var(--border);
+}
+.header-inner {
+  display: flex; align-items: center; justify-content: space-between;
+  height: 100%; max-width: 32rem; margin-inline: auto; padding-inline: var(--space-5);
+}
+.brand { display: flex; align-items: center; gap: var(--space-3); }
+.brand-frame { stroke: var(--accent); stroke-width: 1.5; fill: none; }
+.brand-core { fill: var(--accent); }
+.brand__name {
+  font-family: var(--font-display); font-weight: var(--weight-display);
+  font-size: 1.2rem; letter-spacing: var(--tracking);
+}
+
+.theme-switch { padding: 0.2rem; border-radius: var(--radius-full); }
+.theme-switch:hover { background: var(--surface); }
+.theme-switch__track {
+  position: relative; width: 3rem; height: 1.7rem;
+  background: var(--switch-track); border-radius: var(--radius-full); border: 1px solid var(--border);
+}
+.theme-switch__thumb {
+  position: absolute; top: 2px; left: 2px; width: 1.4rem; height: 1.4rem;
+  display: grid; place-items: center; background: var(--switch-thumb); color: var(--accent-text);
+  border-radius: var(--radius-full); transition: transform var(--dur) var(--ease-spring);
+}
+[data-theme="lumen"] .theme-switch__thumb { transform: translateX(1.25rem); }
+.theme-switch .icon-moon, .theme-switch .icon-sun { position: absolute; transition: opacity var(--dur); }
+[data-theme="noir"] .icon-moon { opacity: 1; } [data-theme="noir"] .icon-sun { opacity: 0; }
+[data-theme="lumen"] .icon-moon { opacity: 0; } [data-theme="lumen"] .icon-sun { opacity: 1; }
+
+.hero {
+  text-align: center; padding: var(--space-8) var(--space-5) var(--space-6);
+  max-width: 28rem; margin-inline: auto;
+}
+.eyebrow {
+  font-size: 0.8rem; font-weight: 600; letter-spacing: 0.1em;
+  text-transform: uppercase; color: var(--accent); margin-bottom: var(--space-3);
+}
+.hero__title {
+  font-family: var(--font-display); font-size: clamp(1.75rem, 4vw, 2.25rem);
+  font-weight: var(--weight-display); letter-spacing: var(--tracking); margin-bottom: var(--space-3);
+}
+.hero__text { color: var(--text-muted); font-size: 0.95rem; }
+
+.feed-section {
+  max-width: 28rem; margin-inline: auto;
+  padding: 0 var(--space-5) var(--space-12);
+}
+
+.feed {
+  display: flex; flex-direction: column; gap: var(--space-5);
+}
+
+/* Post card */
+.post {
+  background: var(--bg-solid); border: 1px solid var(--border);
+  border-radius: var(--radius-xl); overflow: hidden;
+  transition: background-color var(--dur), border-color var(--dur);
+}
+.post__header {
+  display: flex; align-items: center; gap: var(--space-3);
+  padding: var(--space-4) var(--space-4) var(--space-3);
+}
+.post__avatar {
+  width: 2.25rem; height: 2.25rem; border-radius: var(--radius-full);
+  background: var(--accent-soft); color: var(--accent);
+  display: grid; place-items: center; font-size: 0.75rem; font-weight: 700;
+  flex-shrink: 0;
+}
+.post__meta { min-width: 0; }
+.post__author {
+  font-weight: 600; font-size: 0.9rem; white-space: nowrap;
+  overflow: hidden; text-overflow: ellipsis;
+}
+.post__time { font-size: 0.75rem; color: var(--text-subtle); }
+.post__media {
+  aspect-ratio: 1; background: var(--surface);
+  display: grid; place-items: center; font-size: 3rem;
+  background-image:
+    radial-gradient(ellipse at 30% 20%, var(--accent-soft), transparent 50%),
+    linear-gradient(160deg, var(--surface), transparent);
+}
+.post__body { padding: var(--space-4); }
+.post__caption {
+  font-size: 0.925rem; color: var(--text-muted); line-height: 1.5;
+  margin-bottom: var(--space-3);
+}
+.post__actions {
+  display: flex; gap: var(--space-4); font-size: 0.8rem; color: var(--text-subtle);
+}
+.post__actions span { font-weight: 600; }
+
+/* Skeleton */
+.post--skeleton .sk {
+  background: var(--skeleton); border-radius: var(--radius);
+  position: relative; overflow: hidden;
+}
+.post--skeleton .sk::after {
+  content: ""; position: absolute; inset: 0;
+  background: linear-gradient(90deg, transparent, var(--skeleton-shine), transparent);
+  animation: shimmer 1.3s infinite;
+}
+@keyframes shimmer { 100% { transform: translateX(100%); } }
+.sk-avatar { width: 2.25rem; height: 2.25rem; border-radius: 9999px !important; }
+.sk-line { height: 0.7rem; margin-bottom: 0.4rem; }
+.sk-line--short { width: 40%; }
+.sk-line--med { width: 70%; }
+.sk-media { aspect-ratio: 1; border-radius: 0 !important; }
+
+.sentinel { height: 1px; }
+.loading {
+  display: flex; align-items: center; justify-content: center; gap: var(--space-3);
+  padding: var(--space-6); color: var(--text-muted); font-size: 0.875rem;
+}
+.loading[hidden] { display: none; }
+.spinner {
+  width: 1.25rem; height: 1.25rem; border: 2px solid var(--border-strong);
+  border-top-color: var(--accent); border-radius: 50%;
+  animation: spin 0.7s linear infinite;
+}
+@keyframes spin { to { transform: rotate(360deg); } }
+
+.end-msg {
+  text-align: center; padding: var(--space-6); color: var(--text-subtle);
+  font-size: 0.9rem; font-weight: 600;
+}
+.end-msg[hidden] { display: none; }
+
+.site-footer {
+  padding: var(--space-8) var(--space-5); text-align: center;
+  font-size: 0.8rem; color: var(--text-subtle); border-top: 1px solid var(--border);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .post--skeleton .sk::after, .spinner { animation: none; }
+  *, *::before, *::after { transition-duration: 0.01ms !important; }
+}

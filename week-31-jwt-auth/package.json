@@ -1,0 +1,21 @@
+{
+  "name": "vault-jwt-auth",
+  "version": "1.0.0",
+  "description": "JWT auth with access + refresh token rotation. Week 31 Freelancer Program.",
+  "main": "src/server.js",
+  "scripts": {
+    "start": "node src/server.js",
+    "dev": "node --watch src/server.js",
+    "seed": "node src/utils/seed.js"
+  },
+  "keywords": ["jwt", "auth", "refresh-token", "express", "bcrypt"],
+  "license": "MIT",
+  "engines": { "node": ">=18" },
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "cors": "^2.8.5",
+    "express": "^4.21.0",
+    "jsonwebtoken": "^9.0.2",
+    "morgan": "^1.10.0"
+  }
+}

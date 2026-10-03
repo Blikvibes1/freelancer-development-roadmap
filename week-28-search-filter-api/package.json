@@ -1,0 +1,19 @@
+{
+  "name": "catalog-search-filter-api",
+  "version": "1.0.0",
+  "description": "Search & Filter API with complex query params. Week 28 Freelancer Program.",
+  "main": "src/server.js",
+  "scripts": {
+    "start": "node src/server.js",
+    "dev": "node --watch src/server.js",
+    "seed": "node src/utils/seed.js"
+  },
+  "keywords": ["search", "filter", "api", "express", "query"],
+  "license": "MIT",
+  "engines": { "node": ">=18" },
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.21.0",
+    "morgan": "^1.10.0"
+  }
+}

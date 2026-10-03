@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="noir">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Vault — Secure password generator with length and character options, Theme Mode." />
+  <title>Vault — Password Generator</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700&family=Syne:wght@600;700;800&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <a class="skip-link" href="#generator">Skip to generator</a>
+  <header class="site-header">
+    <div class="header-inner">
+      <a href="#" class="brand" aria-label="Vault home">
+        <span class="brand__mark" aria-hidden="true">
+          <svg width="26" height="26" viewBox="0 0 26 26" fill="none">
+            <rect x="6" y="11" width="14" height="11" rx="2" class="brand-body"/>
+            <path d="M9 11V8a4 4 0 0 1 8 0v3" class="brand-shackle" stroke-width="1.8" stroke-linecap="round"/>
+          </svg>
+        </span>
+        <span class="brand__name">Vault</span>
+      </a>
+      <button type="button" class="theme-switch" id="theme-switch" role="switch" aria-checked="false" aria-label="Switch to Lumen theme">
+        <span class="theme-switch__track"><span class="theme-switch__thumb">
+          <svg class="icon-moon" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+          <svg class="icon-sun" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/></svg>
+        </span></span>
+      </button>
+    </div>
+  </header>
+  <main>
+    <section class="hero">
+      <p class="eyebrow">Week 17 · Password Generator</p>
+      <h1 class="hero__title">Strong by default</h1>
+      <p class="hero__text">Generate secure passwords with length and character controls. Copy in one click.</p>
+    </section>
+    <section class="generator" id="generator">
+      <div class="card">
+        <div class="output">
+          <code class="output__value" id="password" aria-live="polite">••••••••••••</code>
+          <button type="button" class="btn btn--ghost btn--sm" id="btn-copy" aria-label="Copy password">Copy</button>
+        </div>
+        <div class="strength" id="strength">
+          <div class="strength__bar"><div class="strength__fill" id="strength-fill"></div></div>
+          <span class="strength__label" id="strength-label">—</span>
+        </div>
+        <label class="slider-field">
+          <span class="slider-field__label">Length <strong id="length-val">16</strong></span>
+          <input type="range" id="length" min="8" max="64" value="16" />
+        </label>
+        <div class="options">
+          <label class="check"><input type="checkbox" id="opt-upper" checked /> Uppercase</label>
+          <label class="check"><input type="checkbox" id="opt-lower" checked /> Lowercase</label>
+          <label class="check"><input type="checkbox" id="opt-numbers" checked /> Numbers</label>
+          <label class="check"><input type="checkbox" id="opt-symbols" checked /> Symbols</label>
+        </div>
+        <button type="button" class="btn btn--primary btn--block" id="btn-generate">Generate password</button>
+        <p class="copy-status" id="copy-status" role="status"></p>
+      </div>
+    </section>
+  </main>
+  <footer class="site-footer"><p>Vault · Week 17 · Freelancer Development Program</p></footer>
+  <script src="script.js"></script>
+</body>
+</html>

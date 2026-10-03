@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Gateway — OAuth Login</title>
+  <style>
+    :root {
+      --bg: #0b0d12;
+      --card: #141822;
+      --text: #eef0f5;
+      --muted: #9aa0ae;
+      --accent: #5b8def;
+      --border: rgba(255,255,255,0.08);
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: "DM Sans", system-ui, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      min-height: 100vh;
+      display: grid;
+      place-items: center;
+      padding: 1.5rem;
+    }
+    .card {
+      width: min(100%, 22rem);
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 1rem;
+      padding: 2rem;
+    }
+    h1 { font-size: 1.35rem; margin-bottom: 0.35rem; }
+    p { color: var(--muted); font-size: 0.9rem; margin-bottom: 1.5rem; }
+    .btn {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
+      width: 100%;
+      padding: 0.75rem 1rem;
+      margin-bottom: 0.65rem;
+      border-radius: 0.5rem;
+      border: 1px solid var(--border);
+      background: transparent;
+      color: var(--text);
+      font: inherit;
+      font-weight: 600;
+      cursor: pointer;
+      text-decoration: none;
+    }
+    .btn:hover { background: rgba(255,255,255,0.04); }
+    .btn--primary { background: var(--accent); border-color: transparent; color: #fff; }
+    .btn--primary:hover { filter: brightness(1.08); }
+    .status {
+      margin-top: 1.25rem;
+      padding: 0.75rem;
+      border-radius: 0.5rem;
+      background: rgba(255,255,255,0.04);
+      font-size: 0.8rem;
+      color: var(--muted);
+      word-break: break-all;
+    }
+    .status strong { color: var(--text); }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <h1>Sign in</h1>
+    <p>Week 32 · OAuth social login (Google + GitHub)</p>
+
+    <a class="btn btn--primary" href="/auth/google">Continue with Google</a>
+    <a class="btn" href="/auth/github">Continue with GitHub</a>
+    <button type="button" class="btn" id="demo-btn">Demo login (no OAuth apps)</button>
+
+    <div class="status" id="status">
+      Not signed in. Configure OAuth apps or use demo login.
+    </div>
+  </div>
+
+  <script>
+    const statusEl = document.getElementById("status");
+    const params = new URLSearchParams(location.search);
+    const tokenFromUrl = params.get("token");
+
+    if (tokenFromUrl) {
+      localStorage.setItem("gateway_token", tokenFromUrl);
+      history.replaceState({}, "", "/");
+    }
+
+    async function loadMe() {
+      const token = localStorage.getItem("gateway_token");
+      if (!token) return;
+      try {
+        const res = await fetch("/auth/me", {
+          headers: { Authorization: "Bearer " + token },
+        });
+        if (!res.ok) throw new Error("session");
+        const { data } = await res.json();
+        statusEl.innerHTML =
+          "<strong>" + data.name + "</strong><br/>" +
+          data.email + "<br/>providers: " + (data.providers || []).join(", ");
+      } catch {
+        localStorage.removeItem("gateway_token");
+      }
+    }
+
+    document.getElementById("demo-btn").addEventListener("click", async () => {
+      const res = await fetch("/auth/demo", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ provider: "google" }),
+      });
+      const { data } = await res.json();
+      localStorage.setItem("gateway_token", data.accessToken);
+      loadMe();
+    });
+
+    loadMe();
+  </script>
+</body>
+</html>

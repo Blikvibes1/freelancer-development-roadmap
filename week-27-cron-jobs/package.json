@@ -1,0 +1,22 @@
+{
+  "name": "clockwork-cron-jobs",
+  "version": "1.0.0",
+  "description": "Scheduled tasks: expire records, cleanup, simulated digests. Week 27 Freelancer Program.",
+  "main": "src/server.js",
+  "scripts": {
+    "start": "node src/server.js",
+    "dev": "node --watch src/server.js",
+    "seed": "node src/utils/seed.js",
+    "job:cleanup": "node src/jobs/runOnce.js cleanup",
+    "job:digest": "node src/jobs/runOnce.js digest"
+  },
+  "keywords": ["cron", "scheduler", "cleanup", "node-cron"],
+  "license": "MIT",
+  "engines": { "node": ">=18" },
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.21.0",
+    "morgan": "^1.10.0",
+    "node-cron": "^3.0.3"
+  }
+}

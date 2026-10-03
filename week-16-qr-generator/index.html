@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="noir">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Signal — QR code generator from text or URL with download and Theme Mode." />
+  <title>Signal — QR Code Generator</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700&family=Syne:wght@600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <a class="skip-link" href="#generator">Skip to generator</a>
+  <header class="site-header">
+    <div class="header-inner">
+      <a href="#" class="brand" aria-label="Signal home">
+        <span class="brand__mark" aria-hidden="true">
+          <svg width="26" height="26" viewBox="0 0 26 26" fill="none">
+            <rect x="4" y="4" width="8" height="8" rx="1" class="brand-sq"/>
+            <rect x="14" y="4" width="8" height="8" rx="1" class="brand-sq"/>
+            <rect x="4" y="14" width="8" height="8" rx="1" class="brand-sq"/>
+            <rect x="15" y="15" width="2" height="2" class="brand-dot"/>
+            <rect x="19" y="15" width="2" height="2" class="brand-dot"/>
+            <rect x="15" y="19" width="2" height="2" class="brand-dot"/>
+            <rect x="19" y="19" width="2" height="2" class="brand-dot"/>
+          </svg>
+        </span>
+        <span class="brand__name">Signal</span>
+      </a>
+      <button type="button" class="theme-switch" id="theme-switch" role="switch" aria-checked="false" aria-label="Switch to Lumen theme">
+        <span class="theme-switch__track"><span class="theme-switch__thumb">
+          <svg class="icon-moon" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+          <svg class="icon-sun" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/></svg>
+        </span></span>
+      </button>
+    </div>
+  </header>
+  <main>
+    <section class="hero">
+      <p class="eyebrow">Week 16 · QR Code Generator</p>
+      <h1 class="hero__title">Text in. QR out.</h1>
+      <p class="hero__text">Generate a downloadable QR code from any text or URL.</p>
+    </section>
+    <section class="generator" id="generator">
+      <div class="card">
+        <label class="field__label" for="qr-input">Text or URL</label>
+        <textarea id="qr-input" class="field__input" rows="3" placeholder="https://example.com or any text…">https://github.com</textarea>
+        <div class="actions">
+          <button type="button" class="btn btn--primary" id="btn-generate">Generate</button>
+          <button type="button" class="btn btn--ghost" id="btn-download" disabled>Download PNG</button>
+        </div>
+        <div class="qr-wrap" id="qr-wrap">
+          <canvas id="qr-canvas" width="240" height="240" aria-label="QR code preview"></canvas>
+          <p class="qr-placeholder" id="qr-placeholder">Enter text and generate</p>
+        </div>
+      </div>
+    </section>
+  </main>
+  <footer class="site-footer"><p>Signal · Week 16 · Freelancer Development Program</p></footer>
+  <script src="https://cdn.jsdelivr.net/npm/qrcode@1.5.3/build/qrcode.min.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
