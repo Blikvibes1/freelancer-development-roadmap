@@ -1,0 +1,19 @@
+{
+  "name": "scrub-input-sanitization",
+  "version": "1.0.0",
+  "description": "Input sanitization middleware — XSS & SQL injection hardening. Week 36 Freelancer Program.",
+  "main": "src/server.js",
+  "scripts": {
+    "start": "node src/server.js",
+    "dev": "node --watch src/server.js",
+    "seed": "node src/utils/seed.js"
+  },
+  "keywords": ["sanitization", "xss", "sql-injection", "security", "express"],
+  "license": "MIT",
+  "engines": { "node": ">=18" },
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.21.0",
+    "morgan": "^1.10.0"
+  }
+}

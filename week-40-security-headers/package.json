@@ -1,0 +1,19 @@
+{
+  "name": "aegis-security-headers",
+  "version": "1.0.0",
+  "description": "Security headers with Helmet — HSTS, CSP, X-Frame-Options. Week 40 Freelancer Program.",
+  "main": "src/server.js",
+  "scripts": {
+    "start": "node src/server.js",
+    "dev": "node --watch src/server.js"
+  },
+  "keywords": ["helmet", "csp", "hsts", "security-headers", "express"],
+  "license": "MIT",
+  "engines": { "node": ">=18" },
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.21.0",
+    "helmet": "^7.1.0",
+    "morgan": "^1.10.0"
+  }
+}
