@@ -1,0 +1,1211 @@
+/* ==========================================================================
+   CELESTIAL CODEX — Generative Mythology Engine
+   Design System & Styles
+   ========================================================================== */
+
+/* --------------------------------------------------------------------------
+   1. DESIGN TOKENS
+   -------------------------------------------------------------------------- */
+:root {
+  /* Typography */
+  --font-display: "Cormorant Garamond", Georgia, "Times New Roman", serif;
+  --font-body: "Outfit", system-ui, -apple-system, sans-serif;
+
+  /* Spacing scale */
+  --space-1: 0.25rem;
+  --space-2: 0.5rem;
+  --space-3: 0.75rem;
+  --space-4: 1rem;
+  --space-5: 1.5rem;
+  --space-6: 2rem;
+  --space-7: 3rem;
+  --space-8: 4rem;
+  --space-9: 6rem;
+
+  /* Radii */
+  --radius-sm: 4px;
+  --radius-md: 8px;
+  --radius-lg: 16px;
+  --radius-xl: 24px;
+  --radius-full: 9999px;
+
+  /* Motion */
+  --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
+  --ease-in-out: cubic-bezier(0.65, 0, 0.35, 1);
+  --duration-fast: 150ms;
+  --duration-normal: 280ms;
+  --duration-slow: 500ms;
+
+  /* Z-index scale */
+  --z-background: 0;
+  --z-content: 10;
+  --z-header: 50;
+  --z-overlay: 100;
+  --z-panel: 110;
+}
+
+/* --------------------------------------------------------------------------
+   2. THEME: ASTRAL (default)
+   Deep cosmic void, soft gold & silver light, organic curves
+   -------------------------------------------------------------------------- */
+[data-theme="astral"] {
+  --color-bg: #07060f;
+  --color-bg-elevated: #0f0e1a;
+  --color-bg-soft: #16142a;
+  --color-surface: rgba(22, 20, 42, 0.72);
+  --color-surface-solid: #16142a;
+
+  --color-text: #e8e4f5;
+  --color-text-muted: #9b94b8;
+  --color-text-subtle: #6b6585;
+
+  --color-accent: #d4a84b;
+  --color-accent-soft: rgba(212, 168, 75, 0.15);
+  --color-accent-glow: rgba(212, 168, 75, 0.35);
+
+  --color-secondary: #7b8cff;
+  --color-secondary-soft: rgba(123, 140, 255, 0.12);
+
+  --color-border: rgba(155, 148, 184, 0.18);
+  --color-border-strong: rgba(155, 148, 184, 0.32);
+
+  --color-success: #6bcb8f;
+  --color-danger: #e07a7a;
+
+  --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.35);
+  --shadow-md: 0 8px 24px rgba(0, 0, 0, 0.45);
+  --shadow-lg: 0 16px 48px rgba(0, 0, 0, 0.55);
+  --shadow-glow: 0 0 32px var(--color-accent-glow);
+
+  --radius-card: var(--radius-lg);
+  --font-weight-display: 500;
+  --letter-spacing-display: 0.02em;
+  --bg-gradient: radial-gradient(ellipse 120% 80% at 50% -20%, #1a1635 0%, transparent 60%),
+                 radial-gradient(ellipse 80% 50% at 80% 100%, #12102a 0%, transparent 50%);
+}
+
+/* --------------------------------------------------------------------------
+   3. THEME: PRIMORDIAL
+   Earthy ochre, stone textures, heavy geometric forms, slower motion
+   -------------------------------------------------------------------------- */
+[data-theme="primordial"] {
+  --color-bg: #1a140f;
+  --color-bg-elevated: #241c15;
+  --color-bg-soft: #2e241c;
+  --color-surface: rgba(46, 36, 28, 0.82);
+  --color-surface-solid: #2e241c;
+
+  --color-text: #f0e6d6;
+  --color-text-muted: #b8a892;
+  --color-text-subtle: #8a7a62;
+
+  --color-accent: #c47a3a;
+  --color-accent-soft: rgba(196, 122, 58, 0.18);
+  --color-accent-glow: rgba(196, 122, 58, 0.4);
+
+  --color-secondary: #8b6b4a;
+  --color-secondary-soft: rgba(139, 107, 74, 0.15);
+
+  --color-border: rgba(184, 168, 146, 0.2);
+  --color-border-strong: rgba(184, 168, 146, 0.38);
+
+  --color-success: #8aab6e;
+  --color-danger: #c46a5a;
+
+  --shadow-sm: 0 2px 6px rgba(0, 0, 0, 0.4);
+  --shadow-md: 0 6px 20px rgba(0, 0, 0, 0.5);
+  --shadow-lg: 0 12px 40px rgba(0, 0, 0, 0.6);
+  --shadow-glow: 0 0 28px var(--color-accent-glow);
+
+  --radius-card: var(--radius-sm);
+  --font-weight-display: 600;
+  --letter-spacing-display: 0.04em;
+  --bg-gradient: radial-gradient(ellipse 100% 70% at 30% 0%, #2a2018 0%, transparent 55%),
+                 radial-gradient(ellipse 70% 50% at 90% 90%, #1f1812 0%, transparent 50%);
+}
+
+/* --------------------------------------------------------------------------
+   4. THEME: ETHEREAL
+   High-key soft whites and pale blues, delicate thin lines, floating weightlessness
+   -------------------------------------------------------------------------- */
+[data-theme="ethereal"] {
+  --color-bg: #f4f6fb;
+  --color-bg-elevated: #ffffff;
+  --color-bg-soft: #eef1f8;
+  --color-surface: rgba(255, 255, 255, 0.78);
+  --color-surface-solid: #ffffff;
+
+  --color-text: #1e2433;
+  --color-text-muted: #5a6578;
+  --color-text-subtle: #8b95a8;
+
+  --color-accent: #5b7cfa;
+  --color-accent-soft: rgba(91, 124, 250, 0.12);
+  --color-accent-glow: rgba(91, 124, 250, 0.28);
+
+  --color-secondary: #8b9dc3;
+  --color-secondary-soft: rgba(139, 157, 195, 0.12);
+
+  --color-border: rgba(30, 36, 51, 0.1);
+  --color-border-strong: rgba(30, 36, 51, 0.2);
+
+  --color-success: #3d9b6e;
+  --color-danger: #d45a5a;
+
+  --shadow-sm: 0 2px 8px rgba(30, 36, 51, 0.06);
+  --shadow-md: 0 8px 24px rgba(30, 36, 51, 0.08);
+  --shadow-lg: 0 16px 48px rgba(30, 36, 51, 0.1);
+  --shadow-glow: 0 0 40px var(--color-accent-glow);
+
+  --radius-card: var(--radius-xl);
+  --font-weight-display: 400;
+  --letter-spacing-display: 0.06em;
+  --bg-gradient: radial-gradient(ellipse 120% 80% at 50% -10%, #e0e7ff 0%, transparent 55%),
+                 radial-gradient(ellipse 80% 50% at 100% 100%, #f0f4ff 0%, transparent 50%);
+}
+
+/* --------------------------------------------------------------------------
+   5. RESET & BASE
+   -------------------------------------------------------------------------- */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-size: 16px;
+  -webkit-text-size-adjust: 100%;
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-body);
+  font-weight: 400;
+  line-height: 1.6;
+  color: var(--color-text);
+  background-color: var(--color-bg);
+  background-image: var(--bg-gradient);
+  min-height: 100vh;
+  min-height: 100dvh;
+  overflow-x: hidden;
+  transition: background-color var(--duration-slow) var(--ease-out),
+              color var(--duration-normal) var(--ease-out);
+}
+
+img, canvas {
+  display: block;
+  max-width: 100%;
+}
+
+button, input {
+  font: inherit;
+  color: inherit;
+}
+
+button {
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+/* --------------------------------------------------------------------------
+   6. ACCESSIBILITY UTILITIES
+   -------------------------------------------------------------------------- */
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+.skip-link {
+  position: absolute;
+  top: -100%;
+  left: var(--space-4);
+  z-index: 200;
+  padding: var(--space-3) var(--space-5);
+  background: var(--color-accent);
+  color: var(--color-bg);
+  font-weight: 500;
+  border-radius: var(--radius-md);
+  text-decoration: none;
+  transition: top var(--duration-fast);
+}
+
+.skip-link:focus {
+  top: var(--space-4);
+}
+
+:focus-visible {
+  outline: 2px solid var(--color-accent);
+  outline-offset: 3px;
+}
+
+/* Reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* --------------------------------------------------------------------------
+   7. COSMIC BACKGROUND
+   -------------------------------------------------------------------------- */
+.cosmic-background {
+  position: fixed;
+  inset: 0;
+  z-index: var(--z-background);
+  pointer-events: none;
+}
+
+#starfield {
+  width: 100%;
+  height: 100%;
+}
+
+/* --------------------------------------------------------------------------
+   8. APP SHELL
+   -------------------------------------------------------------------------- */
+.app-shell {
+  position: relative;
+  z-index: var(--z-content);
+  min-height: 100vh;
+  min-height: 100dvh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* --------------------------------------------------------------------------
+   9. HEADER
+   -------------------------------------------------------------------------- */
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: var(--z-header);
+  background: var(--color-surface);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border-bottom: 1px solid var(--color-border);
+  transition: background-color var(--duration-normal), border-color var(--duration-normal);
+}
+
+.header-inner {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: var(--space-4) var(--space-5);
+  display: flex;
+  align-items: center;
+  gap: var(--space-6);
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  flex-shrink: 0;
+}
+
+.brand-mark {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--color-accent), var(--color-secondary));
+  box-shadow: var(--shadow-glow);
+  position: relative;
+}
+
+.brand-mark::after {
+  content: "";
+  position: absolute;
+  inset: 6px;
+  border-radius: 50%;
+  background: var(--color-bg);
+  opacity: 0.4;
+}
+
+.brand-title {
+  font-family: var(--font-display);
+  font-size: 1.35rem;
+  font-weight: var(--font-weight-display);
+  letter-spacing: var(--letter-spacing-display);
+  line-height: 1.2;
+  color: var(--color-text);
+}
+
+.brand-subtitle {
+  font-size: 0.7rem;
+  font-weight: 400;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--color-text-muted);
+  margin-top: 1px;
+}
+
+/* Navigation */
+.main-nav {
+  display: flex;
+  align-items: center;
+  gap: var(--space-1);
+  flex: 1;
+  justify-content: center;
+}
+
+.nav-btn {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  padding: var(--space-2) var(--space-4);
+  border-radius: var(--radius-full);
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: var(--color-text-muted);
+  transition: color var(--duration-fast), background-color var(--duration-fast);
+}
+
+.nav-btn:hover:not(:disabled) {
+  color: var(--color-text);
+  background: var(--color-accent-soft);
+}
+
+.nav-btn.is-active {
+  color: var(--color-accent);
+  background: var(--color-accent-soft);
+}
+
+.nav-btn:disabled {
+  opacity: 0.35;
+  cursor: not-allowed;
+}
+
+.nav-icon {
+  font-size: 0.9rem;
+  opacity: 0.85;
+}
+
+/* Theme switcher */
+.header-actions {
+  flex-shrink: 0;
+}
+
+.theme-switcher {
+  display: flex;
+  gap: var(--space-2);
+  padding: var(--space-1);
+  background: var(--color-bg-soft);
+  border-radius: var(--radius-full);
+  border: 1px solid var(--color-border);
+}
+
+.theme-btn {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  transition: transform var(--duration-fast);
+}
+
+.theme-btn:hover {
+  transform: scale(1.12);
+}
+
+.theme-btn.is-active {
+  box-shadow: 0 0 0 2px var(--color-bg), 0 0 0 4px var(--color-accent);
+}
+
+.theme-swatch {
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+}
+
+.theme-swatch.astral {
+  background: linear-gradient(135deg, #1a1635, #d4a84b);
+}
+
+.theme-swatch.primordial {
+  background: linear-gradient(135deg, #2a2018, #c47a3a);
+}
+
+.theme-swatch.ethereal {
+  background: linear-gradient(135deg, #e0e7ff, #5b7cfa);
+}
+
+/* --------------------------------------------------------------------------
+   10. MAIN CONTENT & VIEWS
+   -------------------------------------------------------------------------- */
+.main-content {
+  flex: 1;
+  max-width: 1400px;
+  width: 100%;
+  margin: 0 auto;
+  padding: var(--space-7) var(--space-5);
+}
+
+.view {
+  display: none;
+  animation: viewEnter var(--duration-normal) var(--ease-out);
+}
+
+.view.is-active {
+  display: block;
+}
+
+.view[hidden] {
+  display: none !important;
+}
+
+@keyframes viewEnter {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.view-header {
+  margin-bottom: var(--space-7);
+  max-width: 640px;
+}
+
+.view-title {
+  font-family: var(--font-display);
+  font-size: clamp(1.75rem, 4vw, 2.5rem);
+  font-weight: var(--font-weight-display);
+  letter-spacing: var(--letter-spacing-display);
+  line-height: 1.2;
+  margin-bottom: var(--space-3);
+}
+
+.view-desc {
+  font-size: 1.05rem;
+  color: var(--color-text-muted);
+  line-height: 1.65;
+}
+
+/* --------------------------------------------------------------------------
+   11. PARAMETER FORGE
+   -------------------------------------------------------------------------- */
+.parameter-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: var(--space-6);
+  margin-bottom: var(--space-8);
+}
+
+.param-group {
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-card);
+  padding: var(--space-5);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  transition: border-color var(--duration-normal), box-shadow var(--duration-normal);
+}
+
+.param-group:focus-within {
+  border-color: var(--color-border-strong);
+  box-shadow: var(--shadow-md);
+}
+
+.param-legend {
+  font-family: var(--font-display);
+  font-size: 1.15rem;
+  font-weight: var(--font-weight-display);
+  letter-spacing: var(--letter-spacing-display);
+  color: var(--color-text);
+  margin-bottom: var(--space-4);
+  padding: 0;
+}
+
+.param-options {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(130px, 1fr));
+  gap: var(--space-3);
+}
+
+.param-options.multi {
+  grid-template-columns: repeat(auto-fill, minmax(110px, 1fr));
+}
+
+.param-option {
+  cursor: pointer;
+  position: relative;
+}
+
+.param-option input {
+  position: absolute;
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.option-card {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-1);
+  padding: var(--space-3) var(--space-3);
+  background: var(--color-bg-soft);
+  border: 1px solid var(--color-border);
+  border-radius: calc(var(--radius-card) * 0.7);
+  text-align: center;
+  transition: border-color var(--duration-fast),
+              background-color var(--duration-fast),
+              transform var(--duration-fast),
+              box-shadow var(--duration-fast);
+  min-height: 72px;
+  justify-content: center;
+}
+
+.param-option:hover .option-card {
+  border-color: var(--color-border-strong);
+  transform: translateY(-1px);
+}
+
+.param-option input:checked + .option-card {
+  border-color: var(--color-accent);
+  background: var(--color-accent-soft);
+  box-shadow: 0 0 0 1px var(--color-accent);
+}
+
+.param-option input:focus-visible + .option-card {
+  outline: 2px solid var(--color-accent);
+  outline-offset: 2px;
+}
+
+.option-title {
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: var(--color-text);
+}
+
+.option-desc {
+  font-size: 0.72rem;
+  color: var(--color-text-subtle);
+  line-height: 1.35;
+}
+
+/* Forge actions */
+.forge-actions {
+  display: flex;
+  justify-content: center;
+  padding-top: var(--space-4);
+}
+
+/* --------------------------------------------------------------------------
+   12. BUTTONS
+   -------------------------------------------------------------------------- */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-3);
+  padding: var(--space-4) var(--space-7);
+  font-size: 1rem;
+  font-weight: 500;
+  border-radius: var(--radius-full);
+  transition: transform var(--duration-fast),
+              box-shadow var(--duration-fast),
+              background-color var(--duration-fast);
+}
+
+.btn:active {
+  transform: scale(0.97);
+}
+
+.btn-primary {
+  background: linear-gradient(135deg, var(--color-accent), color-mix(in srgb, var(--color-accent) 70%, var(--color-secondary)));
+  color: var(--color-bg);
+  box-shadow: var(--shadow-md), 0 0 24px var(--color-accent-glow);
+}
+
+.btn-primary:hover {
+  box-shadow: var(--shadow-lg), 0 0 36px var(--color-accent-glow);
+  transform: translateY(-2px);
+}
+
+.btn-primary:active {
+  transform: translateY(0) scale(0.97);
+}
+
+.btn-icon {
+  font-size: 1.1rem;
+}
+
+/* --------------------------------------------------------------------------
+   13. GENERATION OVERLAY
+   -------------------------------------------------------------------------- */
+.generation-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: var(--z-overlay);
+  background: color-mix(in srgb, var(--color-bg) 88%, transparent);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  display: grid;
+  place-items: center;
+  animation: overlayIn var(--duration-normal) var(--ease-out);
+}
+
+.generation-overlay[hidden] {
+  display: none;
+}
+
+@keyframes overlayIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.generation-inner {
+  text-align: center;
+  max-width: 360px;
+  padding: var(--space-6);
+}
+
+.generation-orb {
+  width: 80px;
+  height: 80px;
+  margin: 0 auto var(--space-6);
+  border-radius: 50%;
+  background: radial-gradient(circle at 30% 30%, var(--color-accent), var(--color-secondary));
+  box-shadow: var(--shadow-glow);
+  animation: orbPulse 2.4s var(--ease-in-out) infinite;
+}
+
+@keyframes orbPulse {
+  0%, 100% { transform: scale(1); opacity: 1; }
+  50% { transform: scale(1.08); opacity: 0.85; }
+}
+
+.generation-status {
+  font-family: var(--font-display);
+  font-size: 1.25rem;
+  font-weight: var(--font-weight-display);
+  letter-spacing: var(--letter-spacing-display);
+  margin-bottom: var(--space-5);
+  color: var(--color-text);
+}
+
+.generation-progress {
+  height: 3px;
+  background: var(--color-bg-soft);
+  border-radius: var(--radius-full);
+  overflow: hidden;
+}
+
+.generation-bar {
+  height: 100%;
+  width: 0%;
+  background: linear-gradient(90deg, var(--color-accent), var(--color-secondary));
+  border-radius: var(--radius-full);
+  transition: width 0.4s var(--ease-out);
+}
+
+/* --------------------------------------------------------------------------
+   14. CODEX VIEW (placeholder structure)
+   -------------------------------------------------------------------------- */
+.codex-content {
+  display: grid;
+  gap: var(--space-6);
+}
+
+/* --------------------------------------------------------------------------
+   15. CONSTELLATION VIEW
+   -------------------------------------------------------------------------- */
+.constellation-wrapper {
+  position: relative;
+  width: 100%;
+  height: min(70vh, 700px);
+  background: var(--color-bg-elevated);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-card);
+  overflow: hidden;
+}
+
+#constellation-canvas {
+  width: 100%;
+  height: 100%;
+  cursor: grab;
+}
+
+#constellation-canvas:active {
+  cursor: grabbing;
+}
+
+.constellation-legend {
+  position: absolute;
+  bottom: var(--space-3);
+  left: var(--space-3);
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-3);
+  padding: var(--space-2) var(--space-3);
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  font-size: 0.72rem;
+  color: var(--color-text-muted);
+  z-index: 5;
+  pointer-events: none;
+}
+
+.legend-item {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+}
+
+.legend-line {
+  display: inline-block;
+  width: 22px;
+  height: 0;
+  border-top: 2px solid var(--color-accent);
+  opacity: 0.7;
+}
+
+.legend-line.solid {
+  border-top-style: solid;
+}
+
+.legend-line.dashed {
+  border-top-style: dashed;
+}
+
+.legend-line.dotted {
+  border-top-style: dotted;
+}
+
+.god-detail-panel {
+  position: absolute;
+  top: var(--space-4);
+  right: var(--space-4);
+  width: min(320px, calc(100% - var(--space-8)));
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-card);
+  padding: var(--space-5);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  box-shadow: var(--shadow-lg);
+  z-index: var(--z-panel);
+  animation: panelIn var(--duration-normal) var(--ease-out);
+}
+
+.god-detail-panel[hidden] {
+  display: none;
+}
+
+@keyframes panelIn {
+  from {
+    opacity: 0;
+    transform: translateX(16px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/* --------------------------------------------------------------------------
+   16. RESPONSIVE
+   -------------------------------------------------------------------------- */
+@media (max-width: 900px) {
+  .header-inner {
+    flex-wrap: wrap;
+    gap: var(--space-4);
+  }
+
+  .main-nav {
+    order: 3;
+    width: 100%;
+    justify-content: flex-start;
+    overflow-x: auto;
+    padding-bottom: var(--space-1);
+    gap: var(--space-1);
+  }
+
+  .nav-btn {
+    flex-shrink: 0;
+    padding: var(--space-2) var(--space-3);
+    font-size: 0.8rem;
+  }
+
+  .main-content {
+    padding: var(--space-5) var(--space-4);
+  }
+
+  .parameter-grid {
+    grid-template-columns: 1fr;
+    gap: var(--space-5);
+  }
+}
+
+@media (max-width: 600px) {
+  .brand-subtitle {
+    display: none;
+  }
+
+  .view-title {
+    font-size: 1.6rem;
+  }
+
+  .param-options {
+    grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+  }
+
+  .btn-primary {
+    width: 100%;
+  }
+
+  .constellation-wrapper {
+    height: min(55vh, 480px);
+  }
+
+  .god-detail-panel {
+    top: auto;
+    bottom: var(--space-3);
+    right: var(--space-3);
+    left: var(--space-3);
+    width: auto;
+    max-height: 45%;
+    overflow-y: auto;
+  }
+
+  .constellation-legend {
+    font-size: 0.65rem;
+    gap: var(--space-2);
+    padding: var(--space-1) var(--space-2);
+    bottom: auto;
+    top: var(--space-2);
+    left: var(--space-2);
+  }
+
+  .legend-line {
+    width: 16px;
+  }
+
+  .evolve-actions {
+    flex-direction: column;
+  }
+
+  .evolve-actions .btn {
+    width: 100%;
+  }
+}
+
+/* --------------------------------------------------------------------------
+   17. CODEX VIEW
+   -------------------------------------------------------------------------- */
+.codex-content {
+  display: grid;
+  gap: var(--space-7);
+}
+
+.codex-section {
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-card);
+  padding: var(--space-6);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
+
+.codex-section-title {
+  font-family: var(--font-display);
+  font-size: 1.5rem;
+  font-weight: var(--font-weight-display);
+  letter-spacing: var(--letter-spacing-display);
+  margin-bottom: var(--space-4);
+  color: var(--color-accent);
+}
+
+.codex-lead {
+  font-size: 1.15rem;
+  font-family: var(--font-display);
+  line-height: 1.55;
+  margin-bottom: var(--space-3);
+}
+
+.codex-list {
+  margin-top: var(--space-4);
+  padding-left: var(--space-5);
+  display: grid;
+  gap: var(--space-2);
+}
+
+.codex-list.moral li {
+  margin-bottom: var(--space-2);
+}
+
+.god-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: var(--space-4);
+}
+
+.god-card {
+  background: var(--color-bg-soft);
+  border: 1px solid var(--color-border);
+  border-radius: calc(var(--radius-card) * 0.75);
+  padding: var(--space-4);
+  transition: border-color var(--duration-fast), transform var(--duration-fast);
+}
+
+.god-card:hover {
+  border-color: var(--color-border-strong);
+  transform: translateY(-2px);
+}
+
+.god-name {
+  font-family: var(--font-display);
+  font-size: 1.25rem;
+  font-weight: var(--font-weight-display);
+  letter-spacing: var(--letter-spacing-display);
+  margin-bottom: var(--space-1);
+}
+
+.god-title {
+  font-size: 0.85rem;
+  color: var(--color-accent);
+  margin-bottom: var(--space-2);
+}
+
+.god-domain {
+  font-size: 0.85rem;
+  color: var(--color-text-muted);
+  margin-bottom: var(--space-2);
+}
+
+.god-traits {
+  font-size: 0.8rem;
+  color: var(--color-text-subtle);
+  text-transform: capitalize;
+  margin-bottom: var(--space-3);
+}
+
+.god-desc {
+  font-size: 0.9rem;
+  line-height: 1.55;
+  color: var(--color-text-muted);
+}
+
+.ritual-list,
+.symbol-list,
+.place-list {
+  display: grid;
+  gap: var(--space-4);
+}
+
+.ritual-item,
+.symbol-item,
+.place-item {
+  padding-bottom: var(--space-3);
+  border-bottom: 1px solid var(--color-border);
+}
+
+.ritual-item:last-child,
+.symbol-item:last-child,
+.place-item:last-child {
+  border-bottom: none;
+  padding-bottom: 0;
+}
+
+.ritual-item h4,
+.symbol-item h4,
+.place-item h4 {
+  font-family: var(--font-display);
+  font-size: 1.1rem;
+  font-weight: var(--font-weight-display);
+  margin-bottom: var(--space-1);
+}
+
+.ritual-item .associated {
+  font-size: 0.8rem;
+  color: var(--color-text-subtle);
+  margin-top: var(--space-2);
+}
+
+/* --------------------------------------------------------------------------
+   18. EVOLVE VIEW
+   -------------------------------------------------------------------------- */
+.evolve-panel {
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-card);
+  padding: var(--space-7);
+  max-width: 560px;
+  text-align: center;
+}
+
+.evolve-intro {
+  font-size: 1.05rem;
+  color: var(--color-text-muted);
+  margin-bottom: var(--space-6);
+  line-height: 1.65;
+}
+
+.evolve-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-4);
+  justify-content: center;
+  margin-bottom: var(--space-5);
+}
+
+.btn-secondary {
+  background: transparent;
+  border: 1px solid var(--color-border-strong);
+  color: var(--color-text);
+  padding: var(--space-3) var(--space-6);
+  border-radius: var(--radius-full);
+  font-weight: 500;
+  transition: background-color var(--duration-fast), border-color var(--duration-fast);
+}
+
+.btn-secondary:hover {
+  background: var(--color-accent-soft);
+  border-color: var(--color-accent);
+}
+
+.seed-info {
+  font-size: 0.8rem;
+  color: var(--color-text-subtle);
+}
+
+.seed-info code {
+  font-family: ui-monospace, monospace;
+  background: var(--color-bg-soft);
+  padding: 2px 6px;
+  border-radius: var(--radius-sm);
+}
+
+/* --------------------------------------------------------------------------
+   19. GOD DETAIL PANEL
+   -------------------------------------------------------------------------- */
+.panel-close {
+  position: absolute;
+  top: var(--space-3);
+  right: var(--space-3);
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  font-size: 1.25rem;
+  color: var(--color-text-muted);
+  display: grid;
+  place-items: center;
+  transition: background-color var(--duration-fast), color var(--duration-fast);
+}
+
+.panel-close:hover {
+  background: var(--color-accent-soft);
+  color: var(--color-text);
+}
+
+.god-detail-panel {
+  position: relative;
+}
+
+.panel-god-name {
+  font-family: var(--font-display);
+  font-size: 1.4rem;
+  font-weight: var(--font-weight-display);
+  letter-spacing: var(--letter-spacing-display);
+  margin-bottom: var(--space-1);
+  padding-right: var(--space-6);
+}
+
+.panel-god-title {
+  color: var(--color-accent);
+  font-size: 0.9rem;
+  margin-bottom: var(--space-3);
+}
+
+.panel-domain {
+  font-size: 0.9rem;
+  margin-bottom: var(--space-2);
+}
+
+.panel-traits {
+  font-size: 0.8rem;
+  color: var(--color-text-subtle);
+  text-transform: capitalize;
+  margin-bottom: var(--space-3);
+}
+
+.panel-desc {
+  font-size: 0.9rem;
+  line-height: 1.55;
+  color: var(--color-text-muted);
+  margin-bottom: var(--space-4);
+}
+
+.panel-relations {
+  border-top: 1px solid var(--color-border);
+  padding-top: var(--space-3);
+  margin-top: var(--space-2);
+}
+
+.panel-relations-title {
+  font-family: var(--font-display);
+  font-size: 0.95rem;
+  font-weight: var(--font-weight-display);
+  letter-spacing: var(--letter-spacing-display);
+  color: var(--color-text-muted);
+  margin-bottom: var(--space-2);
+}
+
+.panel-relations-list {
+  list-style: none;
+  padding: 0;
+  display: grid;
+  gap: var(--space-1);
+}
+
+.panel-relations-list li {
+  font-size: 0.85rem;
+  color: var(--color-text);
+}
+
+.rel-type {
+  display: inline-block;
+  text-transform: capitalize;
+  font-weight: 500;
+  color: var(--color-accent);
+  min-width: 4.5em;
+}
+
+.panel-no-rel {
+  font-size: 0.85rem;
+  color: var(--color-text-subtle);
+  font-style: italic;
+  margin-top: var(--space-3);
+}
+
+.god-card:focus-visible {
+  outline: 2px solid var(--color-accent);
+  outline-offset: 2px;
+}
+
+/* --------------------------------------------------------------------------
+   20. UTILITY
+   -------------------------------------------------------------------------- */
+[hidden] {
+  display: none !important;
+}

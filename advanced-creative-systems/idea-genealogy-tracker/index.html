@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Idea Genealogy Tracker — Trace how concepts mutate, combine, and reappear.">
+  <title>Idea Genealogy Tracker</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Serif:wght@500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body data-theme="lineage">
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  <div class="app-shell">
+    <header class="site-header">
+      <div class="header-inner">
+        <div class="brand">
+          <span class="brand-mark" aria-hidden="true"></span>
+          <div class="brand-text">
+            <h1 class="brand-title">Lineage</h1>
+            <p class="brand-subtitle">Idea Genealogy</p>
+          </div>
+        </div>
+        <nav class="main-nav" aria-label="Primary">
+          <button class="nav-btn is-active" data-view="graph" aria-current="page">Graph</button>
+          <button class="nav-btn" data-view="capture">Capture</button>
+          <button class="nav-btn" data-view="timeline">Timeline</button>
+        </nav>
+        <div class="theme-switcher" role="group" aria-label="Theme">
+          <button class="theme-btn is-active" data-theme="lineage" aria-pressed="true" title="Lineage"><span class="theme-swatch lineage"></span></button>
+          <button class="theme-btn" data-theme="archive" aria-pressed="false" title="Archive"><span class="theme-swatch archive"></span></button>
+          <button class="theme-btn" data-theme="ink" aria-pressed="false" title="Ink"><span class="theme-swatch ink"></span></button>
+        </div>
+      </div>
+    </header>
+    <main id="main-content" class="main-content">
+      <section id="view-graph" class="view is-active">
+        <div class="graph-layout">
+          <canvas id="gen-canvas" width="720" height="440" aria-label="Idea lineage graph"></canvas>
+          <aside class="detail-panel">
+            <h2 class="side-title">Selected idea</h2>
+            <div id="detail-body"><p class="muted">Click a node to inspect lineage.</p></div>
+          </aside>
+        </div>
+        <p class="hint">Nodes are ideas. Edges: mutates · combines · splits · reappears. Drag to arrange.</p>
+      </section>
+      <section id="view-capture" class="view" hidden>
+        <div class="view-header">
+          <h2 class="view-title">Capture an idea</h2>
+          <p class="view-desc">Log a note, fragment, or project beat. Link it to parents to grow the genealogy.</p>
+        </div>
+        <form id="idea-form" class="capture-form">
+          <label class="field-label" for="idea-text">Idea</label>
+          <textarea id="idea-text" class="text-area" rows="3" maxlength="200" required placeholder="What showed up?"></textarea>
+          <label class="field-label" for="idea-source">Source</label>
+          <select id="idea-source" class="select-input">
+            <option value="note">Note</option>
+            <option value="conversation">Conversation</option>
+            <option value="sketch">Sketch</option>
+            <option value="project">Project</option>
+          </select>
+          <label class="field-label">Link from (optional parents)</label>
+          <div id="parent-chips" class="chip-group"></div>
+          <label class="field-label">Relation</label>
+          <div class="chip-group" id="rel-chips">
+            <button type="button" class="chip is-on" data-rel="mutates">Mutates</button>
+            <button type="button" class="chip" data-rel="combines">Combines</button>
+            <button type="button" class="chip" data-rel="splits">Splits</button>
+            <button type="button" class="chip" data-rel="reappears">Reappears</button>
+          </div>
+          <button type="submit" class="btn btn-primary">Add to lineage</button>
+        </form>
+        <button type="button" class="btn btn-ghost" id="btn-seed">Load sample lineage</button>
+      </section>
+      <section id="view-timeline" class="view" hidden>
+        <div class="view-header">
+          <h2 class="view-title">Chronology</h2>
+          <p class="view-desc">Ideas in the order they were captured — evolution over time.</p>
+        </div>
+        <ul class="timeline" id="timeline-list"></ul>
+      </section>
+    </main>
+  </div>
+  <script src="js/main.js"></script>
+</body>
+</html>

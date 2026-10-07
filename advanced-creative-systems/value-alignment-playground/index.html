@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Value Alignment Playground — Force your principles into conflict to reveal real priorities.">
+  <title>Value Alignment Playground</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Libre+Franklin:wght@400;500;600&family=Newsreader:opsz,wght@6..72,500;6..72,600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body data-theme="tribunal">
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+
+  <div class="app-shell">
+    <header class="site-header">
+      <div class="header-inner">
+        <div class="brand">
+          <span class="brand-mark" aria-hidden="true"></span>
+          <div class="brand-text">
+            <h1 class="brand-title">Axiom</h1>
+            <p class="brand-subtitle">Value Alignment</p>
+          </div>
+        </div>
+        <nav class="main-nav" aria-label="Primary">
+          <button class="nav-btn is-active" data-view="values" aria-current="page">Values</button>
+          <button class="nav-btn" data-view="confront" disabled>Confront</button>
+          <button class="nav-btn" data-view="map" disabled>Map</button>
+        </nav>
+        <div class="header-actions">
+          <div class="theme-switcher" role="group" aria-label="Theme">
+            <button class="theme-btn is-active" data-theme="tribunal" aria-pressed="true" title="Tribunal">
+              <span class="theme-swatch tribunal"></span>
+              <span class="visually-hidden">Tribunal</span>
+            </button>
+            <button class="theme-btn" data-theme="study" aria-pressed="false" title="Study">
+              <span class="theme-swatch study"></span>
+              <span class="visually-hidden">Study</span>
+            </button>
+            <button class="theme-btn" data-theme="void" aria-pressed="false" title="Void">
+              <span class="theme-swatch void"></span>
+              <span class="visually-hidden">Void</span>
+            </button>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <main id="main-content" class="main-content">
+      <!-- VALUES -->
+      <section id="view-values" class="view is-active" aria-labelledby="values-heading">
+        <div class="view-header">
+          <h2 id="values-heading" class="view-title">Name your principles</h2>
+          <p class="view-desc">Select or write the values you claim to hold. The playground will place them in structured conflict — not to judge, but to surface which ones actually win.</p>
+        </div>
+        <div class="values-layout">
+          <div class="preset-block">
+            <p class="field-label">Common values</p>
+            <div class="chip-grid" id="preset-chips"></div>
+          </div>
+          <form id="custom-form" class="custom-form">
+            <label class="field-label" for="custom-value">Add your own</label>
+            <div class="row">
+              <input type="text" id="custom-value" class="text-input" maxlength="48" placeholder="e.g. Loyalty to collaborators">
+              <button type="submit" class="btn btn-secondary">Add</button>
+            </div>
+          </form>
+          <div class="selected-block">
+            <p class="field-label">Your set <span id="value-count">(0)</span></p>
+            <ul class="selected-list" id="selected-list"></ul>
+            <button type="button" class="btn btn-primary" id="btn-start" disabled>Begin confrontation</button>
+          </div>
+        </div>
+      </section>
+
+      <!-- CONFRONT -->
+      <section id="view-confront" class="view" aria-labelledby="confront-heading" hidden>
+        <div class="view-header">
+          <h2 id="confront-heading" class="view-title">Forced trade-off</h2>
+          <p class="view-desc" id="scenario-progress">Scenario 1</p>
+        </div>
+        <article class="scenario-card" id="scenario-card">
+          <p class="scenario-context" id="scenario-context"></p>
+          <p class="scenario-stakes" id="scenario-stakes"></p>
+          <div class="choice-row" id="choice-row"></div>
+          <p class="scenario-note">There is no neutral option. Choosing reveals weight.</p>
+        </article>
+      </section>
+
+      <!-- MAP -->
+      <section id="view-map" class="view" aria-labelledby="map-heading" hidden>
+        <div class="view-header">
+          <h2 id="map-heading" class="view-title">Revealed hierarchy</h2>
+          <p class="view-desc">Wins and losses across scenarios. Higher rank means the value was protected more often when forced to compete.</p>
+        </div>
+        <div class="map-layout">
+          <div class="rank-list" id="rank-list"></div>
+          <div class="history-block">
+            <h3 class="side-title">Decision log</h3>
+            <ul class="history-list" id="history-list"></ul>
+          </div>
+        </div>
+        <div class="form-actions">
+          <button type="button" class="btn btn-secondary" id="btn-again">More scenarios</button>
+          <button type="button" class="btn btn-ghost" id="btn-reset">Reset values</button>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <script src="js/main.js"></script>
+</body>
+</html>

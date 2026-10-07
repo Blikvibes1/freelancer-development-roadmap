@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Style Evolution Lab — Model your artistic voice and explore controlled mutations.">
+  <title>Style Evolution Lab</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600&family=Newsreader:opsz,wght@6..72,500;6..72,600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body data-theme="atelier">
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+
+  <div class="app-shell">
+    <header class="site-header">
+      <div class="header-inner">
+        <div class="brand">
+          <span class="brand-mark" aria-hidden="true"></span>
+          <div class="brand-text">
+            <h1 class="brand-title">Style Lab</h1>
+            <p class="brand-subtitle">Controlled Mutation</p>
+          </div>
+        </div>
+        <nav class="main-nav" aria-label="Primary">
+          <button class="nav-btn is-active" data-view="voice" aria-current="page">Voice</button>
+          <button class="nav-btn" data-view="mutate">Mutate</button>
+          <button class="nav-btn" data-view="compare">Compare</button>
+        </nav>
+        <div class="header-actions">
+          <div class="theme-switcher" role="group" aria-label="Theme">
+            <button class="theme-btn is-active" data-theme="atelier" aria-pressed="true" title="Atelier">
+              <span class="theme-swatch atelier"></span>
+              <span class="visually-hidden">Atelier</span>
+            </button>
+            <button class="theme-btn" data-theme="gallery" aria-pressed="false" title="Gallery">
+              <span class="theme-swatch gallery"></span>
+              <span class="visually-hidden">Gallery</span>
+            </button>
+            <button class="theme-btn" data-theme="darkroom" aria-pressed="false" title="Darkroom">
+              <span class="theme-swatch darkroom"></span>
+              <span class="visually-hidden">Darkroom</span>
+            </button>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <main id="main-content" class="main-content">
+      <!-- VOICE -->
+      <section id="view-voice" class="view is-active" aria-labelledby="voice-heading">
+        <div class="view-header">
+          <h2 id="voice-heading" class="view-title">Define your core voice</h2>
+          <p class="view-desc">Describe the traits that make your work yours. The lab will treat these as the origin of every mutation.</p>
+        </div>
+        <form id="voice-form" class="voice-form">
+          <div class="param-grid">
+            <div class="param-block">
+              <label class="field-label" for="v-palette">Palette character</label>
+              <select id="v-palette" class="select-input">
+                <option value="muted">Muted / desaturated</option>
+                <option value="vivid" selected>Vivid / high chroma</option>
+                <option value="mono">Near-monochrome</option>
+                <option value="earth">Earth / mineral</option>
+              </select>
+            </div>
+            <div class="param-block">
+              <label class="field-label" for="v-form">Formal tendency</label>
+              <select id="v-form" class="select-input">
+                <option value="geometric">Geometric / structured</option>
+                <option value="organic" selected>Organic / flowing</option>
+                <option value="hybrid">Hybrid</option>
+              </select>
+            </div>
+            <div class="param-block">
+              <label class="field-label" for="v-density">Visual density</label>
+              <input type="range" id="v-density" min="1" max="10" value="5">
+              <div class="range-labels"><span>Sparse</span><span>Dense</span></div>
+            </div>
+            <div class="param-block">
+              <label class="field-label" for="v-contrast">Contrast</label>
+              <input type="range" id="v-contrast" min="1" max="10" value="6">
+              <div class="range-labels"><span>Soft</span><span>Hard</span></div>
+            </div>
+            <div class="param-block">
+              <label class="field-label" for="v-gesture">Gesture / mark</label>
+              <select id="v-gesture" class="select-input">
+                <option value="clean">Clean / minimal mark</option>
+                <option value="textured" selected>Textured / imperfect</option>
+                <option value="expressive">Expressive / gestural</option>
+              </select>
+            </div>
+            <div class="param-block">
+              <label class="field-label" for="v-mood">Dominant mood</label>
+              <select id="v-mood" class="select-input">
+                <option value="calm">Calm</option>
+                <option value="tension" selected>Tension</option>
+                <option value="play">Play</option>
+                <option value="melancholy">Melancholy</option>
+              </select>
+            </div>
+          </div>
+          <div class="form-actions">
+            <button type="submit" class="btn btn-primary">Lock voice & open Mutate</button>
+          </div>
+        </form>
+        <div class="voice-preview">
+          <p class="preview-label">Origin signature</p>
+          <canvas id="voice-canvas" width="320" height="200" aria-label="Core style preview"></canvas>
+        </div>
+      </section>
+
+      <!-- MUTATE -->
+      <section id="view-mutate" class="view" aria-labelledby="mutate-heading" hidden>
+        <div class="view-header">
+          <h2 id="mutate-heading" class="view-title">Mutate</h2>
+          <p class="view-desc">How far should the system push from your core voice? Low = adjacent; high = deliberate departure.</p>
+        </div>
+        <div class="mutate-controls">
+          <label class="field-label" for="mut-distance">Mutation distance</label>
+          <input type="range" id="mut-distance" min="0" max="100" value="25">
+          <div class="range-labels"><span>Stay close</span><span id="dist-val">25%</span><span>Push far</span></div>
+          <button type="button" class="btn btn-primary" id="btn-mutate">Generate mutations (6)</button>
+        </div>
+        <div class="mutate-grid" id="mutate-grid">
+          <p class="empty-hint">Lock a voice first, then generate.</p>
+        </div>
+      </section>
+
+      <!-- COMPARE -->
+      <section id="view-compare" class="view" aria-labelledby="compare-heading" hidden>
+        <div class="view-header">
+          <h2 id="compare-heading" class="view-title">Compare & trace</h2>
+          <p class="view-desc">Origin vs selected mutation. See which traits drifted and which held.</p>
+        </div>
+        <div class="compare-layout">
+          <div class="compare-col">
+            <p class="preview-label">Origin</p>
+            <canvas id="cmp-origin" width="280" height="200"></canvas>
+          </div>
+          <div class="compare-col">
+            <p class="preview-label">Mutation</p>
+            <canvas id="cmp-mut" width="280" height="200"></canvas>
+          </div>
+          <div class="compare-meta" id="compare-meta">
+            <p class="empty-hint">Select a mutation from Mutate.</p>
+          </div>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <script src="js/main.js"></script>
+</body>
+</html>

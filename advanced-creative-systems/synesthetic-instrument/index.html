@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Synesthetic Instrument — Map voice, text, and gesture into synchronized visual and sonic expression.">
+  <title>Synesthetic Instrument</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body data-theme="chroma">
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+
+  <div class="app-shell">
+    <header class="site-header">
+      <div class="header-inner">
+        <div class="brand">
+          <span class="brand-mark" aria-hidden="true"></span>
+          <div class="brand-text">
+            <h1 class="brand-title">Synesthete</h1>
+            <p class="brand-subtitle">Cross-Sense Instrument</p>
+          </div>
+        </div>
+
+        <nav class="main-nav" aria-label="Primary">
+          <button class="nav-btn is-active" data-panel="play" aria-current="page">Play</button>
+          <button class="nav-btn" data-panel="map">Mapping</button>
+          <button class="nav-btn" data-panel="modes">Modes</button>
+        </nav>
+
+        <div class="header-actions">
+          <div class="theme-switcher" role="group" aria-label="Theme">
+            <button class="theme-btn is-active" data-theme="chroma" aria-pressed="true" title="Chroma">
+              <span class="theme-swatch chroma"></span>
+              <span class="visually-hidden">Chroma</span>
+            </button>
+            <button class="theme-btn" data-theme="mono" aria-pressed="false" title="Mono">
+              <span class="theme-swatch mono"></span>
+              <span class="visually-hidden">Mono</span>
+            </button>
+            <button class="theme-btn" data-theme="infra" aria-pressed="false" title="Infra">
+              <span class="theme-swatch infra"></span>
+              <span class="visually-hidden">Infra</span>
+            </button>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <main id="main-content" class="main-content">
+      <section class="stage-wrap">
+        <canvas id="viz-canvas" aria-label="Synesthetic visual output"></canvas>
+        <div class="stage-hud">
+          <span id="hud-mode">Exploratory</span>
+          <span id="hud-input">—</span>
+        </div>
+      </section>
+
+      <aside class="side-panel">
+        <!-- PLAY -->
+        <div id="panel-play" class="panel is-active">
+          <h2 class="panel-title">Inputs</h2>
+
+          <div class="input-block">
+            <label class="field-label" for="text-input">Text → tone & form</label>
+            <input type="text" id="text-input" class="text-input" maxlength="80" placeholder="Type to sound…" autocomplete="off">
+          </div>
+
+          <div class="input-block">
+            <label class="field-label">Voice energy</label>
+            <div class="toggle-row">
+              <label class="toggle">
+                <input type="checkbox" id="mic-toggle">
+                <span>Enable microphone</span>
+              </label>
+            </div>
+            <div class="level-meter" aria-hidden="true">
+              <div class="level-fill" id="level-fill"></div>
+            </div>
+            <p class="mic-status" id="mic-status">Mic off</p>
+          </div>
+
+          <div class="input-block">
+            <label class="field-label">Pointer gesture</label>
+            <p class="hint">Move over the stage — position drives spatial color & pitch bend.</p>
+          </div>
+
+          <div class="input-block">
+            <button type="button" class="btn btn-primary" id="btn-strike">Strike chord</button>
+            <button type="button" class="btn btn-ghost" id="btn-clear">Clear</button>
+          </div>
+        </div>
+
+        <!-- MAPPING -->
+        <div id="panel-map" class="panel" hidden>
+          <h2 class="panel-title">Mapping</h2>
+          <p class="panel-note">How senses couple. Adjust sensitivity.</p>
+          <div class="field-row">
+            <label class="field-label" for="sens-voice">Voice → amplitude</label>
+            <input type="range" id="sens-voice" min="0.2" max="2" step="0.1" value="1">
+          </div>
+          <div class="field-row">
+            <label class="field-label" for="sens-text">Text → harmony</label>
+            <input type="range" id="sens-text" min="0.2" max="2" step="0.1" value="1">
+          </div>
+          <div class="field-row">
+            <label class="field-label" for="sens-pointer">Pointer → space</label>
+            <input type="range" id="sens-pointer" min="0.2" max="2" step="0.1" value="1">
+          </div>
+        </div>
+
+        <!-- MODES -->
+        <div id="panel-modes" class="panel" hidden>
+          <h2 class="panel-title">Modes</h2>
+          <div class="mode-grid" role="radiogroup" aria-label="Instrument mode">
+            <label class="mode-option">
+              <input type="radio" name="mode" value="exploratory" checked>
+              <span class="mode-card">
+                <span class="mode-name">Exploratory</span>
+                <span class="mode-desc">Soft, sustained, discover</span>
+              </span>
+            </label>
+            <label class="mode-option">
+              <input type="radio" name="mode" value="performative">
+              <span class="mode-card">
+                <span class="mode-name">Performative</span>
+                <span class="mode-desc">Sharp attack, high contrast</span>
+              </span>
+            </label>
+          </div>
+        </div>
+      </aside>
+    </main>
+  </div>
+
+  <script src="js/main.js"></script>
+</body>
+</html>

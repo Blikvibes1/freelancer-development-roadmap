@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Constraint-Based Design Language — Define rules and boundaries; explore generated design variations.">
+  <title>Constraint Studio — Design by Rules</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body data-theme="studio">
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+
+  <div class="app-shell">
+    <header class="site-header">
+      <div class="header-inner">
+        <div class="brand">
+          <span class="brand-mark" aria-hidden="true"></span>
+          <div class="brand-text">
+            <h1 class="brand-title">Constraint Studio</h1>
+            <p class="brand-subtitle">Design by Rules</p>
+          </div>
+        </div>
+        <nav class="main-nav" aria-label="Primary">
+          <button class="nav-btn is-active" data-view="constraints" aria-current="page">Constraints</button>
+          <button class="nav-btn" data-view="gallery">Gallery</button>
+          <button class="nav-btn" data-view="inspect">Inspect</button>
+        </nav>
+        <div class="header-actions">
+          <div class="theme-switcher" role="group" aria-label="Theme">
+            <button class="theme-btn is-active" data-theme="studio" aria-pressed="true" title="Studio">
+              <span class="theme-swatch studio"></span>
+              <span class="visually-hidden">Studio</span>
+            </button>
+            <button class="theme-btn" data-theme="paper" aria-pressed="false" title="Paper">
+              <span class="theme-swatch paper"></span>
+              <span class="visually-hidden">Paper</span>
+            </button>
+            <button class="theme-btn" data-theme="terminal" aria-pressed="false" title="Terminal">
+              <span class="theme-swatch terminal"></span>
+              <span class="visually-hidden">Terminal</span>
+            </button>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <main id="main-content" class="main-content">
+      <!-- CONSTRAINTS -->
+      <section id="view-constraints" class="view is-active" aria-labelledby="const-heading">
+        <div class="split">
+          <div class="const-panel">
+            <h2 id="const-heading" class="view-title">Define constraints</h2>
+            <p class="view-desc">Set rules and boundaries. The system explores only what those rules allow.</p>
+
+            <div class="const-group">
+              <h3 class="const-label">Palette</h3>
+              <label class="row"><span>Hue family</span>
+                <select id="c-hue" class="select-input">
+                  <option value="warm">Warm</option>
+                  <option value="cool" selected>Cool</option>
+                  <option value="neutral">Neutral</option>
+                  <option value="split">Split complementary</option>
+                </select>
+              </label>
+              <label class="row"><span>Max colors</span>
+                <input type="range" id="c-colors" min="2" max="6" value="4">
+                <output id="o-colors">4</output>
+              </label>
+              <label class="row"><span>Saturation ceiling</span>
+                <input type="range" id="c-sat" min="20" max="100" value="70">
+                <output id="o-sat">70%</output>
+              </label>
+            </div>
+
+            <div class="const-group">
+              <h3 class="const-label">Geometry</h3>
+              <label class="row"><span>Shape family</span>
+                <select id="c-shape" class="select-input">
+                  <option value="rect">Rectilinear</option>
+                  <option value="circle" selected>Circular</option>
+                  <option value="mixed">Mixed</option>
+                </select>
+              </label>
+              <label class="row"><span>Density</span>
+                <input type="range" id="c-density" min="3" max="24" value="10">
+                <output id="o-density">10</output>
+              </label>
+              <label class="row"><span>Scale variance</span>
+                <input type="range" id="c-scale" min="0" max="80" value="40">
+                <output id="o-scale">40%</output>
+              </label>
+            </div>
+
+            <div class="const-group">
+              <h3 class="const-label">Layout</h3>
+              <label class="row"><span>Margin min</span>
+                <input type="range" id="c-margin" min="4" max="30" value="12">
+                <output id="o-margin">12%</output>
+              </label>
+              <label class="row"><span>Alignment</span>
+                <select id="c-align" class="select-input">
+                  <option value="free">Free</option>
+                  <option value="grid" selected>Grid</option>
+                  <option value="radial">Radial</option>
+                </select>
+              </label>
+              <label class="row"><span>Overlap allowed</span>
+                <input type="checkbox" id="c-overlap">
+              </label>
+            </div>
+
+            <div class="form-actions">
+              <button type="button" class="btn btn-primary" id="btn-generate">Explore space (12 variations)</button>
+            </div>
+          </div>
+          <div class="preview-panel">
+            <p class="preview-label">Live constraint preview</p>
+            <canvas id="preview-canvas" aria-label="Constraint preview"></canvas>
+            <p class="preview-hint" id="preview-hint">Adjust rules — preview updates.</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- GALLERY -->
+      <section id="view-gallery" class="view" aria-labelledby="gallery-heading" hidden>
+        <div class="view-header">
+          <h2 id="gallery-heading" class="view-title">Possibility space</h2>
+          <p class="view-desc">Variations that satisfy all active constraints. Click to inspect.</p>
+        </div>
+        <div class="gallery-grid" id="gallery-grid">
+          <p class="empty-hint">Generate from Constraints first.</p>
+        </div>
+      </section>
+
+      <!-- INSPECT -->
+      <section id="view-inspect" class="view" aria-labelledby="inspect-heading" hidden>
+        <div class="view-header">
+          <h2 id="inspect-heading" class="view-title">Inspect variation</h2>
+          <p class="view-desc" id="inspect-desc">Select a variation from the Gallery.</p>
+        </div>
+        <div class="inspect-layout">
+          <canvas id="inspect-canvas" aria-label="Selected variation"></canvas>
+          <div id="inspect-meta" class="inspect-meta">
+            <p class="empty-hint">No variation selected.</p>
+          </div>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <script src="js/main.js"></script>
+</body>
+</html>

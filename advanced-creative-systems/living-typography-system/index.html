@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Living Typography System — Letterforms that grow, breathe, mutate, and react like organisms while remaining legible.">
+  <title>Living Type — Interactive Typography System</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body data-theme="vital">
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+
+  <div class="app-shell">
+    <header class="site-header">
+      <div class="header-inner">
+        <div class="brand">
+          <span class="brand-mark" aria-hidden="true"></span>
+          <div class="brand-text">
+            <h1 class="brand-title">Living Type</h1>
+            <p class="brand-subtitle">Organism Typography</p>
+          </div>
+        </div>
+
+        <nav class="main-nav" aria-label="Primary">
+          <button class="nav-btn is-active" data-panel="compose" aria-current="page">Compose</button>
+          <button class="nav-btn" data-panel="modes">Modes</button>
+          <button class="nav-btn" data-panel="react">React</button>
+        </nav>
+
+        <div class="header-actions">
+          <div class="theme-switcher" role="group" aria-label="Theme">
+            <button class="theme-btn is-active" data-theme="vital" aria-pressed="true" title="Vital">
+              <span class="theme-swatch vital"></span>
+              <span class="visually-hidden">Vital</span>
+            </button>
+            <button class="theme-btn" data-theme="spectral" aria-pressed="false" title="Spectral">
+              <span class="theme-swatch spectral"></span>
+              <span class="visually-hidden">Spectral</span>
+            </button>
+            <button class="theme-btn" data-theme="mineral" aria-pressed="false" title="Mineral">
+              <span class="theme-swatch mineral"></span>
+              <span class="visually-hidden">Mineral</span>
+            </button>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <main id="main-content" class="main-content">
+      <!-- Stage: living letters live here -->
+      <section class="type-stage" aria-label="Living typography stage">
+        <canvas id="type-canvas" aria-label="Animated living letterforms"></canvas>
+        <div class="stage-hint" id="stage-hint">Type below. Letters will wake.</div>
+      </section>
+
+      <!-- Control panels -->
+      <aside class="control-panel">
+        <!-- Compose -->
+        <div id="panel-compose" class="panel is-active">
+          <h2 class="panel-title">Compose</h2>
+          <label class="field-label" for="type-input">Text</label>
+          <textarea id="type-input" class="type-input" rows="3" maxlength="120" placeholder="Write something living…">Living Type</textarea>
+          <div class="field-row">
+            <label class="field-label" for="letter-spacing">Tracking</label>
+            <input type="range" id="letter-spacing" min="0.5" max="2.5" step="0.05" value="1.1">
+          </div>
+          <div class="field-row">
+            <label class="field-label" for="base-size">Scale</label>
+            <input type="range" id="base-size" min="40" max="120" step="2" value="72">
+          </div>
+        </div>
+
+        <!-- Modes -->
+        <div id="panel-modes" class="panel" hidden>
+          <h2 class="panel-title">Behavioral Modes</h2>
+          <div class="mode-grid" role="radiogroup" aria-label="Behavior mode">
+            <label class="mode-option">
+              <input type="radio" name="mode" value="calm" checked>
+              <span class="mode-card">
+                <span class="mode-name">Calm</span>
+                <span class="mode-desc">Slow breath, soft drift</span>
+              </span>
+            </label>
+            <label class="mode-option">
+              <input type="radio" name="mode" value="curious">
+              <span class="mode-card">
+                <span class="mode-name">Curious</span>
+                <span class="mode-desc">Reach, lean, explore</span>
+              </span>
+            </label>
+            <label class="mode-option">
+              <input type="radio" name="mode" value="aggressive">
+              <span class="mode-card">
+                <span class="mode-name">Aggressive</span>
+                <span class="mode-desc">Sharp pulse, tension</span>
+              </span>
+            </label>
+            <label class="mode-option">
+              <input type="radio" name="mode" value="decaying">
+              <span class="mode-card">
+                <span class="mode-name">Decaying</span>
+                <span class="mode-desc">Fade, fragment, rest</span>
+              </span>
+            </label>
+          </div>
+        </div>
+
+        <!-- React -->
+        <div id="panel-react" class="panel" hidden>
+          <h2 class="panel-title">Reaction</h2>
+          <p class="panel-note">Letters respond to pointer proximity and optional mic energy.</p>
+          <div class="toggle-row">
+            <label class="toggle">
+              <input type="checkbox" id="react-pointer" checked>
+              <span>Pointer influence</span>
+            </label>
+          </div>
+          <div class="toggle-row">
+            <label class="toggle">
+              <input type="checkbox" id="react-mic">
+              <span>Microphone energy</span>
+            </label>
+          </div>
+          <p class="mic-status" id="mic-status">Mic off</p>
+          <div class="field-row">
+            <label class="field-label" for="react-strength">Sensitivity</label>
+            <input type="range" id="react-strength" min="0.2" max="2" step="0.1" value="1">
+          </div>
+        </div>
+      </aside>
+    </main>
+  </div>
+
+  <script src="js/main.js"></script>
+</body>
+</html>

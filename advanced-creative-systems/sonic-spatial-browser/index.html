@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Sonic Spatial Browser — Navigate information through spatialized sound.">
+  <title>Sonic Spatial Browser</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body data-theme="void">
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+
+  <div class="app-shell">
+    <header class="site-header">
+      <div class="header-inner">
+        <div class="brand">
+          <span class="brand-mark" aria-hidden="true"></span>
+          <div class="brand-text">
+            <h1 class="brand-title">Auralis</h1>
+            <p class="brand-subtitle">Sonic Spatial Browser</p>
+          </div>
+        </div>
+        <div class="status-bar" id="status-bar" aria-live="polite">
+          <span class="status-dot" id="status-dot"></span>
+          <span id="status-text">Audio idle — press Listen to enter the field</span>
+        </div>
+        <div class="header-actions">
+          <div class="theme-switcher" role="group" aria-label="Theme">
+            <button class="theme-btn is-active" data-theme="void" aria-pressed="true" title="Void">
+              <span class="theme-swatch void"></span>
+              <span class="visually-hidden">Void</span>
+            </button>
+            <button class="theme-btn" data-theme="depth" aria-pressed="false" title="Depth">
+              <span class="theme-swatch depth"></span>
+              <span class="visually-hidden">Depth</span>
+            </button>
+            <button class="theme-btn" data-theme="signal" aria-pressed="false" title="Signal">
+              <span class="theme-swatch signal"></span>
+              <span class="visually-hidden">Signal</span>
+            </button>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <main id="main-content" class="main-content">
+      <div class="layout">
+        <!-- Spatial field (visual map is secondary; sound is primary) -->
+        <section class="field-panel" aria-labelledby="field-heading">
+          <div class="field-header">
+            <h2 id="field-heading" class="field-title">Acoustic field</h2>
+            <p class="field-desc">Nodes are placed in space. Listen with headphones. Move the listener; scan and select by ear.</p>
+          </div>
+          <div class="canvas-wrap">
+            <canvas id="field-canvas" width="640" height="400" aria-label="Top-down map of the sonic field"></canvas>
+            <div class="canvas-legend">
+              <span class="leg listener">Listener</span>
+              <span class="leg node">Node</span>
+              <span class="leg selected">Selected</span>
+            </div>
+          </div>
+          <div class="controls-row">
+            <button type="button" class="btn btn-primary" id="btn-listen">Listen</button>
+            <button type="button" class="btn btn-secondary" id="btn-scan" disabled>Scan field</button>
+            <button type="button" class="btn btn-ghost" id="btn-stop" disabled>Silence</button>
+          </div>
+          <div class="nav-keys" aria-label="Listener movement">
+            <p class="keys-hint">Move listener: <kbd>W</kbd><kbd>A</kbd><kbd>S</kbd><kbd>D</kbd> or arrow keys · Select nearest: <kbd>Enter</kbd> · Scan: <kbd>Space</kbd></p>
+          </div>
+        </section>
+
+        <aside class="side-panel">
+          <h3 class="side-title">Selected node</h3>
+          <div id="node-detail" class="node-detail">
+            <p class="empty-hint">Nothing selected. Scan or move toward a source.</p>
+          </div>
+          <h3 class="side-title">Dataset</h3>
+          <p class="side-copy">A small knowledge graph is mapped into the field:</p>
+          <ul class="map-list">
+            <li><strong>Azimuth</strong> — topic cluster (left ↔ right)</li>
+            <li><strong>Distance</strong> — relevance / depth</li>
+            <li><strong>Pitch</strong> — category</li>
+            <li><strong>Timbre / pulse</strong> — connection density</li>
+          </ul>
+          <h3 class="side-title">Hearing guide</h3>
+          <p class="side-copy">Closer sources are louder and less filtered. Scanning plays a brief signature from each node in spatial order. Selection speaks the label (speech synthesis when available).</p>
+        </aside>
+      </div>
+    </main>
+  </div>
+
+  <script src="js/main.js"></script>
+</body>
+</html>

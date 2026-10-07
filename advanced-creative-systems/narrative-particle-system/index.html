@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Narrative Particle System — Stories as dynamic particles of character, theme, conflict, and emotion.">
+  <title>Narrative Particle System</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@500;600;700&family=IBM+Plex+Sans:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body data-theme="drama">
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+
+  <div class="app-shell">
+    <header class="site-header">
+      <div class="header-inner">
+        <div class="brand">
+          <span class="brand-mark" aria-hidden="true"></span>
+          <div class="brand-text">
+            <h1 class="brand-title">Dramatic Field</h1>
+            <p class="brand-subtitle">Narrative Particles</p>
+          </div>
+        </div>
+        <nav class="main-nav" aria-label="Primary">
+          <button class="nav-btn is-active" data-panel="field" aria-current="page">Field</button>
+          <button class="nav-btn" data-panel="seed">Seed</button>
+          <button class="nav-btn" data-panel="forces">Forces</button>
+        </nav>
+        <div class="header-actions">
+          <div class="theme-switcher" role="group" aria-label="Theme">
+            <button class="theme-btn is-active" data-theme="drama" aria-pressed="true" title="Drama">
+              <span class="theme-swatch drama"></span>
+              <span class="visually-hidden">Drama</span>
+            </button>
+            <button class="theme-btn" data-theme="ink" aria-pressed="false" title="Ink">
+              <span class="theme-swatch ink"></span>
+              <span class="visually-hidden">Ink</span>
+            </button>
+            <button class="theme-btn" data-theme="neon" aria-pressed="false" title="Neon">
+              <span class="theme-swatch neon"></span>
+              <span class="visually-hidden">Neon</span>
+            </button>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <main id="main-content" class="main-content">
+      <section class="stage-wrap">
+        <canvas id="field-canvas" aria-label="Narrative particle field"></canvas>
+        <div class="stage-hud">
+          <span id="hud-count">0 particles</span>
+          <span id="hud-tension">Tension —</span>
+        </div>
+      </section>
+
+      <aside class="side-panel">
+        <div id="panel-field" class="panel is-active">
+          <h2 class="panel-title">Field</h2>
+          <p class="panel-note">Particles are narrative elements. Same-theme attract; conflict types repel; emotions pulse.</p>
+          <div class="legend">
+            <span class="leg character">Character</span>
+            <span class="leg theme">Theme</span>
+            <span class="leg conflict">Conflict</span>
+            <span class="leg emotion">Emotion</span>
+          </div>
+          <button type="button" class="btn btn-primary" id="btn-pulse">Pulse tension</button>
+          <button type="button" class="btn btn-ghost" id="btn-clear">Clear field</button>
+        </div>
+
+        <div id="panel-seed" class="panel" hidden>
+          <h2 class="panel-title">Seed story</h2>
+          <form id="seed-form" class="seed-form">
+            <label class="field-label" for="seed-label">Label</label>
+            <input type="text" id="seed-label" class="text-input" maxlength="40" placeholder="e.g. The Exile" required>
+            <label class="field-label">Type</label>
+            <div class="chip-group" role="radiogroup">
+              <label class="chip"><input type="radio" name="ptype" value="character" checked><span>Character</span></label>
+              <label class="chip"><input type="radio" name="ptype" value="theme"><span>Theme</span></label>
+              <label class="chip"><input type="radio" name="ptype" value="conflict"><span>Conflict</span></label>
+              <label class="chip"><input type="radio" name="ptype" value="emotion"><span>Emotion</span></label>
+            </div>
+            <label class="field-label" for="seed-charge">Dramatic charge</label>
+            <input type="range" id="seed-charge" min="0.3" max="2" step="0.1" value="1">
+            <button type="submit" class="btn btn-primary" style="margin-top:1rem;width:100%">Add particle</button>
+          </form>
+          <button type="button" class="btn btn-ghost" id="btn-preset" style="margin-top:0.75rem;width:100%">Load sample story</button>
+        </div>
+
+        <div id="panel-forces" class="panel" hidden>
+          <h2 class="panel-title">Forces</h2>
+          <div class="field-row">
+            <label class="field-label" for="f-attract">Theme attraction</label>
+            <input type="range" id="f-attract" min="0" max="2" step="0.1" value="1">
+          </div>
+          <div class="field-row">
+            <label class="field-label" for="f-repel">Conflict repulsion</label>
+            <input type="range" id="f-repel" min="0" max="2" step="0.1" value="1">
+          </div>
+          <div class="field-row">
+            <label class="field-label" for="f-damp">Damping</label>
+            <input type="range" id="f-damp" min="0.85" max="0.99" step="0.01" value="0.94">
+          </div>
+          <div class="field-row">
+            <label class="field-label" for="f-emotion">Emotion pulse</label>
+            <input type="range" id="f-emotion" min="0" max="2" step="0.1" value="1">
+          </div>
+        </div>
+      </aside>
+    </main>
+  </div>
+
+  <script src="js/main.js"></script>
+</body>
+</html>

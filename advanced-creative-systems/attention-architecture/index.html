@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Attention Architecture — Adaptive interface that protects focus and supports creative flow.">
+  <title>Attention Architecture</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:opsz,wght@8..60,500;8..60,600&family=Figtree:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body data-theme="calm" data-mode="neutral">
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+
+  <div class="app-shell">
+    <header class="site-header">
+      <div class="header-inner">
+        <div class="brand">
+          <span class="brand-mark" aria-hidden="true"></span>
+          <div class="brand-text">
+            <h1 class="brand-title">Attentos</h1>
+            <p class="brand-subtitle">Attention Architecture</p>
+          </div>
+        </div>
+        <div class="attention-meter" aria-live="polite">
+          <span class="meter-label">Attention</span>
+          <div class="meter-track">
+            <div class="meter-fill" id="meter-fill"></div>
+          </div>
+          <span class="meter-mode" id="meter-mode">Settling…</span>
+        </div>
+        <div class="header-actions">
+          <div class="theme-switcher" role="group" aria-label="Theme">
+            <button class="theme-btn is-active" data-theme="calm" aria-pressed="true" title="Calm">
+              <span class="theme-swatch calm"></span>
+              <span class="visually-hidden">Calm</span>
+            </button>
+            <button class="theme-btn" data-theme="focus" aria-pressed="false" title="Focus">
+              <span class="theme-swatch focus"></span>
+              <span class="visually-hidden">Focus</span>
+            </button>
+            <button class="theme-btn" data-theme="flow" aria-pressed="false" title="Flow">
+              <span class="theme-swatch flow"></span>
+              <span class="visually-hidden">Flow</span>
+            </button>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <main id="main-content" class="main-content">
+      <div class="workspace">
+        <section class="work-panel" aria-labelledby="work-heading">
+          <div class="work-header">
+            <h2 id="work-heading" class="work-title">Deep work surface</h2>
+            <p class="work-desc" id="work-desc">Write or think here. The interface watches rhythm—not content—and softens or steadies itself to protect your attention.</p>
+          </div>
+          <textarea id="work-area" class="work-area" rows="16" placeholder="Begin when ready. Move slowly if you want calm; find a steady rhythm for focus; let interaction become fluid for flow…"></textarea>
+          <div class="work-footer">
+            <span id="session-time">Session 0:00</span>
+            <span id="signal-summary">Signals: idle</span>
+          </div>
+        </section>
+
+        <aside class="side-panel" id="side-panel">
+          <h3 class="side-title">How it listens</h3>
+          <ul class="signal-list">
+            <li><strong>Pointer stillness</strong> — Long pauses suggest absorption or hesitation.</li>
+            <li><strong>Scroll rhythm</strong> — Smooth, periodic scroll supports flow; frantic scroll flags distraction.</li>
+            <li><strong>Keystroke cadence</strong> — Steady typing deepens focus mode; bursts and stops keep neutral.</li>
+            <li><strong>Idle depth</strong> — Extended idle without leave softens chrome (protect, don’t nag).</li>
+          </ul>
+          <div class="mode-cards" id="mode-cards">
+            <div class="mode-card" data-mode="calm">
+              <h4>Calm</h4>
+              <p>Reduced chrome, slower motion, more space. When the system senses scattered or idle attention.</p>
+            </div>
+            <div class="mode-card" data-mode="focus">
+              <h4>Focus</h4>
+              <p>Steady contrast, locked layout, minimal interruption. When rhythm is sustained and deliberate.</p>
+            </div>
+            <div class="mode-card" data-mode="flow">
+              <h4>Flow</h4>
+              <p>Fluid transitions, ambient feedback. When interaction is continuous and lightly exploratory.</p>
+            </div>
+          </div>
+          <p class="side-note">No webcam. No content reading. Only behavioral rhythm—and only to protect, never to demand.</p>
+        </aside>
+      </div>
+    </main>
+  </div>
+
+  <script src="js/main.js"></script>
+</body>
+</html>

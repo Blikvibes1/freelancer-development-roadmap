@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Creative Mortality System — Controlled decay as a generative collaborator.">
+  <title>Creative Mortality System</title>
+  <link href="https://fonts.googleapis.com/css2?family=Source+Sans+3:wght@400;500;600&family=Source+Serif+4:opsz,wght@8..60,500;8..60,600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body data-theme="ember">
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  <div class="app-shell">
+    <header class="site-header">
+      <div class="header-inner">
+        <div class="brand">
+          <span class="brand-mark"></span>
+          <div class="brand-text">
+            <h1 class="brand-title">Ember</h1>
+            <p class="brand-subtitle">Creative Mortality</p>
+          </div>
+        </div>
+        <div class="theme-switcher" role="group" aria-label="Theme">
+          <button class="theme-btn is-active" data-theme="ember" aria-pressed="true" title="Ember"><span class="theme-swatch ember"></span></button>
+          <button class="theme-btn" data-theme="frost" aria-pressed="false" title="Frost"><span class="theme-swatch frost"></span></button>
+          <button class="theme-btn" data-theme="soil" aria-pressed="false" title="Soil"><span class="theme-swatch soil"></span></button>
+        </div>
+      </div>
+    </header>
+    <main id="main-content" class="main-content">
+      <div class="layout">
+        <section class="panel">
+          <h2 class="panel-title">Living works</h2>
+          <p class="panel-desc">Add pieces you are holding. Mortality is controlled: decay pressure rises until you adapt, release, or renew.</p>
+          <form id="work-form">
+            <input type="text" id="work-title" class="text-input" maxlength="80" required placeholder="Work title">
+            <label class="field-label">Vitality (how finished it feels)</label>
+            <input type="range" id="work-vitality" min="20" max="100" value="70">
+            <button type="submit" class="btn btn-primary">Admit to cycle</button>
+          </form>
+        </section>
+        <section class="panel">
+          <h2 class="panel-title">Decay pressure</h2>
+          <p class="panel-desc">The system is demanding, not cruel. Pressure forces a choice: revise, archive, or let go.</p>
+          <button type="button" class="btn btn-secondary" id="btn-tick">Advance one cycle</button>
+          <p class="hint" id="cycle-hint">Each cycle ages works and may force a prompt.</p>
+          <div id="pressure-log" class="pressure-log"></div>
+        </section>
+        <section class="panel full">
+          <h2 class="panel-title">The shelf</h2>
+          <ul class="work-list" id="work-list"></ul>
+        </section>
+      </div>
+    </main>
+  </div>
+  <script src="js/main.js"></script>
+</body>
+</html>

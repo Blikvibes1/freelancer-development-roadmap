@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Aesthetic Resonance Engine — Expand sensibility, not engagement.">
+  <title>Aesthetic Resonance Engine</title>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600&family=Cormorant+Garamond:wght@500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body data-theme="resonance">
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  <div class="app-shell">
+    <header class="site-header">
+      <div class="header-inner">
+        <div class="brand">
+          <span class="brand-mark"></span>
+          <div class="brand-text">
+            <h1 class="brand-title">Resonance</h1>
+            <p class="brand-subtitle">Aesthetic Engine</p>
+          </div>
+        </div>
+        <div class="theme-switcher" role="group" aria-label="Theme">
+          <button class="theme-btn is-active" data-theme="resonance" aria-pressed="true" title="Resonance"><span class="theme-swatch resonance"></span></button>
+          <button class="theme-btn" data-theme="gallery" aria-pressed="false" title="Gallery"><span class="theme-swatch gallery"></span></button>
+          <button class="theme-btn" data-theme="void" aria-pressed="false" title="Void"><span class="theme-swatch void"></span></button>
+        </div>
+      </div>
+    </header>
+    <main id="main-content" class="main-content">
+      <div class="layout">
+        <section class="panel">
+          <h2 class="panel-title">Your sensibility</h2>
+          <p class="panel-desc">Mark what you already love. The engine models axes and proposes expansions — not more of the same.</p>
+          <div class="axis-list" id="axis-list"></div>
+          <h3 class="sub-title">Recent pulls</h3>
+          <div class="chip-group" id="taste-chips"></div>
+          <button type="button" class="btn btn-primary" id="btn-expand">Propose expansions</button>
+        </section>
+        <section class="panel">
+          <h2 class="panel-title">Expansion set</h2>
+          <p class="panel-desc">Experiences chosen to stretch axes you underuse — deep development, not engagement bait.</p>
+          <div id="proposals" class="proposals">
+            <p class="muted">Set preferences, then propose.</p>
+          </div>
+        </section>
+      </div>
+    </main>
+  </div>
+  <script src="js/main.js"></script>
+</body>
+</html>

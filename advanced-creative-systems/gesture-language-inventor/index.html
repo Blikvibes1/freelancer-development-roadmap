@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Gesture Language Inventor — Invent, refine, and map a personal gestural vocabulary.">
+  <title>Gesture Language Inventor</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body data-theme="signal">
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+
+  <div class="app-shell">
+    <header class="site-header">
+      <div class="header-inner">
+        <div class="brand">
+          <span class="brand-mark" aria-hidden="true"></span>
+          <div class="brand-text">
+            <h1 class="brand-title">Gestura</h1>
+            <p class="brand-subtitle">Private Language</p>
+          </div>
+        </div>
+        <nav class="main-nav" aria-label="Primary">
+          <button class="nav-btn is-active" data-view="studio" aria-current="page">Studio</button>
+          <button class="nav-btn" data-view="lexicon">Lexicon</button>
+          <button class="nav-btn" data-view="map">Map</button>
+        </nav>
+        <div class="header-actions">
+          <div class="theme-switcher" role="group" aria-label="Theme">
+            <button class="theme-btn is-active" data-theme="signal" aria-pressed="true" title="Signal">
+              <span class="theme-swatch signal"></span>
+              <span class="visually-hidden">Signal</span>
+            </button>
+            <button class="theme-btn" data-theme="ink" aria-pressed="false" title="Ink">
+              <span class="theme-swatch ink"></span>
+              <span class="visually-hidden">Ink</span>
+            </button>
+            <button class="theme-btn" data-theme="void" aria-pressed="false" title="Void">
+              <span class="theme-swatch void"></span>
+              <span class="visually-hidden">Void</span>
+            </button>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <main id="main-content" class="main-content">
+      <!-- STUDIO -->
+      <section id="view-studio" class="view is-active" aria-labelledby="studio-heading">
+        <div class="view-header">
+          <h2 id="studio-heading" class="view-title">Gesture studio</h2>
+          <p class="view-desc">Draw a gesture with pointer or finger. Name it, refine samples, bind it to a meaning. This is how a private language begins.</p>
+        </div>
+        <div class="studio-layout">
+          <div class="pad-wrap">
+            <canvas id="gesture-pad" width="480" height="360" aria-label="Draw gesture here"></canvas>
+            <div class="pad-tools">
+              <button type="button" class="tool-btn" id="btn-clear">Clear</button>
+              <button type="button" class="tool-btn btn-accent" id="btn-capture">Capture sample</button>
+            </div>
+            <p class="pad-hint" id="pad-hint">Draw, then capture. Add 2–3 similar samples to strengthen recognition.</p>
+          </div>
+          <form id="gesture-form" class="gesture-form">
+            <label class="field-label" for="g-name">Gesture name</label>
+            <input type="text" id="g-name" class="text-input" maxlength="32" placeholder="e.g. open, assent, spiral" required>
+            <label class="field-label" for="g-meaning">Meaning / action</label>
+            <input type="text" id="g-meaning" class="text-input" maxlength="80" placeholder="e.g. confirm, next, soft no">
+            <div class="sample-count" id="sample-count">Samples: 0</div>
+            <button type="submit" class="btn btn-primary" id="btn-save" disabled>Save to lexicon</button>
+          </form>
+        </div>
+        <div class="recognize-bar">
+          <p class="recognize-label">Live recognize</p>
+          <canvas id="live-pad" width="200" height="120" aria-label="Draw to recognize"></canvas>
+          <p class="recognize-result" id="recognize-result">—</p>
+        </div>
+      </section>
+
+      <!-- LEXICON -->
+      <section id="view-lexicon" class="view" aria-labelledby="lex-heading" hidden>
+        <div class="view-header">
+          <h2 id="lex-heading" class="view-title">Lexicon</h2>
+          <p class="view-desc">Your gestural vocabulary. Each entry holds samples, meaning, and strength.</p>
+        </div>
+        <div class="lexicon-grid" id="lexicon-grid">
+          <p class="empty-hint">No gestures yet. Invent one in the studio.</p>
+        </div>
+      </section>
+
+      <!-- MAP -->
+      <section id="view-map" class="view" aria-labelledby="map-heading" hidden>
+        <div class="view-header">
+          <h2 id="map-heading" class="view-title">Meaning map</h2>
+          <p class="view-desc">How your gestures relate. Similar shapes cluster; meanings label the field.</p>
+        </div>
+        <canvas id="map-canvas" width="640" height="400" aria-label="Gesture meaning map"></canvas>
+      </section>
+    </main>
+  </div>
+
+  <script src="js/main.js"></script>
+</body>
+</html>

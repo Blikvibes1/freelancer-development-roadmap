@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Material Imagination Engine — Speculative materials from poetic descriptions.">
+  <title>Material Imagination Engine</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Source+Sans+3:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body data-theme="forge">
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+
+  <div class="app-shell">
+    <header class="site-header">
+      <div class="header-inner">
+        <div class="brand">
+          <span class="brand-mark" aria-hidden="true"></span>
+          <div class="brand-text">
+            <h1 class="brand-title">Speculum</h1>
+            <p class="brand-subtitle">Material Imagination</p>
+          </div>
+        </div>
+        <nav class="main-nav" aria-label="Primary">
+          <button class="nav-btn is-active" data-view="compose" aria-current="page">Compose</button>
+          <button class="nav-btn" data-view="specimen" disabled>Specimen</button>
+          <button class="nav-btn" data-view="dossier" disabled>Dossier</button>
+        </nav>
+        <div class="header-actions">
+          <div class="theme-switcher" role="group" aria-label="Theme">
+            <button class="theme-btn is-active" data-theme="forge" aria-pressed="true" title="Forge">
+              <span class="theme-swatch forge"></span>
+              <span class="visually-hidden">Forge</span>
+            </button>
+            <button class="theme-btn" data-theme="lab" aria-pressed="false" title="Lab">
+              <span class="theme-swatch lab"></span>
+              <span class="visually-hidden">Lab</span>
+            </button>
+            <button class="theme-btn" data-theme="cabinet" aria-pressed="false" title="Cabinet">
+              <span class="theme-swatch cabinet"></span>
+              <span class="visually-hidden">Cabinet</span>
+            </button>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <main id="main-content" class="main-content">
+      <!-- COMPOSE -->
+      <section id="view-compose" class="view is-active" aria-labelledby="compose-heading">
+        <div class="view-header">
+          <h2 id="compose-heading" class="view-title">Describe a material</h2>
+          <p class="view-desc">Use poetic or conceptual language. The engine will extract properties and simulate a specimen that balances plausibility with imagination.</p>
+        </div>
+        <form id="compose-form" class="compose-form">
+          <textarea id="material-prompt" class="prompt-area" rows="4" maxlength="400" required placeholder="e.g. A metal that softens when it hears music, cooling into hard facets when silence returns…"></textarea>
+          <div class="preset-row">
+            <span class="preset-label">Try:</span>
+            <button type="button" class="preset-chip" data-prompt="Glass that remembers the last person who touched it — warmth and fingerprint ridges linger as faint light.">Memory glass</button>
+            <button type="button" class="preset-chip" data-prompt="A fabric woven from fog: opaque at rest, transparent when pulled taut, always slightly damp.">Fog cloth</button>
+            <button type="button" class="preset-chip" data-prompt="Ceramic that grows hairline veins of gold wherever it cracks, healing stress into ornament.">Gold-veined ceramic</button>
+          </div>
+          <div class="form-actions">
+            <button type="submit" class="btn btn-primary">Imagine specimen</button>
+          </div>
+        </form>
+      </section>
+
+      <!-- SPECIMEN -->
+      <section id="view-specimen" class="view" aria-labelledby="specimen-heading" hidden>
+        <div class="specimen-layout">
+          <div class="specimen-stage">
+            <canvas id="specimen-canvas" aria-label="Material specimen visualization"></canvas>
+            <p class="stage-caption" id="stage-caption"></p>
+          </div>
+          <aside class="specimen-side">
+            <h2 id="specimen-heading" class="side-title">Specimen</h2>
+            <p class="material-name" id="material-name">—</p>
+            <p class="material-blurb" id="material-blurb"></p>
+            <ul class="prop-list" id="prop-list"></ul>
+            <button type="button" class="btn btn-secondary" id="btn-dossier">Open dossier</button>
+            <button type="button" class="btn btn-ghost" id="btn-new">New material</button>
+          </aside>
+        </div>
+      </section>
+
+      <!-- DOSSIER -->
+      <section id="view-dossier" class="view" aria-labelledby="dossier-heading" hidden>
+        <div class="view-header">
+          <h2 id="dossier-heading" class="view-title">Material dossier</h2>
+          <p class="view-desc">Properties inferred from language, physical notes, and speculative uses.</p>
+        </div>
+        <div id="dossier-content" class="dossier-content"></div>
+        <div class="form-actions">
+          <button type="button" class="btn btn-secondary" id="btn-back-specimen">Back to specimen</button>
+        </div>
+      </section>
+    </main>
+
+    <div id="gen-overlay" class="gen-overlay" hidden aria-live="polite">
+      <div class="gen-inner">
+        <div class="gen-ring" aria-hidden="true"></div>
+        <p class="gen-status">Condensing concept into matter…</p>
+      </div>
+    </div>
+  </div>
+
+  <script src="js/main.js"></script>
+</body>
+</html>

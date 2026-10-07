@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Creative Constraint Randomizer — High-quality, non-generic constraints tailored to your work and goals.">
+  <title>Constraint Forge — Creative Limits</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600&family=Literata:opsz,wght@7..72,500;7..72,600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body data-theme="forge">
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+
+  <div class="app-shell">
+    <header class="site-header">
+      <div class="header-inner">
+        <div class="brand">
+          <span class="brand-mark" aria-hidden="true"></span>
+          <div class="brand-text">
+            <h1 class="brand-title">Constraint Forge</h1>
+            <p class="brand-subtitle">Productive Limits</p>
+          </div>
+        </div>
+        <nav class="main-nav" aria-label="Primary">
+          <button class="nav-btn is-active" data-view="forge" aria-current="page">Forge</button>
+          <button class="nav-btn" data-view="history">History</button>
+          <button class="nav-btn" data-view="profile">Profile</button>
+        </nav>
+        <div class="header-actions">
+          <div class="theme-switcher" role="group" aria-label="Theme">
+            <button class="theme-btn is-active" data-theme="forge" aria-pressed="true" title="Forge">
+              <span class="theme-swatch forge"></span>
+              <span class="visually-hidden">Forge</span>
+            </button>
+            <button class="theme-btn" data-theme="studio" aria-pressed="false" title="Studio">
+              <span class="theme-swatch studio"></span>
+              <span class="visually-hidden">Studio</span>
+            </button>
+            <button class="theme-btn" data-theme="ink" aria-pressed="false" title="Ink">
+              <span class="theme-swatch ink"></span>
+              <span class="visually-hidden">Ink</span>
+            </button>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <main id="main-content" class="main-content">
+      <!-- FORGE -->
+      <section id="view-forge" class="view is-active" aria-labelledby="forge-heading">
+        <div class="view-header">
+          <h2 id="forge-heading" class="view-title">Forge a constraint</h2>
+          <p class="view-desc">Set your domain, goal, and difficulty. The forge will cut a limit that narrows the space and opens an unexpected door.</p>
+        </div>
+
+        <div class="forge-layout">
+          <form id="forge-form" class="forge-form">
+            <div class="param-block">
+              <label class="field-label">Domain</label>
+              <div class="chip-group" role="radiogroup" aria-label="Domain">
+                <label class="chip"><input type="radio" name="domain" value="visual" checked><span>Visual design</span></label>
+                <label class="chip"><input type="radio" name="domain" value="writing"><span>Writing</span></label>
+                <label class="chip"><input type="radio" name="domain" value="product"><span>Product</span></label>
+                <label class="chip"><input type="radio" name="domain" value="music"><span>Music / sound</span></label>
+                <label class="chip"><input type="radio" name="domain" value="code"><span>Code / systems</span></label>
+              </div>
+            </div>
+            <div class="param-block">
+              <label class="field-label" for="goal-text">Current goal</label>
+              <input type="text" id="goal-text" class="text-input" maxlength="120" placeholder="e.g. Design a landing page for a quiet tool">
+            </div>
+            <div class="param-block">
+              <label class="field-label">Difficulty</label>
+              <div class="chip-group" role="radiogroup" aria-label="Difficulty">
+                <label class="chip"><input type="radio" name="difficulty" value="gentle" checked><span>Gentle</span></label>
+                <label class="chip"><input type="radio" name="difficulty" value="firm"><span>Firm</span></label>
+                <label class="chip"><input type="radio" name="difficulty" value="severe"><span>Severe</span></label>
+              </div>
+            </div>
+            <div class="param-block">
+              <label class="field-label">Avoid clichés</label>
+              <label class="check-row">
+                <input type="checkbox" id="avoid-cliche" checked>
+                <span>Prefer non-generic, specific limits</span>
+              </label>
+            </div>
+            <button type="submit" class="btn btn-primary">Forge constraint</button>
+          </form>
+
+          <div class="result-panel" id="result-panel">
+            <p class="empty-hint">Your constraint will appear here.</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- HISTORY -->
+      <section id="view-history" class="view" aria-labelledby="history-heading" hidden>
+        <div class="view-header">
+          <h2 id="history-heading" class="view-title">Rated history</h2>
+          <p class="view-desc">Constraints you’ve forged and rated. High ratings teach the forge what helps you.</p>
+        </div>
+        <div id="history-list" class="history-list">
+          <p class="empty-hint">No rated constraints yet.</p>
+        </div>
+      </section>
+
+      <!-- PROFILE -->
+      <section id="view-profile" class="view" aria-labelledby="profile-heading" hidden>
+        <div class="view-header">
+          <h2 id="profile-heading" class="view-title">Your profile</h2>
+          <p class="view-desc">What the forge has learned from your ratings.</p>
+        </div>
+        <div id="profile-content" class="profile-content">
+          <p class="empty-hint">Rate a few constraints to build a profile.</p>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <script src="js/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Dream Archive — An intimate collective space for dreams, symbols, and shared subconscious patterns.">
+  <title>Dream Archive — Collective Subconscious</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Outfit:wght@300;400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body data-theme="nocturne">
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+
+  <div class="app-shell">
+    <header class="site-header">
+      <div class="header-inner">
+        <div class="brand">
+          <span class="brand-mark" aria-hidden="true"></span>
+          <div class="brand-text">
+            <h1 class="brand-title">Dream Archive</h1>
+            <p class="brand-subtitle">Collective Subconscious</p>
+          </div>
+        </div>
+
+        <nav class="main-nav" aria-label="Primary">
+          <button class="nav-btn is-active" data-view="archive" aria-current="page">Archive</button>
+          <button class="nav-btn" data-view="submit">Submit</button>
+          <button class="nav-btn" data-view="constellation">Constellation</button>
+          <button class="nav-btn" data-view="lineages">Lineages</button>
+        </nav>
+
+        <div class="header-actions">
+          <div class="theme-switcher" role="group" aria-label="Theme">
+            <button class="theme-btn is-active" data-theme="nocturne" aria-pressed="true" title="Nocturne">
+              <span class="theme-swatch nocturne"></span>
+              <span class="visually-hidden">Nocturne</span>
+            </button>
+            <button class="theme-btn" data-theme="mist" aria-pressed="false" title="Mist">
+              <span class="theme-swatch mist"></span>
+              <span class="visually-hidden">Mist</span>
+            </button>
+            <button class="theme-btn" data-theme="ember" aria-pressed="false" title="Ember">
+              <span class="theme-swatch ember"></span>
+              <span class="visually-hidden">Ember</span>
+            </button>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <main id="main-content" class="main-content">
+      <!-- ARCHIVE -->
+      <section id="view-archive" class="view is-active" aria-labelledby="archive-heading">
+        <div class="view-header">
+          <h2 id="archive-heading" class="view-title">The Archive</h2>
+          <p class="view-desc">Dreams offered anonymously. Patterns emerge when symbols recur across sleepers.</p>
+        </div>
+        <div class="filter-bar">
+          <input type="search" id="search-input" class="search-input" placeholder="Search symbols, themes…" aria-label="Search dreams">
+          <div class="symbol-chips" id="symbol-chips" role="group" aria-label="Filter by symbol"></div>
+        </div>
+        <div class="dream-grid" id="dream-grid"></div>
+        <div class="empty-state" id="archive-empty" hidden>
+          <p>No dreams match. The archive is quiet here.</p>
+        </div>
+      </section>
+
+      <!-- SUBMIT -->
+      <section id="view-submit" class="view" aria-labelledby="submit-heading" hidden>
+        <div class="view-header">
+          <h2 id="submit-heading" class="view-title">Offer a Dream</h2>
+          <p class="view-desc">Write what remains. No names are kept. Only symbols and feeling enter the archive.</p>
+        </div>
+        <form id="dream-form" class="dream-form" novalidate>
+          <label class="field-label" for="dream-text">The dream</label>
+          <textarea id="dream-text" class="dream-textarea" rows="8" maxlength="2000" required placeholder="I was standing in a house that kept changing rooms…"></textarea>
+          <div class="form-meta">
+            <label class="field-label" for="dream-feeling">Dominant feeling</label>
+            <div class="chip-group" role="radiogroup" aria-label="Dominant feeling">
+              <label class="chip"><input type="radio" name="feeling" value="wonder" checked><span>Wonder</span></label>
+              <label class="chip"><input type="radio" name="feeling" value="dread"><span>Dread</span></label>
+              <label class="chip"><input type="radio" name="feeling" value="longing"><span>Longing</span></label>
+              <label class="chip"><input type="radio" name="feeling" value="peace"><span>Peace</span></label>
+              <label class="chip"><input type="radio" name="feeling" value="confusion"><span>Confusion</span></label>
+            </div>
+          </div>
+          <div class="form-actions">
+            <button type="submit" class="btn btn-primary">Place into the Archive</button>
+          </div>
+        </form>
+        <div id="submit-success" class="submit-success" hidden>
+          <p>Your dream has been received. It will find its kin.</p>
+          <button type="button" class="btn btn-secondary" id="btn-view-archive">View Archive</button>
+        </div>
+      </section>
+
+      <!-- CONSTELLATION -->
+      <section id="view-constellation" class="view" aria-labelledby="constellation-heading" hidden>
+        <div class="view-header compact">
+          <h2 id="constellation-heading" class="view-title">Symbol Constellation</h2>
+          <p class="view-desc">Dreams linked by shared symbols. Drag nodes. Click to read.</p>
+        </div>
+        <div class="constellation-stage">
+          <canvas id="constellation-canvas" aria-label="Dream constellation map"></canvas>
+          <div id="dream-detail" class="dream-detail" hidden></div>
+        </div>
+      </section>
+
+      <!-- LINEAGES -->
+      <section id="view-lineages" class="view" aria-labelledby="lineages-heading" hidden>
+        <div class="view-header">
+          <h2 id="lineages-heading" class="view-title">Dream Lineages</h2>
+          <p class="view-desc">Motifs that travel between sleepers — threads of the collective night.</p>
+        </div>
+        <div id="lineage-list" class="lineage-list"></div>
+      </section>
+    </main>
+  </div>
+
+  <script src="js/main.js"></script>
+</body>
+</html>

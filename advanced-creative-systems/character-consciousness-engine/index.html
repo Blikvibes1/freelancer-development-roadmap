@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Character Consciousness Engine — Persistent AI characters with memory, beliefs, contradictions, and gradual change.">
+  <title>Consciousness Engine — Persistent Characters</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Literata:opsz,wght@7..72,400;7..72,600&family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body data-theme="inward">
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+
+  <div class="app-shell">
+    <header class="site-header">
+      <div class="header-inner">
+        <div class="brand">
+          <span class="brand-mark" aria-hidden="true"></span>
+          <div class="brand-text">
+            <h1 class="brand-title">Inner Life</h1>
+            <p class="brand-subtitle">Character Consciousness</p>
+          </div>
+        </div>
+        <nav class="main-nav" aria-label="Primary">
+          <button class="nav-btn is-active" data-view="chat" aria-current="page">Dialogue</button>
+          <button class="nav-btn" data-view="mind">Mind</button>
+          <button class="nav-btn" data-view="create">Create</button>
+        </nav>
+        <div class="header-actions">
+          <div class="theme-switcher" role="group" aria-label="Theme">
+            <button class="theme-btn is-active" data-theme="inward" aria-pressed="true" title="Inward">
+              <span class="theme-swatch inward"></span>
+              <span class="visually-hidden">Inward</span>
+            </button>
+            <button class="theme-btn" data-theme="clinic" aria-pressed="false" title="Clinic">
+              <span class="theme-swatch clinic"></span>
+              <span class="visually-hidden">Clinic</span>
+            </button>
+            <button class="theme-btn" data-theme="theater" aria-pressed="false" title="Theater">
+              <span class="theme-swatch theater"></span>
+              <span class="visually-hidden">Theater</span>
+            </button>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <main id="main-content" class="main-content">
+      <!-- CHAT -->
+      <section id="view-chat" class="view is-active" aria-labelledby="chat-heading">
+        <div class="chat-layout">
+          <aside class="char-rail" id="char-rail" aria-label="Characters"></aside>
+          <div class="chat-panel">
+            <div class="chat-header" id="chat-header">
+              <h2 id="chat-heading" class="chat-name">Select a character</h2>
+              <p class="chat-mood" id="chat-mood"></p>
+            </div>
+            <div class="chat-log" id="chat-log" role="log" aria-live="polite"></div>
+            <form id="chat-form" class="chat-form">
+              <label class="visually-hidden" for="chat-input">Message</label>
+              <input type="text" id="chat-input" class="chat-input" placeholder="Speak…" autocomplete="off" disabled maxlength="500">
+              <button type="submit" class="btn btn-primary" id="chat-send" disabled>Send</button>
+            </form>
+          </div>
+        </div>
+      </section>
+
+      <!-- MIND -->
+      <section id="view-mind" class="view" aria-labelledby="mind-heading" hidden>
+        <div class="view-header">
+          <h2 id="mind-heading" class="view-title">Inner Landscape</h2>
+          <p class="view-desc">Beliefs, memories, contradictions, and drifting goals of the active character.</p>
+        </div>
+        <div id="mind-content" class="mind-content">
+          <p class="empty-hint">Select a character in Dialogue first.</p>
+        </div>
+      </section>
+
+      <!-- CREATE -->
+      <section id="view-create" class="view" aria-labelledby="create-heading" hidden>
+        <div class="view-header">
+          <h2 id="create-heading" class="view-title">Create Character</h2>
+          <p class="view-desc">Seed a consciousness with temperament, core belief, and a private tension.</p>
+        </div>
+        <form id="create-form" class="create-form" novalidate>
+          <div class="param-block">
+            <label class="field-label" for="char-name">Name</label>
+            <input type="text" id="char-name" class="text-input" maxlength="40" required placeholder="e.g. Maris">
+          </div>
+          <div class="param-block">
+            <label class="field-label" for="char-temperament">Temperament</label>
+            <div class="chip-group" role="radiogroup" aria-label="Temperament">
+              <label class="chip"><input type="radio" name="temperament" value="warm" checked><span>Warm</span></label>
+              <label class="chip"><input type="radio" name="temperament" value="reserved"><span>Reserved</span></label>
+              <label class="chip"><input type="radio" name="temperament" value="volatile"><span>Volatile</span></label>
+              <label class="chip"><input type="radio" name="temperament" value="analytical"><span>Analytical</span></label>
+            </div>
+          </div>
+          <div class="param-block">
+            <label class="field-label" for="char-belief">Core belief</label>
+            <input type="text" id="char-belief" class="text-input" maxlength="120" required placeholder="e.g. People leave when things get hard">
+          </div>
+          <div class="param-block">
+            <label class="field-label" for="char-tension">Private contradiction</label>
+            <input type="text" id="char-tension" class="text-input" maxlength="120" required placeholder="e.g. Craves closeness but tests it constantly">
+          </div>
+          <div class="form-actions">
+            <button type="submit" class="btn btn-primary">Awaken</button>
+          </div>
+        </form>
+      </section>
+    </main>
+  </div>
+
+  <script src="js/main.js"></script>
+</body>
+</html>

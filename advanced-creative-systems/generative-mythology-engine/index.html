@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Generative Mythology Engine — Create coherent, original mythological systems through cultural parameters and interactive constellation mapping.">
+  <title>Celestial Codex — Generative Mythology Engine</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body data-theme="astral">
+  <!-- Skip link for accessibility -->
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+
+  <!-- Ambient background layer -->
+  <div class="cosmic-background" aria-hidden="true">
+    <canvas id="starfield"></canvas>
+  </div>
+
+  <!-- App shell -->
+  <div class="app-shell">
+    <!-- Header -->
+    <header class="site-header">
+      <div class="header-inner">
+        <div class="brand">
+          <span class="brand-mark" aria-hidden="true"></span>
+          <div class="brand-text">
+            <h1 class="brand-title">Celestial Codex</h1>
+            <p class="brand-subtitle">Generative Mythology Engine</p>
+          </div>
+        </div>
+
+        <nav class="main-nav" aria-label="Primary">
+          <button class="nav-btn is-active" data-view="forge" aria-current="page">
+            <span class="nav-icon" aria-hidden="true">◈</span>
+            <span>Forge</span>
+          </button>
+          <button class="nav-btn" data-view="codex" disabled>
+            <span class="nav-icon" aria-hidden="true">☰</span>
+            <span>Codex</span>
+          </button>
+          <button class="nav-btn" data-view="constellation" disabled>
+            <span class="nav-icon" aria-hidden="true">✧</span>
+            <span>Constellation</span>
+          </button>
+          <button class="nav-btn" data-view="evolve" disabled>
+            <span class="nav-icon" aria-hidden="true">↻</span>
+            <span>Evolve</span>
+          </button>
+        </nav>
+
+        <div class="header-actions">
+          <div class="theme-switcher" role="group" aria-label="Theme selection">
+            <button class="theme-btn is-active" data-theme="astral" aria-pressed="true" title="Astral theme">
+              <span class="theme-swatch astral"></span>
+              <span class="visually-hidden">Astral</span>
+            </button>
+            <button class="theme-btn" data-theme="primordial" aria-pressed="false" title="Primordial theme">
+              <span class="theme-swatch primordial"></span>
+              <span class="visually-hidden">Primordial</span>
+            </button>
+            <button class="theme-btn" data-theme="ethereal" aria-pressed="false" title="Ethereal theme">
+              <span class="theme-swatch ethereal"></span>
+              <span class="visually-hidden">Ethereal</span>
+            </button>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <!-- Main content area -->
+    <main id="main-content" class="main-content">
+      <!-- VIEW: Parameter Forge -->
+      <section id="view-forge" class="view is-active" aria-labelledby="forge-heading">
+        <div class="view-header">
+          <h2 id="forge-heading" class="view-title">Parameter Forge</h2>
+          <p class="view-desc">Define the cultural foundations. The engine will weave a coherent mythology from these seeds.</p>
+        </div>
+
+        <form id="forge-form" class="forge-form" novalidate>
+          <div class="parameter-grid">
+            <!-- Climate -->
+            <fieldset class="param-group">
+              <legend class="param-legend">Climate & Landscape</legend>
+              <div class="param-options" role="radiogroup" aria-label="Climate">
+                <label class="param-option">
+                  <input type="radio" name="climate" value="arctic" required>
+                  <span class="option-card">
+                    <span class="option-title">Arctic</span>
+                    <span class="option-desc">Frozen wastes, aurora, endurance</span>
+                  </span>
+                </label>
+                <label class="param-option">
+                  <input type="radio" name="climate" value="temperate" checked>
+                  <span class="option-card">
+                    <span class="option-title">Temperate</span>
+                    <span class="option-desc">Forests, seasons, balance</span>
+                  </span>
+                </label>
+                <label class="param-option">
+                  <input type="radio" name="climate" value="desert">
+                  <span class="option-card">
+                    <span class="option-title">Desert</span>
+                    <span class="option-desc">Scorching dunes, scarcity, mirage</span>
+                  </span>
+                </label>
+                <label class="param-option">
+                  <input type="radio" name="climate" value="tropical">
+                  <span class="option-card">
+                    <span class="option-title">Tropical</span>
+                    <span class="option-desc">Jungle, abundance, storms</span>
+                  </span>
+                </label>
+                <label class="param-option">
+                  <input type="radio" name="climate" value="volcanic">
+                  <span class="option-card">
+                    <span class="option-title">Volcanic</span>
+                    <span class="option-desc">Ash skies, fire, rebirth</span>
+                  </span>
+                </label>
+              </div>
+            </fieldset>
+
+            <!-- Social Structure -->
+            <fieldset class="param-group">
+              <legend class="param-legend">Social Structure</legend>
+              <div class="param-options" role="radiogroup" aria-label="Social Structure">
+                <label class="param-option">
+                  <input type="radio" name="social" value="tribal" checked>
+                  <span class="option-card">
+                    <span class="option-title">Tribal</span>
+                    <span class="option-desc">Kinship, oral law, elders</span>
+                  </span>
+                </label>
+                <label class="param-option">
+                  <input type="radio" name="social" value="hierarchical">
+                  <span class="option-card">
+                    <span class="option-title">Hierarchical</span>
+                    <span class="option-desc">Castes, divine right, order</span>
+                  </span>
+                </label>
+                <label class="param-option">
+                  <input type="radio" name="social" value="egalitarian">
+                  <span class="option-card">
+                    <span class="option-title">Egalitarian</span>
+                    <span class="option-desc">Shared power, councils</span>
+                  </span>
+                </label>
+                <label class="param-option">
+                  <input type="radio" name="social" value="theocratic">
+                  <span class="option-card">
+                    <span class="option-title">Theocratic</span>
+                    <span class="option-desc">Priest-kings, sacred law</span>
+                  </span>
+                </label>
+              </div>
+            </fieldset>
+
+            <!-- Core Values -->
+            <fieldset class="param-group">
+              <legend class="param-legend">Core Values</legend>
+              <div class="param-options multi" role="group" aria-label="Core Values">
+                <label class="param-option">
+                  <input type="checkbox" name="values" value="honor">
+                  <span class="option-card">
+                    <span class="option-title">Honor</span>
+                  </span>
+                </label>
+                <label class="param-option">
+                  <input type="checkbox" name="values" value="wisdom" checked>
+                  <span class="option-card">
+                    <span class="option-title">Wisdom</span>
+                  </span>
+                </label>
+                <label class="param-option">
+                  <input type="checkbox" name="values" value="strength">
+                  <span class="option-card">
+                    <span class="option-title">Strength</span>
+                  </span>
+                </label>
+                <label class="param-option">
+                  <input type="checkbox" name="values" value="harmony" checked>
+                  <span class="option-card">
+                    <span class="option-title">Harmony</span>
+                  </span>
+                </label>
+                <label class="param-option">
+                  <input type="checkbox" name="values" value="sacrifice">
+                  <span class="option-card">
+                    <span class="option-title">Sacrifice</span>
+                  </span>
+                </label>
+                <label class="param-option">
+                  <input type="checkbox" name="values" value="curiosity">
+                  <span class="option-card">
+                    <span class="option-title">Curiosity</span>
+                  </span>
+                </label>
+              </div>
+            </fieldset>
+
+            <!-- Relationship with Nature -->
+            <fieldset class="param-group">
+              <legend class="param-legend">Relationship with Nature</legend>
+              <div class="param-options" role="radiogroup" aria-label="Relationship with Nature">
+                <label class="param-option">
+                  <input type="radio" name="nature" value="reverent" checked>
+                  <span class="option-card">
+                    <span class="option-title">Reverent</span>
+                    <span class="option-desc">Nature as sacred kin</span>
+                  </span>
+                </label>
+                <label class="param-option">
+                  <input type="radio" name="nature" value="dominant">
+                  <span class="option-card">
+                    <span class="option-title">Dominant</span>
+                    <span class="option-desc">Nature as resource</span>
+                  </span>
+                </label>
+                <label class="param-option">
+                  <input type="radio" name="nature" value="symbiotic">
+                  <span class="option-card">
+                    <span class="option-title">Symbiotic</span>
+                    <span class="option-desc">Mutual shaping</span>
+                  </span>
+                </label>
+                <label class="param-option">
+                  <input type="radio" name="nature" value="fearful">
+                  <span class="option-card">
+                    <span class="option-title">Fearful</span>
+                    <span class="option-desc">Nature as threat</span>
+                  </span>
+                </label>
+              </div>
+            </fieldset>
+
+            <!-- Technological Level -->
+            <fieldset class="param-group">
+              <legend class="param-legend">Technological Level</legend>
+              <div class="param-options" role="radiogroup" aria-label="Technological Level">
+                <label class="param-option">
+                  <input type="radio" name="tech" value="stone" checked>
+                  <span class="option-card">
+                    <span class="option-title">Stone Age</span>
+                    <span class="option-desc">Tools of bone & flint</span>
+                  </span>
+                </label>
+                <label class="param-option">
+                  <input type="radio" name="tech" value="bronze">
+                  <span class="option-card">
+                    <span class="option-title">Bronze Age</span>
+                    <span class="option-desc">Metal, early cities</span>
+                  </span>
+                </label>
+                <label class="param-option">
+                  <input type="radio" name="tech" value="iron">
+                  <span class="option-card">
+                    <span class="option-title">Iron Age</span>
+                    <span class="option-desc">Forged weapons, writing</span>
+                  </span>
+                </label>
+                <label class="param-option">
+                  <input type="radio" name="tech" value="classical">
+                  <span class="option-card">
+                    <span class="option-title">Classical</span>
+                    <span class="option-desc">Philosophy, empires</span>
+                  </span>
+                </label>
+              </div>
+            </fieldset>
+
+            <!-- Pantheon Size -->
+            <fieldset class="param-group">
+              <legend class="param-legend">Pantheon Scale</legend>
+              <div class="param-options" role="radiogroup" aria-label="Pantheon Scale">
+                <label class="param-option">
+                  <input type="radio" name="scale" value="small">
+                  <span class="option-card">
+                    <span class="option-title">Intimate</span>
+                    <span class="option-desc">4–6 deities</span>
+                  </span>
+                </label>
+                <label class="param-option">
+                  <input type="radio" name="scale" value="medium" checked>
+                  <span class="option-card">
+                    <span class="option-title">Classic</span>
+                    <span class="option-desc">7–10 deities</span>
+                  </span>
+                </label>
+                <label class="param-option">
+                  <input type="radio" name="scale" value="large">
+                  <span class="option-card">
+                    <span class="option-title">Expansive</span>
+                    <span class="option-desc">11–14 deities</span>
+                  </span>
+                </label>
+              </div>
+            </fieldset>
+          </div>
+
+          <div class="forge-actions">
+            <button type="submit" class="btn btn-primary" id="generate-btn">
+              <span class="btn-text">Weave Mythology</span>
+              <span class="btn-icon" aria-hidden="true">✧</span>
+            </button>
+          </div>
+        </form>
+      </section>
+
+      <!-- VIEW: Codex (hidden initially) -->
+      <section id="view-codex" class="view" aria-labelledby="codex-heading" hidden>
+        <div class="view-header">
+          <h2 id="codex-heading" class="view-title">Myth Codex</h2>
+          <p class="view-desc">The living record of your generated mythology.</p>
+        </div>
+        <div id="codex-content" class="codex-content">
+          <!-- Populated by JS -->
+        </div>
+      </section>
+
+      <!-- VIEW: Constellation (hidden initially) -->
+      <section id="view-constellation" class="view" aria-labelledby="constellation-heading" hidden>
+        <div class="view-header">
+          <h2 id="constellation-heading" class="view-title">Living Constellation</h2>
+          <p class="view-desc">Interactive map of divine relationships. Drag nodes. Click for details.</p>
+        </div>
+        <div class="constellation-wrapper">
+          <canvas id="constellation-canvas" aria-label="Interactive constellation of deities"></canvas>
+          <div id="god-detail-panel" class="god-detail-panel" hidden>
+            <!-- Populated by JS -->
+          </div>
+          <div class="constellation-legend" aria-hidden="true">
+            <span class="legend-item"><span class="legend-line solid"></span> Ally / Kin</span>
+            <span class="legend-item"><span class="legend-line dashed"></span> Rival / Conflict</span>
+            <span class="legend-item"><span class="legend-line dotted"></span> Lover / Mentor</span>
+          </div>
+        </div>
+      </section>
+
+      <!-- VIEW: Evolve (hidden initially) -->
+      <section id="view-evolve" class="view" aria-labelledby="evolve-heading" hidden>
+        <div class="view-header">
+          <h2 id="evolve-heading" class="view-title">Evolution Chamber</h2>
+          <p class="view-desc">Reshape fate. Generate variations or evolve the existing mythology.</p>
+        </div>
+        <div id="evolve-content" class="evolve-content">
+          <!-- Populated by JS -->
+        </div>
+      </section>
+    </main>
+
+    <!-- Generation Overlay -->
+    <div id="generation-overlay" class="generation-overlay" hidden aria-live="polite" aria-busy="false">
+      <div class="generation-inner">
+        <div class="generation-orb" aria-hidden="true"></div>
+        <p class="generation-status" id="generation-status">Consulting the celestial patterns…</p>
+        <div class="generation-progress" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100">
+          <div class="generation-bar"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>

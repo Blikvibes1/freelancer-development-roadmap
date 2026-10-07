@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Branching Reality Simulator — Explore alternate histories through plausible cascading consequences.">
+  <title>Branching Reality Simulator</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Libre+Franklin:wght@400;500;600&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body data-theme="chronicle">
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+
+  <div class="app-shell">
+    <header class="site-header">
+      <div class="header-inner">
+        <div class="brand">
+          <span class="brand-mark" aria-hidden="true"></span>
+          <div class="brand-text">
+            <h1 class="brand-title">Divergence</h1>
+            <p class="brand-subtitle">Branching Reality Simulator</p>
+          </div>
+        </div>
+        <nav class="main-nav" aria-label="Primary">
+          <button class="nav-btn is-active" data-view="setup" aria-current="page">Setup</button>
+          <button class="nav-btn" data-view="timeline" disabled>Timeline</button>
+          <button class="nav-btn" data-view="inspect" disabled>Inspect</button>
+        </nav>
+        <div class="header-actions">
+          <div class="theme-switcher" role="group" aria-label="Theme">
+            <button class="theme-btn is-active" data-theme="chronicle" aria-pressed="true" title="Chronicle">
+              <span class="theme-swatch chronicle"></span>
+              <span class="visually-hidden">Chronicle</span>
+            </button>
+            <button class="theme-btn" data-theme="parchment" aria-pressed="false" title="Parchment">
+              <span class="theme-swatch parchment"></span>
+              <span class="visually-hidden">Parchment</span>
+            </button>
+            <button class="theme-btn" data-theme="signal" aria-pressed="false" title="Signal">
+              <span class="theme-swatch signal"></span>
+              <span class="visually-hidden">Signal</span>
+            </button>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <main id="main-content" class="main-content">
+      <!-- SETUP -->
+      <section id="view-setup" class="view is-active" aria-labelledby="setup-heading">
+        <div class="view-header">
+          <h2 id="setup-heading" class="view-title">Define a Divergence</h2>
+          <p class="view-desc">Choose a moment where history could have turned. Set the initial conditions. The simulator will cascade consequences across technology, society, culture, and personal life.</p>
+        </div>
+
+        <form id="setup-form" class="setup-form" novalidate>
+          <fieldset class="param-block">
+            <legend class="param-legend">Scenario type</legend>
+            <div class="chip-group" role="radiogroup" aria-label="Scenario type">
+              <label class="chip"><input type="radio" name="scenario" value="historical" checked><span>Historical</span></label>
+              <label class="chip"><input type="radio" name="scenario" value="personal"><span>Personal</span></label>
+              <label class="chip"><input type="radio" name="scenario" value="technological"><span>Technological</span></label>
+            </div>
+          </fieldset>
+
+          <fieldset class="param-block">
+            <legend class="param-legend">Divergence point</legend>
+            <select id="divergence-select" class="select-input" aria-label="Divergence point">
+              <!-- Populated by JS -->
+            </select>
+            <p class="field-hint" id="divergence-hint"></p>
+          </fieldset>
+
+          <fieldset class="param-block">
+            <legend class="param-legend">What changes at the fork?</legend>
+            <textarea id="change-text" class="text-area" rows="3" maxlength="400" placeholder="e.g. The vote fails. The invention is delayed by a decade. The letter is never sent…"></textarea>
+          </fieldset>
+
+          <div class="param-row">
+            <fieldset class="param-block half">
+              <legend class="param-legend">Horizon</legend>
+              <div class="chip-group" role="radiogroup" aria-label="Time horizon">
+                <label class="chip"><input type="radio" name="horizon" value="short" checked><span>20 years</span></label>
+                <label class="chip"><input type="radio" name="horizon" value="medium"><span>50 years</span></label>
+                <label class="chip"><input type="radio" name="horizon" value="long"><span>100 years</span></label>
+              </div>
+            </fieldset>
+            <fieldset class="param-block half">
+              <legend class="param-legend">Branching depth</legend>
+              <div class="chip-group" role="radiogroup" aria-label="Depth">
+                <label class="chip"><input type="radio" name="depth" value="3" checked><span>3 levels</span></label>
+                <label class="chip"><input type="radio" name="depth" value="4"><span>4 levels</span></label>
+                <label class="chip"><input type="radio" name="depth" value="5"><span>5 levels</span></label>
+              </div>
+            </fieldset>
+          </div>
+
+          <div class="form-actions">
+            <button type="submit" class="btn btn-primary" id="simulate-btn">Simulate branches</button>
+          </div>
+        </form>
+      </section>
+
+      <!-- TIMELINE -->
+      <section id="view-timeline" class="view" aria-labelledby="timeline-heading" hidden>
+        <div class="view-header compact">
+          <h2 id="timeline-heading" class="view-title">Branching Timeline</h2>
+          <p class="view-desc">Click a node to inspect. Branches show plausible cascades.</p>
+        </div>
+        <div class="timeline-stage">
+          <canvas id="timeline-canvas" aria-label="Interactive branching timeline"></canvas>
+        </div>
+        <div class="timeline-legend">
+          <span class="leg-item tech">Technology</span>
+          <span class="leg-item social">Social</span>
+          <span class="leg-item culture">Culture</span>
+          <span class="leg-item personal">Personal</span>
+        </div>
+      </section>
+
+      <!-- INSPECT -->
+      <section id="view-inspect" class="view" aria-labelledby="inspect-heading" hidden>
+        <div class="view-header">
+          <h2 id="inspect-heading" class="view-title">Inspect Node</h2>
+          <p class="view-desc" id="inspect-desc">Select a node on the timeline to examine its consequences.</p>
+        </div>
+        <div id="inspect-content" class="inspect-content">
+          <p class="empty-hint">No node selected yet.</p>
+        </div>
+        <div class="form-actions">
+          <button type="button" class="btn btn-secondary" id="btn-back-timeline">Back to Timeline</button>
+          <button type="button" class="btn btn-ghost" id="btn-new-sim">New Simulation</button>
+        </div>
+      </section>
+    </main>
+
+    <div id="gen-overlay" class="gen-overlay" hidden aria-live="polite">
+      <div class="gen-inner">
+        <div class="gen-ring" aria-hidden="true"></div>
+        <p class="gen-status" id="gen-status">Tracing causal threads…</p>
+      </div>
+    </div>
+  </div>
+
+  <script src="js/main.js"></script>
+</body>
+</html>

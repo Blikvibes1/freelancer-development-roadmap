@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Temporal Interface — An interface that exists across multiple timescales. Act in the present; affect past and future.">
+  <title>Temporal Interface — Across Timescales</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body data-theme="chrono">
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+
+  <div class="app-shell">
+    <header class="site-header">
+      <div class="header-inner">
+        <div class="brand">
+          <span class="brand-mark" aria-hidden="true"></span>
+          <div class="brand-text">
+            <h1 class="brand-title">Chronos</h1>
+            <p class="brand-subtitle">Temporal Interface</p>
+          </div>
+        </div>
+        <div class="time-readout" id="time-readout" aria-live="polite">
+          <span class="time-label">Viewing</span>
+          <span class="time-value" id="time-value">Present</span>
+        </div>
+        <div class="header-actions">
+          <div class="theme-switcher" role="group" aria-label="Theme">
+            <button class="theme-btn is-active" data-theme="chrono" aria-pressed="true" title="Chrono">
+              <span class="theme-swatch chrono"></span>
+              <span class="visually-hidden">Chrono</span>
+            </button>
+            <button class="theme-btn" data-theme="archive" aria-pressed="false" title="Archive">
+              <span class="theme-swatch archive"></span>
+              <span class="visually-hidden">Archive</span>
+            </button>
+            <button class="theme-btn" data-theme="signal" aria-pressed="false" title="Signal">
+              <span class="theme-swatch signal"></span>
+              <span class="visually-hidden">Signal</span>
+            </button>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <main id="main-content" class="main-content">
+      <!-- Timeline scrubber -->
+      <div class="timeline-bar">
+        <div class="timeline-labels">
+          <span>Past</span>
+          <span>Present</span>
+          <span>Future</span>
+        </div>
+        <input type="range" id="time-slider" min="-5" max="5" value="0" step="1" aria-label="Scrub through time">
+        <div class="timeline-ticks" id="timeline-ticks"></div>
+      </div>
+
+      <div class="workspace">
+        <!-- The document that exists across time -->
+        <section class="doc-panel" aria-labelledby="doc-heading">
+          <div class="doc-header">
+            <h2 id="doc-heading" class="doc-title">Shared ledger</h2>
+            <p class="doc-meta" id="doc-meta">State at present · edits ripple backward and forward</p>
+          </div>
+          <div class="doc-body" id="doc-body"></div>
+          <form id="add-form" class="add-form">
+            <label class="visually-hidden" for="entry-text">New entry</label>
+            <input type="text" id="entry-text" class="entry-input" placeholder="Add an entry at the current time…" maxlength="200" autocomplete="off">
+            <button type="submit" class="btn btn-primary" id="btn-add">Commit</button>
+          </form>
+          <p class="hint" id="mode-hint">You are in the <strong>present</strong>. Commits write here and seed the future.</p>
+        </section>
+
+        <aside class="side-panel">
+          <h3 class="side-title">Timescale effects</h3>
+          <ul class="effect-list" id="effect-list">
+            <li><strong>Past (−)</strong> — Read-only echo. See what was true before later edits.</li>
+            <li><strong>Present (0)</strong> — Full write. Changes become history and projection.</li>
+            <li><strong>Future (+)</strong> — Projected state. Present commits appear here as anticipations; you can annotate the future without rewriting the past.</li>
+          </ul>
+          <div class="legend">
+            <span class="leg past">Past entry</span>
+            <span class="leg present">Present entry</span>
+            <span class="leg future">Future annotation</span>
+            <span class="leg ripple">Rippled from another time</span>
+          </div>
+          <button type="button" class="btn btn-ghost" id="btn-reset">Reset timeline</button>
+        </aside>
+      </div>
+    </main>
+  </div>
+
+  <script src="js/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Counterfactual Civilization Engine — Evolve long-term trajectories from alternate early conditions.">
+  <title>Counterfactual Civilization Engine</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Source+Sans+3:wght@400;500;600&family=Libre+Baskerville:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body data-theme="chronicle">
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+
+  <div class="app-shell">
+    <header class="site-header">
+      <div class="header-inner">
+        <div class="brand">
+          <span class="brand-mark" aria-hidden="true"></span>
+          <div class="brand-text">
+            <h1 class="brand-title">Fork</h1>
+            <p class="brand-subtitle">Counterfactual Civ</p>
+          </div>
+        </div>
+        <nav class="main-nav" aria-label="Primary">
+          <button class="nav-btn is-active" data-view="seed" aria-current="page">Seed</button>
+          <button class="nav-btn" data-view="run" disabled>Run</button>
+          <button class="nav-btn" data-view="compare" disabled>Compare</button>
+        </nav>
+        <div class="header-actions">
+          <div class="theme-switcher" role="group" aria-label="Theme">
+            <button class="theme-btn is-active" data-theme="chronicle" aria-pressed="true" title="Chronicle">
+              <span class="theme-swatch chronicle"></span>
+              <span class="visually-hidden">Chronicle</span>
+            </button>
+            <button class="theme-btn" data-theme="atlas" aria-pressed="false" title="Atlas">
+              <span class="theme-swatch atlas"></span>
+              <span class="visually-hidden">Atlas</span>
+            </button>
+            <button class="theme-btn" data-theme="ash" aria-pressed="false" title="Ash">
+              <span class="theme-swatch ash"></span>
+              <span class="visually-hidden">Ash</span>
+            </button>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <main id="main-content" class="main-content">
+      <!-- SEED -->
+      <section id="view-seed" class="view is-active" aria-labelledby="seed-heading">
+        <div class="view-header">
+          <h2 id="seed-heading" class="view-title">Early conditions</h2>
+          <p class="view-desc">Set a small number of alternate starting pressures. The engine evolves technology, social form, culture, and knowledge with path dependence — early choices compound.</p>
+        </div>
+        <div class="seed-grid">
+          <div class="param-block">
+            <label class="field-label">Environment</label>
+            <div class="chip-group" id="env-chips"></div>
+          </div>
+          <div class="param-block">
+            <label class="field-label">Resource pattern</label>
+            <div class="chip-group" id="resource-chips"></div>
+          </div>
+          <div class="param-block">
+            <label class="field-label">Founding organization</label>
+            <div class="chip-group" id="org-chips"></div>
+          </div>
+          <div class="param-block">
+            <label class="field-label">Knowledge bias</label>
+            <div class="chip-group" id="know-chips"></div>
+          </div>
+          <div class="param-block">
+            <label class="field-label">Shock intensity</label>
+            <input type="range" id="shock" min="0" max="100" value="30">
+            <div class="range-labels"><span>Stable</span><span id="shock-val">30</span><span>Volatile</span></div>
+          </div>
+        </div>
+        <div class="form-actions">
+          <button type="button" class="btn btn-primary" id="btn-evolve">Evolve civilization</button>
+        </div>
+      </section>
+
+      <!-- RUN -->
+      <section id="view-run" class="view" aria-labelledby="run-heading" hidden>
+        <div class="view-header">
+          <h2 id="run-heading" class="view-title">Trajectory</h2>
+          <p class="view-desc" id="run-subtitle">Eras unfold from your seed.</p>
+        </div>
+        <canvas id="chart-canvas" width="800" height="220" aria-label="Four axes over eras"></canvas>
+        <div class="era-timeline" id="era-timeline"></div>
+        <div class="outcome-card" id="outcome-card"></div>
+        <div class="form-actions">
+          <button type="button" class="btn btn-secondary" id="btn-save-run">Save to compare</button>
+          <button type="button" class="btn btn-ghost" id="btn-reseed">New seed</button>
+        </div>
+      </section>
+
+      <!-- COMPARE -->
+      <section id="view-compare" class="view" aria-labelledby="compare-heading" hidden>
+        <div class="view-header">
+          <h2 id="compare-heading" class="view-title">Path dependence</h2>
+          <p class="view-desc">Saved runs side by side. Same engine; different early conditions; divergent long-term form.</p>
+        </div>
+        <div class="compare-grid" id="compare-grid">
+          <p class="empty-hint">Save at least one run from Trajectory.</p>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <script src="js/main.js"></script>
+</body>
+</html>

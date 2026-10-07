@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Future Artifact Generator — Plausible objects from 20–100 years ahead.">
+  <title>Future Artifact Generator</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body data-theme="archive">
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+
+  <div class="app-shell">
+    <header class="site-header">
+      <div class="header-inner">
+        <div class="brand">
+          <span class="brand-mark" aria-hidden="true"></span>
+          <div class="brand-text">
+            <h1 class="brand-title">Relic</h1>
+            <p class="brand-subtitle">Future Artifacts</p>
+          </div>
+        </div>
+        <div class="header-actions">
+          <div class="theme-switcher" role="group" aria-label="Theme">
+            <button class="theme-btn is-active" data-theme="archive" aria-pressed="true" title="Archive">
+              <span class="theme-swatch archive"></span>
+              <span class="visually-hidden">Archive</span>
+            </button>
+            <button class="theme-btn" data-theme="lab" aria-pressed="false" title="Lab">
+              <span class="theme-swatch lab"></span>
+              <span class="visually-hidden">Lab</span>
+            </button>
+            <button class="theme-btn" data-theme="dusk" aria-pressed="false" title="Dusk">
+              <span class="theme-swatch dusk"></span>
+              <span class="visually-hidden">Dusk</span>
+            </button>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <main id="main-content" class="main-content">
+      <div class="layout">
+        <section class="controls-panel">
+          <h2 class="panel-title">Trend vector</h2>
+          <p class="panel-desc">Pick pressures that shape the future. The generator invents an everyday object that could exist under those conditions.</p>
+
+          <div class="param-block">
+            <label class="field-label" for="horizon">Horizon</label>
+            <select id="horizon" class="select-input">
+              <option value="25">~25 years</option>
+              <option value="40" selected>~40 years</option>
+              <option value="60">~60 years</option>
+              <option value="80">~80 years</option>
+              <option value="100">~100 years</option>
+            </select>
+          </div>
+
+          <div class="param-block">
+            <label class="field-label">Tech emphasis</label>
+            <div class="chip-group" id="tech-chips" role="group"></div>
+          </div>
+          <div class="param-block">
+            <label class="field-label">Social climate</label>
+            <div class="chip-group" id="social-chips" role="group"></div>
+          </div>
+          <div class="param-block">
+            <label class="field-label">Cultural tone</label>
+            <div class="chip-group" id="culture-chips" role="group"></div>
+          </div>
+          <div class="param-block">
+            <label class="field-label">Domain</label>
+            <div class="chip-group" id="domain-chips" role="group"></div>
+          </div>
+
+          <button type="button" class="btn btn-primary" id="btn-generate">Excavate artifact</button>
+        </section>
+
+        <section class="artifact-panel" id="artifact-panel" aria-live="polite">
+          <div class="empty-state" id="empty-state">
+            <p>Set a trend vector and excavate. Artifacts arrive with form, materials, use, context, and side effects.</p>
+          </div>
+          <div class="artifact-card" id="artifact-card" hidden>
+            <div class="artifact-visual">
+              <canvas id="artifact-canvas" width="320" height="240" aria-label="Artifact silhouette"></canvas>
+              <p class="year-badge" id="year-badge"></p>
+            </div>
+            <div class="artifact-body">
+              <h2 class="artifact-name" id="artifact-name"></h2>
+              <p class="artifact-tagline" id="artifact-tagline"></p>
+              <dl class="spec-list">
+                <div><dt>Form</dt><dd id="spec-form"></dd></div>
+                <div><dt>Materials</dt><dd id="spec-materials"></dd></div>
+                <div><dt>Intended use</dt><dd id="spec-use"></dd></div>
+                <div><dt>Cultural context</dt><dd id="spec-context"></dd></div>
+                <div><dt>Unintended consequences</dt><dd id="spec-side"></dd></div>
+              </dl>
+              <p class="seed-meta" id="seed-meta"></p>
+            </div>
+          </div>
+        </section>
+      </div>
+    </main>
+  </div>
+
+  <script src="js/main.js"></script>
+</body>
+</html>

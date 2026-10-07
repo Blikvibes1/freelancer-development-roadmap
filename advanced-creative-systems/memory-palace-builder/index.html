@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Memory Palace Builder — Encode knowledge with spatial mnemonics and test recall.">
+  <title>Memory Palace Builder</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600&family=Figtree:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body data-theme="atrium">
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+
+  <div class="app-shell">
+    <header class="site-header">
+      <div class="header-inner">
+        <div class="brand">
+          <span class="brand-mark" aria-hidden="true"></span>
+          <div class="brand-text">
+            <h1 class="brand-title">Loci</h1>
+            <p class="brand-subtitle">Memory Palace Builder</p>
+          </div>
+        </div>
+        <nav class="main-nav" aria-label="Primary">
+          <button class="nav-btn is-active" data-view="palace" aria-current="page">Palace</button>
+          <button class="nav-btn" data-view="encode">Encode</button>
+          <button class="nav-btn" data-view="recall">Recall</button>
+          <button class="nav-btn" data-view="guide">Guide</button>
+        </nav>
+        <div class="header-actions">
+          <div class="theme-switcher" role="group" aria-label="Theme">
+            <button class="theme-btn is-active" data-theme="atrium" aria-pressed="true" title="Atrium">
+              <span class="theme-swatch atrium"></span>
+              <span class="visually-hidden">Atrium</span>
+            </button>
+            <button class="theme-btn" data-theme="archive" aria-pressed="false" title="Archive">
+              <span class="theme-swatch archive"></span>
+              <span class="visually-hidden">Archive</span>
+            </button>
+            <button class="theme-btn" data-theme="night" aria-pressed="false" title="Night">
+              <span class="theme-swatch night"></span>
+              <span class="visually-hidden">Night</span>
+            </button>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <main id="main-content" class="main-content">
+      <!-- PALACE -->
+      <section id="view-palace" class="view is-active" aria-labelledby="palace-heading">
+        <div class="palace-layout">
+          <div class="palace-stage">
+            <canvas id="palace-canvas" aria-label="Memory palace floor plan"></canvas>
+            <p class="stage-hint">Click a room to enter · Click a locus to inspect</p>
+          </div>
+          <aside class="palace-side">
+            <h2 id="palace-heading" class="side-title">Rooms</h2>
+            <ul class="room-list" id="room-list"></ul>
+            <button type="button" class="btn btn-secondary" id="btn-add-room">+ Add room</button>
+            <div id="locus-detail" class="locus-detail" hidden></div>
+          </aside>
+        </div>
+      </section>
+
+      <!-- ENCODE -->
+      <section id="view-encode" class="view" aria-labelledby="encode-heading" hidden>
+        <div class="view-header">
+          <h2 id="encode-heading" class="view-title">Encode Knowledge</h2>
+          <p class="view-desc">Turn a fact into a vivid, emotional image and place it at a locus in your palace.</p>
+        </div>
+        <form id="encode-form" class="encode-form" novalidate>
+          <div class="param-block">
+            <label class="field-label" for="fact-text">What do you want to remember?</label>
+            <textarea id="fact-text" class="text-area" rows="2" maxlength="300" required placeholder="e.g. Mitochondria are the powerhouse of the cell"></textarea>
+          </div>
+          <div class="param-block">
+            <label class="field-label" for="image-text">Vivid image (bizarre + emotional is stronger)</label>
+            <textarea id="image-text" class="text-area" rows="2" maxlength="300" required placeholder="e.g. A tiny power plant inside a glowing cell, sparks flying, the smell of ozone"></textarea>
+          </div>
+          <div class="param-row">
+            <div class="param-block half">
+              <label class="field-label" for="locus-room">Room</label>
+              <select id="locus-room" class="select-input" required></select>
+            </div>
+            <div class="param-block half">
+              <label class="field-label" for="locus-emotion">Emotional charge</label>
+              <div class="chip-group" role="radiogroup" aria-label="Emotion">
+                <label class="chip"><input type="radio" name="emotion" value="wonder" checked><span>Wonder</span></label>
+                <label class="chip"><input type="radio" name="emotion" value="humor"><span>Humor</span></label>
+                <label class="chip"><input type="radio" name="emotion" value="fear"><span>Fear</span></label>
+                <label class="chip"><input type="radio" name="emotion" value="awe"><span>Awe</span></label>
+              </div>
+            </div>
+          </div>
+          <div class="form-actions">
+            <button type="submit" class="btn btn-primary">Place in palace</button>
+          </div>
+        </form>
+        <div id="encode-success" class="encode-success" hidden></div>
+      </section>
+
+      <!-- RECALL -->
+      <section id="view-recall" class="view" aria-labelledby="recall-heading" hidden>
+        <div class="view-header">
+          <h2 id="recall-heading" class="view-title">Spatial Recall</h2>
+          <p class="view-desc">Walk the palace in your mind. What lives at this locus?</p>
+        </div>
+        <div id="recall-panel" class="recall-panel">
+          <p class="empty-hint">Add at least one encoded locus to begin testing.</p>
+        </div>
+      </section>
+
+      <!-- GUIDE -->
+      <section id="view-guide" class="view" aria-labelledby="guide-heading" hidden>
+        <div class="view-header">
+          <h2 id="guide-heading" class="view-title">Art of Memory</h2>
+          <p class="view-desc">Principles that make loci stick.</p>
+        </div>
+        <div class="guide-grid">
+          <article class="guide-card">
+            <h3>1. Familiar path</h3>
+            <p>Use a real place you know well — home, school, a route you walk. Memory prefers routes you can walk without thinking.</p>
+          </article>
+          <article class="guide-card">
+            <h3>2. Vivid & absurd</h3>
+            <p>Ordinary images fade. Make them huge, colorful, moving, smelling, sounding. Absurdity is glue.</p>
+          </article>
+          <article class="guide-card">
+            <h3>3. Emotion</h3>
+            <p>Attach feeling — humor, fear, beauty, disgust. The amygdala tags emotional scenes for long-term storage.</p>
+          </article>
+          <article class="guide-card">
+            <h3>4. One idea per locus</h3>
+            <p>Overloading a single spot creates interference. Space ideas along a clear sequence of places.</p>
+          </article>
+          <article class="guide-card">
+            <h3>5. Revisit</h3>
+            <p>Walk the palace soon after encoding, then at expanding intervals. Spatial recall is a skill that strengthens with use.</p>
+          </article>
+          <article class="guide-card">
+            <h3>6. Encode, then test</h3>
+            <p>Use the Recall mode. Struggle to retrieve is part of learning — it deepens the path.</p>
+          </article>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <script src="js/main.js"></script>
+</body>
+</html>

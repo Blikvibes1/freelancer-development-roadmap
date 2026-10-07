@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Personal Creative OS — A responsive environment shaped around your creative mind.">
+  <title>Personal Creative OS</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&family=Fraunces:opsz,wght@9..144,500;9..144,600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body data-theme="atelier" data-mode="open">
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+
+  <div class="app-shell">
+    <header class="site-header">
+      <div class="header-inner">
+        <div class="brand">
+          <span class="brand-mark" aria-hidden="true"></span>
+          <div class="brand-text">
+            <h1 class="brand-title">Atelier</h1>
+            <p class="brand-subtitle">Creative OS</p>
+          </div>
+        </div>
+        <div class="mode-pill" id="mode-pill" aria-live="polite">Open mode</div>
+        <div class="header-actions">
+          <div class="theme-switcher" role="group" aria-label="Theme">
+            <button class="theme-btn is-active" data-theme="atelier" aria-pressed="true" title="Atelier">
+              <span class="theme-swatch atelier"></span>
+              <span class="visually-hidden">Atelier</span>
+            </button>
+            <button class="theme-btn" data-theme="night" aria-pressed="false" title="Night">
+              <span class="theme-swatch night"></span>
+              <span class="visually-hidden">Night</span>
+            </button>
+            <button class="theme-btn" data-theme="paper" aria-pressed="false" title="Paper">
+              <span class="theme-swatch paper"></span>
+              <span class="visually-hidden">Paper</span>
+            </button>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <main id="main-content" class="main-content">
+      <div class="layout">
+        <!-- Energy & rhythm -->
+        <section class="panel energy-panel">
+          <h2 class="panel-title">Energy now</h2>
+          <p class="panel-desc">Log how you feel. Over time the OS learns when deep work sticks.</p>
+          <div class="energy-row" id="energy-row">
+            <button type="button" class="energy-btn" data-energy="1">Drained</button>
+            <button type="button" class="energy-btn" data-energy="2">Low</button>
+            <button type="button" class="energy-btn is-on" data-energy="3">Steady</button>
+            <button type="button" class="energy-btn" data-energy="4">Charged</button>
+            <button type="button" class="energy-btn" data-energy="5">Peak</button>
+          </div>
+          <div class="rhythm-chart-wrap">
+            <canvas id="rhythm-canvas" width="320" height="100" aria-label="Recent energy rhythm"></canvas>
+          </div>
+          <p class="hint" id="rhythm-hint">Log a few days to see your rhythm.</p>
+        </section>
+
+        <!-- Deep work -->
+        <section class="panel focus-panel">
+          <h2 class="panel-title">Deep work</h2>
+          <p class="panel-desc">Protect a block. While active, the OS quiets surfaces and holds one intention.</p>
+          <label class="field-label" for="intention">Intention</label>
+          <input type="text" id="intention" class="text-input" maxlength="80" placeholder="What are you protecting time for?">
+          <div class="timer-row">
+            <select id="duration" class="select-input">
+              <option value="25">25 min</option>
+              <option value="45" selected>45 min</option>
+              <option value="60">60 min</option>
+              <option value="90">90 min</option>
+            </select>
+            <button type="button" class="btn btn-primary" id="btn-focus">Start focus</button>
+          </div>
+          <div class="focus-active" id="focus-active" hidden>
+            <p class="focus-intention" id="focus-intention"></p>
+            <p class="focus-timer" id="focus-timer">—</p>
+            <button type="button" class="btn btn-ghost" id="btn-end-focus">End early</button>
+          </div>
+        </section>
+
+        <!-- References -->
+        <section class="panel ref-panel">
+          <h2 class="panel-title">Reference shelf</h2>
+          <p class="panel-desc">Stash links and notes. The shelf surfaces items that match your current energy and mode.</p>
+          <form id="ref-form" class="ref-form">
+            <input type="text" id="ref-title" class="text-input" placeholder="Title" required maxlength="60">
+            <input type="text" id="ref-note" class="text-input" placeholder="Why it matters (optional)" maxlength="120">
+            <select id="ref-tag" class="select-input">
+              <option value="craft">Craft</option>
+              <option value="spark">Spark</option>
+              <option value="method">Method</option>
+              <option value="rest">Rest</option>
+            </select>
+            <button type="submit" class="btn btn-secondary">Add</button>
+          </form>
+          <ul class="ref-list" id="ref-list"></ul>
+        </section>
+
+        <!-- Momentum log -->
+        <section class="panel momentum-panel">
+          <h2 class="panel-title">Momentum</h2>
+          <p class="panel-desc">Short marks of what moved. Not a task list — a trail.</p>
+          <form id="momentum-form" class="momentum-form">
+            <input type="text" id="momentum-text" class="text-input" placeholder="What moved today?" maxlength="100" required>
+            <button type="submit" class="btn btn-secondary">Mark</button>
+          </form>
+          <ul class="momentum-list" id="momentum-list"></ul>
+        </section>
+      </div>
+    </main>
+  </div>
+
+  <script src="js/main.js"></script>
+</body>
+</html>

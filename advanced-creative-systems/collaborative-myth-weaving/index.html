@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Collaborative Myth-Weaving Platform — Build a living shared world through fragments of characters, places, events, and rules.">
+  <title>Myth Loom — Collaborative World Weaving</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,400&family=Outfit:wght@300;400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body data-theme="loom">
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+
+  <div class="app-shell">
+    <header class="site-header">
+      <div class="header-inner">
+        <div class="brand">
+          <span class="brand-mark" aria-hidden="true"></span>
+          <div class="brand-text">
+            <h1 class="brand-title">Myth Loom</h1>
+            <p class="brand-subtitle">Collective World Weaving</p>
+          </div>
+        </div>
+        <nav class="main-nav" aria-label="Primary">
+          <button class="nav-btn is-active" data-view="world" aria-current="page">World</button>
+          <button class="nav-btn" data-view="contribute">Contribute</button>
+          <button class="nav-btn" data-view="structure">Structure</button>
+          <button class="nav-btn" data-view="contributors">Contributors</button>
+        </nav>
+        <div class="header-actions">
+          <div class="theme-switcher" role="group" aria-label="Theme">
+            <button class="theme-btn is-active" data-theme="loom" aria-pressed="true" title="Loom">
+              <span class="theme-swatch loom"></span>
+              <span class="visually-hidden">Loom</span>
+            </button>
+            <button class="theme-btn" data-theme="ink" aria-pressed="false" title="Ink">
+              <span class="theme-swatch ink"></span>
+              <span class="visually-hidden">Ink</span>
+            </button>
+            <button class="theme-btn" data-theme="gild" aria-pressed="false" title="Gild">
+              <span class="theme-swatch gild"></span>
+              <span class="visually-hidden">Gild</span>
+            </button>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <main id="main-content" class="main-content">
+      <!-- WORLD -->
+      <section id="view-world" class="view is-active" aria-labelledby="world-heading">
+        <div class="view-header">
+          <h2 id="world-heading" class="view-title">The Shared World</h2>
+          <p class="view-desc">Fragments woven by many hands. Filter by type; open any card to see links and tension.</p>
+        </div>
+        <div class="filter-bar">
+          <div class="chip-group" id="type-filters" role="group" aria-label="Filter by type">
+            <button type="button" class="filter-chip is-active" data-type="all">All</button>
+            <button type="button" class="filter-chip" data-type="character">Characters</button>
+            <button type="button" class="filter-chip" data-type="place">Places</button>
+            <button type="button" class="filter-chip" data-type="event">Events</button>
+            <button type="button" class="filter-chip" data-type="rule">Rules</button>
+            <button type="button" class="filter-chip" data-type="artifact">Artifacts</button>
+          </div>
+        </div>
+        <div class="fragment-grid" id="fragment-grid"></div>
+      </section>
+
+      <!-- CONTRIBUTE -->
+      <section id="view-contribute" class="view" aria-labelledby="contribute-heading" hidden>
+        <div class="view-header">
+          <h2 id="contribute-heading" class="view-title">Add a Fragment</h2>
+          <p class="view-desc">Contribute a character, place, event, rule, or artifact. The loom will integrate it and flag tension with existing threads.</p>
+        </div>
+        <form id="contribute-form" class="contribute-form" novalidate>
+          <div class="param-block">
+            <label class="field-label">Your name (contributor)</label>
+            <input type="text" id="contributor-name" class="text-input" maxlength="40" placeholder="Anonymous weaver" value="Anonymous">
+          </div>
+          <div class="param-block">
+            <label class="field-label">Fragment type</label>
+            <div class="chip-group" role="radiogroup" aria-label="Fragment type">
+              <label class="chip"><input type="radio" name="ftype" value="character" checked><span>Character</span></label>
+              <label class="chip"><input type="radio" name="ftype" value="place"><span>Place</span></label>
+              <label class="chip"><input type="radio" name="ftype" value="event"><span>Event</span></label>
+              <label class="chip"><input type="radio" name="ftype" value="rule"><span>Rule</span></label>
+              <label class="chip"><input type="radio" name="ftype" value="artifact"><span>Artifact</span></label>
+            </div>
+          </div>
+          <div class="param-block">
+            <label class="field-label" for="frag-title">Title</label>
+            <input type="text" id="frag-title" class="text-input" maxlength="80" required placeholder="e.g. The Glass Matriarch">
+          </div>
+          <div class="param-block">
+            <label class="field-label" for="frag-body">Description</label>
+            <textarea id="frag-body" class="text-area" rows="4" maxlength="600" required placeholder="What is true about this in the world…"></textarea>
+          </div>
+          <div class="param-block">
+            <label class="field-label" for="frag-links">Links to existing fragments (optional)</label>
+            <select id="frag-links" class="select-input" multiple size="4" aria-label="Link to fragments"></select>
+            <p class="field-hint">Hold Ctrl/Cmd to select multiple. Links help the loom keep consistency.</p>
+          </div>
+          <div class="form-actions">
+            <button type="submit" class="btn btn-primary">Weave into the World</button>
+          </div>
+        </form>
+        <div id="integrate-result" class="integrate-result" hidden></div>
+      </section>
+
+      <!-- STRUCTURE -->
+      <section id="view-structure" class="view" aria-labelledby="structure-heading" hidden>
+        <div class="view-header compact">
+          <h2 id="structure-heading" class="view-title">World Structure</h2>
+          <p class="view-desc">Graph of fragments and their links. Tension edges appear when contributions conflict.</p>
+        </div>
+        <div class="structure-stage">
+          <canvas id="structure-canvas" aria-label="World structure graph"></canvas>
+        </div>
+        <div id="structure-detail" class="structure-detail" hidden></div>
+      </section>
+
+      <!-- CONTRIBUTORS -->
+      <section id="view-contributors" class="view" aria-labelledby="contributors-heading" hidden>
+        <div class="view-header">
+          <h2 id="contributors-heading" class="view-title">Weavers</h2>
+          <p class="view-desc">Influence by contribution count and how often others link to their fragments.</p>
+        </div>
+        <div id="contributor-list" class="contributor-list"></div>
+      </section>
+    </main>
+  </div>
+
+  <script src="js/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Emotion-Driven Architecture Generator — Translate emotional states into spatially coherent, explorable architectural environments.">
+  <title>Resonant Chambers — Emotion-Driven Architecture Generator</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body data-theme="liminal">
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+
+  <!-- Ambient atmosphere layer -->
+  <div class="atmosphere-layer" aria-hidden="true"></div>
+
+  <div class="app-shell">
+    <!-- Header -->
+    <header class="site-header">
+      <div class="header-inner">
+        <div class="brand">
+          <span class="brand-mark" aria-hidden="true"></span>
+          <div class="brand-text">
+            <h1 class="brand-title">Resonant Chambers</h1>
+            <p class="brand-subtitle">Emotion-Driven Architecture</p>
+          </div>
+        </div>
+
+        <nav class="main-nav" aria-label="Primary">
+          <button class="nav-btn is-active" data-view="brief" aria-current="page">
+            <span class="nav-label">Brief</span>
+          </button>
+          <button class="nav-btn" data-view="chamber" disabled>
+            <span class="nav-label">Chamber</span>
+          </button>
+          <button class="nav-btn" data-view="atmosphere" disabled>
+            <span class="nav-label">Atmosphere</span>
+          </button>
+          <button class="nav-btn" data-view="refine" disabled>
+            <span class="nav-label">Refine</span>
+          </button>
+        </nav>
+
+        <div class="header-actions">
+          <div class="theme-switcher" role="group" aria-label="Theme selection">
+            <button class="theme-btn is-active" data-theme="liminal" aria-pressed="true" title="Liminal theme">
+              <span class="theme-swatch liminal"></span>
+              <span class="visually-hidden">Liminal</span>
+            </button>
+            <button class="theme-btn" data-theme="hearth" aria-pressed="false" title="Hearth theme">
+              <span class="theme-swatch hearth"></span>
+              <span class="visually-hidden">Hearth</span>
+            </button>
+            <button class="theme-btn" data-theme="fracture" aria-pressed="false" title="Fracture theme">
+              <span class="theme-swatch fracture"></span>
+              <span class="visually-hidden">Fracture</span>
+            </button>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <!-- Main -->
+    <main id="main-content" class="main-content">
+
+      <!-- VIEW: Emotional Brief -->
+      <section id="view-brief" class="view is-active" aria-labelledby="brief-heading">
+        <div class="view-header">
+          <h2 id="brief-heading" class="view-title">Emotional Brief</h2>
+          <p class="view-desc">Describe the feeling. The chamber will form around it — light, scale, material, and sequence shaped by emotion.</p>
+        </div>
+
+        <form id="brief-form" class="brief-form" novalidate>
+          <!-- Primary Emotion -->
+          <fieldset class="param-block">
+            <legend class="param-legend">Primary Emotion</legend>
+            <div class="emotion-grid" role="radiogroup" aria-label="Primary Emotion">
+              <label class="emotion-option">
+                <input type="radio" name="primary" value="grief" required>
+                <span class="emotion-card">
+                  <span class="emotion-name">Grief</span>
+                  <span class="emotion-hint">Heavy, slow, enclosing</span>
+                </span>
+              </label>
+              <label class="emotion-option">
+                <input type="radio" name="primary" value="safety" checked>
+                <span class="emotion-card">
+                  <span class="emotion-name">Safety</span>
+                  <span class="emotion-hint">Warm, held, intimate</span>
+                </span>
+              </label>
+              <label class="emotion-option">
+                <input type="radio" name="primary" value="anxiety">
+                <span class="emotion-card">
+                  <span class="emotion-name">Anxiety</span>
+                  <span class="emotion-hint">Tight, fragmented, alert</span>
+                </span>
+              </label>
+              <label class="emotion-option">
+                <input type="radio" name="primary" value="awe">
+                <span class="emotion-card">
+                  <span class="emotion-name">Awe</span>
+                  <span class="emotion-hint">Vast, luminous, vertical</span>
+                </span>
+              </label>
+              <label class="emotion-option">
+                <input type="radio" name="primary" value="longing">
+                <span class="emotion-card">
+                  <span class="emotion-name">Longing</span>
+                  <span class="emotion-hint">Distant, linear, fading</span>
+                </span>
+              </label>
+              <label class="emotion-option">
+                <input type="radio" name="primary" value="serenity">
+                <span class="emotion-card">
+                  <span class="emotion-name">Serenity</span>
+                  <span class="emotion-hint">Open, balanced, soft</span>
+                </span>
+              </label>
+            </div>
+          </fieldset>
+
+          <!-- Secondary Emotion -->
+          <fieldset class="param-block">
+            <legend class="param-legend">Secondary Tone <span class="optional">(optional)</span></legend>
+            <div class="emotion-grid secondary" role="radiogroup" aria-label="Secondary Emotion">
+              <label class="emotion-option">
+                <input type="radio" name="secondary" value="none" checked>
+                <span class="emotion-card compact">
+                  <span class="emotion-name">None</span>
+                </span>
+              </label>
+              <label class="emotion-option">
+                <input type="radio" name="secondary" value="hope">
+                <span class="emotion-card compact">
+                  <span class="emotion-name">Hope</span>
+                </span>
+              </label>
+              <label class="emotion-option">
+                <input type="radio" name="secondary" value="memory">
+                <span class="emotion-card compact">
+                  <span class="emotion-name">Memory</span>
+                </span>
+              </label>
+              <label class="emotion-option">
+                <input type="radio" name="secondary" value="tension">
+                <span class="emotion-card compact">
+                  <span class="emotion-name">Tension</span>
+                </span>
+              </label>
+              <label class="emotion-option">
+                <input type="radio" name="secondary" value="warmth">
+                <span class="emotion-card compact">
+                  <span class="emotion-name">Warmth</span>
+                </span>
+              </label>
+              <label class="emotion-option">
+                <input type="radio" name="secondary" value="void">
+                <span class="emotion-card compact">
+                  <span class="emotion-name">Void</span>
+                </span>
+              </label>
+            </div>
+          </fieldset>
+
+          <!-- Intensity & Temporal -->
+          <div class="param-row">
+            <fieldset class="param-block half">
+              <legend class="param-legend">Intensity</legend>
+              <div class="slider-group">
+                <label class="slider-label" for="intensity">
+                  <span>Subtle</span>
+                  <span id="intensity-value">50</span>
+                  <span>Overwhelming</span>
+                </label>
+                <input type="range" id="intensity" name="intensity" min="10" max="100" value="50" class="range-input">
+              </div>
+            </fieldset>
+
+            <fieldset class="param-block half">
+              <legend class="param-legend">Temporal Quality</legend>
+              <div class="chip-group" role="radiogroup" aria-label="Temporal Quality">
+                <label class="chip">
+                  <input type="radio" name="temporal" value="still" checked>
+                  <span>Still</span>
+                </label>
+                <label class="chip">
+                  <input type="radio" name="temporal" value="drifting">
+                  <span>Drifting</span>
+                </label>
+                <label class="chip">
+                  <input type="radio" name="temporal" value="urgent">
+                  <span>Urgent</span>
+                </label>
+              </div>
+            </fieldset>
+          </div>
+
+          <!-- Spatial Preference -->
+          <fieldset class="param-block">
+            <legend class="param-legend">Spatial Preference</legend>
+            <div class="chip-group" role="radiogroup" aria-label="Spatial Preference">
+              <label class="chip">
+                <input type="radio" name="spatial" value="enclosed" checked>
+                <span>Enclosed</span>
+              </label>
+              <label class="chip">
+                <input type="radio" name="spatial" value="transitional">
+                <span>Transitional</span>
+              </label>
+              <label class="chip">
+                <input type="radio" name="spatial" value="open">
+                <span>Open</span>
+              </label>
+              <label class="chip">
+                <input type="radio" name="spatial" value="vertical">
+                <span>Vertical</span>
+              </label>
+            </div>
+          </fieldset>
+
+          <!-- Architectural Language -->
+          <fieldset class="param-block">
+            <legend class="param-legend">Architectural Language</legend>
+            <div class="chip-group" role="radiogroup" aria-label="Architectural Language">
+              <label class="chip">
+                <input type="radio" name="language" value="abstract" checked>
+                <span>Abstract</span>
+              </label>
+              <label class="chip">
+                <input type="radio" name="language" value="semi-real">
+                <span>Semi-Realistic</span>
+              </label>
+            </div>
+          </fieldset>
+
+          <div class="form-actions">
+            <button type="submit" class="btn btn-primary" id="generate-btn">
+              <span class="btn-text">Form the Chamber</span>
+              <span class="btn-icon" aria-hidden="true">→</span>
+            </button>
+          </div>
+        </form>
+      </section>
+
+      <!-- VIEW: Chamber (3D) -->
+      <section id="view-chamber" class="view" aria-labelledby="chamber-heading" hidden>
+        <div class="view-header compact">
+          <h2 id="chamber-heading" class="view-title">Spatial Chamber</h2>
+          <p class="view-desc">Explore the architecture formed by the emotional brief. Drag to look. Scroll to move.</p>
+        </div>
+        <div class="chamber-stage">
+          <canvas id="chamber-canvas" aria-label="Interactive 3D architectural chamber"></canvas>
+          <div class="chamber-hud" id="chamber-hud">
+            <p class="hud-emotion" id="hud-emotion">—</p>
+            <p class="hud-hint">Drag to orbit · Scroll to dolly</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- VIEW: Atmosphere -->
+      <section id="view-atmosphere" class="view" aria-labelledby="atmosphere-heading" hidden>
+        <div class="view-header">
+          <h2 id="atmosphere-heading" class="view-title">Atmosphere</h2>
+          <p class="view-desc">Fine-tune the spatial qualities. Changes apply live to the chamber.</p>
+        </div>
+        <div id="atmosphere-controls" class="atmosphere-controls">
+          <!-- Populated by JS -->
+        </div>
+      </section>
+
+      <!-- VIEW: Refine -->
+      <section id="view-refine" class="view" aria-labelledby="refine-heading" hidden>
+        <div class="view-header">
+          <h2 id="refine-heading" class="view-title">Refine & Vary</h2>
+          <p class="view-desc">Generate a variation from the same emotional seed, or return to rewrite the brief.</p>
+        </div>
+        <div id="refine-content" class="refine-content">
+          <!-- Populated by JS -->
+        </div>
+      </section>
+    </main>
+
+    <!-- Generation Overlay -->
+    <div id="generation-overlay" class="generation-overlay" hidden aria-live="polite" aria-busy="false">
+      <div class="generation-inner">
+        <div class="generation-ring" aria-hidden="true"></div>
+        <p class="generation-status" id="generation-status">Listening to the emotional brief…</p>
+        <div class="generation-progress" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100">
+          <div class="generation-bar"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="js/chamber2d.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>

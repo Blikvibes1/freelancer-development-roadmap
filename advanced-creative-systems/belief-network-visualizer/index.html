@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Belief Network Visualizer — Map load-bearing beliefs, supports, contradictions, and leverage points.">
+  <title>Belief Network Visualizer</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Serif:wght@500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body data-theme="slate">
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+
+  <div class="app-shell">
+    <header class="site-header">
+      <div class="header-inner">
+        <div class="brand">
+          <span class="brand-mark" aria-hidden="true"></span>
+          <div class="brand-text">
+            <h1 class="brand-title">Doctrine</h1>
+            <p class="brand-subtitle">Belief Architecture</p>
+          </div>
+        </div>
+        <nav class="main-nav" aria-label="Primary">
+          <button class="nav-btn is-active" data-view="map" aria-current="page">Map</button>
+          <button class="nav-btn" data-view="edit">Edit</button>
+          <button class="nav-btn" data-view="insights">Insights</button>
+        </nav>
+        <div class="header-actions">
+          <div class="theme-switcher" role="group" aria-label="Theme">
+            <button class="theme-btn is-active" data-theme="slate" aria-pressed="true" title="Slate">
+              <span class="theme-swatch slate"></span>
+              <span class="visually-hidden">Slate</span>
+            </button>
+            <button class="theme-btn" data-theme="parchment" aria-pressed="false" title="Parchment">
+              <span class="theme-swatch parchment"></span>
+              <span class="visually-hidden">Parchment</span>
+            </button>
+            <button class="theme-btn" data-theme="ink" aria-pressed="false" title="Ink">
+              <span class="theme-swatch ink"></span>
+              <span class="visually-hidden">Ink</span>
+            </button>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <main id="main-content" class="main-content">
+      <!-- MAP -->
+      <section id="view-map" class="view is-active" aria-labelledby="map-heading">
+        <div class="map-layout">
+          <div class="canvas-wrap">
+            <canvas id="net-canvas" width="720" height="480" aria-label="Belief network graph"></canvas>
+            <p class="canvas-hint">Drag nodes · Scroll to zoom · Click a node for detail</p>
+          </div>
+          <aside class="detail-panel" id="detail-panel">
+            <h2 id="map-heading" class="side-title">Node detail</h2>
+            <div id="detail-body">
+              <p class="empty-hint">Select a belief on the map.</p>
+            </div>
+          </aside>
+        </div>
+      </section>
+
+      <!-- EDIT -->
+      <section id="view-edit" class="view" aria-labelledby="edit-heading" hidden>
+        <div class="view-header">
+          <h2 id="edit-heading" class="view-title">Edit belief network</h2>
+          <p class="view-desc">Add beliefs, mark supports and contradictions. Load-bearing status is computed from structure.</p>
+        </div>
+        <div class="edit-layout">
+          <form id="belief-form" class="edit-form">
+            <label class="field-label" for="belief-text">Belief statement</label>
+            <input type="text" id="belief-text" class="text-input" maxlength="120" required placeholder="e.g. Hard work is the main path to success">
+            <label class="field-label" for="belief-weight">Felt centrality (1–5)</label>
+            <input type="range" id="belief-weight" min="1" max="5" value="3">
+            <button type="submit" class="btn btn-primary">Add belief</button>
+          </form>
+          <div class="edge-form">
+            <p class="field-label">Link two beliefs</p>
+            <select id="edge-from" class="select-input"></select>
+            <select id="edge-to" class="select-input"></select>
+            <div class="chip-group">
+              <button type="button" class="chip is-on" data-rel="supports">Supports</button>
+              <button type="button" class="chip" data-rel="contradicts">Contradicts</button>
+            </div>
+            <button type="button" class="btn btn-secondary" id="btn-add-edge">Add link</button>
+          </div>
+          <div class="belief-list-wrap">
+            <p class="field-label">Current beliefs</p>
+            <ul class="belief-list" id="belief-list"></ul>
+            <button type="button" class="btn btn-ghost" id="btn-seed">Load sample network</button>
+            <button type="button" class="btn btn-ghost" id="btn-clear">Clear all</button>
+          </div>
+        </div>
+      </section>
+
+      <!-- INSIGHTS -->
+      <section id="view-insights" class="view" aria-labelledby="insights-heading" hidden>
+        <div class="view-header">
+          <h2 id="insights-heading" class="view-title">Structural insights</h2>
+          <p class="view-desc">Load-bearing beliefs, contradictions, and leverage points derived from the graph—not from content judgment.</p>
+        </div>
+        <div class="insights-grid" id="insights-grid"></div>
+      </section>
+    </main>
+  </div>
+
+  <script src="js/main.js"></script>
+</body>
+</html>

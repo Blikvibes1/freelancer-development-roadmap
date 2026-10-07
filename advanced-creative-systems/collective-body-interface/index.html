@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Collective Body Interface — Multiple people drive one shared digital entity through coordinated input.">
+  <title>Collective Body Interface</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@500;600;700&family=DM+Sans:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body data-theme="hive">
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+
+  <div class="app-shell">
+    <header class="site-header">
+      <div class="header-inner">
+        <div class="brand">
+          <span class="brand-mark" aria-hidden="true"></span>
+          <div class="brand-text">
+            <h1 class="brand-title">Corpus</h1>
+            <p class="brand-subtitle">Collective Body</p>
+          </div>
+        </div>
+        <div class="coherence-meter" aria-live="polite">
+          <span class="meter-label">Coherence</span>
+          <div class="meter-track"><div class="meter-fill" id="coherence-fill"></div></div>
+          <span class="meter-val" id="coherence-val">—</span>
+        </div>
+        <div class="header-actions">
+          <div class="theme-switcher" role="group" aria-label="Theme">
+            <button class="theme-btn is-active" data-theme="hive" aria-pressed="true" title="Hive">
+              <span class="theme-swatch hive"></span>
+              <span class="visually-hidden">Hive</span>
+            </button>
+            <button class="theme-btn" data-theme="chorus" aria-pressed="false" title="Chorus">
+              <span class="theme-swatch chorus"></span>
+              <span class="visually-hidden">Chorus</span>
+            </button>
+            <button class="theme-btn" data-theme="pulse" aria-pressed="false" title="Pulse">
+              <span class="theme-swatch pulse"></span>
+              <span class="visually-hidden">Pulse</span>
+            </button>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <main id="main-content" class="main-content">
+      <div class="layout">
+        <section class="stage-panel" aria-labelledby="stage-heading">
+          <div class="stage-header">
+            <h2 id="stage-heading" class="stage-title">Shared body</h2>
+            <p class="stage-desc">Up to four local agents pull the organism. Alignment moves it cleanly; conflict fractures and slows it. Quality of collective attention is the coherence score.</p>
+          </div>
+          <canvas id="body-canvas" width="720" height="420" aria-label="Shared digital organism driven by collective input"></canvas>
+          <div class="agent-pads" id="agent-pads">
+            <!-- filled by JS -->
+          </div>
+          <p class="hint">Each pad is one agent. Hold direction keys shown on the pad, or drag inside the pad. Optional: enable mic to add shared voice energy.</p>
+        </section>
+
+        <aside class="side-panel">
+          <h3 class="side-title">Collective state</h3>
+          <dl class="stat-list" id="stat-list">
+            <div><dt>Active agents</dt><dd id="stat-agents">0</dd></div>
+            <div><dt>Vector agreement</dt><dd id="stat-agree">—</dd></div>
+            <div><dt>Leadership</dt><dd id="stat-lead">None</dd></div>
+            <div><dt>Voice energy</dt><dd id="stat-voice">Off</dd></div>
+          </dl>
+          <h3 class="side-title">Controls</h3>
+          <button type="button" class="btn btn-secondary" id="btn-mic">Enable voice energy</button>
+          <button type="button" class="btn btn-ghost" id="btn-reset">Reset body</button>
+          <h3 class="side-title">What you are testing</h3>
+          <ul class="idea-list">
+            <li><strong>Coordination</strong> — do vectors cancel or reinforce?</li>
+            <li><strong>Leadership</strong> — who pulls hardest when others are weak?</li>
+            <li><strong>Emergence</strong> — does a stable path appear without a plan?</li>
+            <li><strong>Attention</strong> — coherence drops when agents fight or idle.</li>
+          </ul>
+        </aside>
+      </div>
+    </main>
+  </div>
+
+  <script src="js/main.js"></script>
+</body>
+</html>
