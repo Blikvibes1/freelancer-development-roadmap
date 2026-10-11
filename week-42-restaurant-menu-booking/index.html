@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="noir">
+<head>
+<meta charset="UTF-8"/><meta name="viewport" content="width=device-width,initial-scale=1"/>
+<meta name="description" content="Restaurant menu and booking"/><title>Table & Thyme</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Syne:wght@600;700;800&display=swap" rel="stylesheet"/>
+
+<link rel="stylesheet" href="style.css"/>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <header class="site-header"><div class="header-inner">
+    <a class="brand" href="#">Table & Thyme</a>
+    <button type="button" class="theme-switch" id="theme-switch" role="switch" aria-checked="false" aria-label="Switch theme">
+      <span class="theme-switch__track"><span class="theme-switch__thumb">
+        <svg class="icon-moon" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+        <svg class="icon-sun" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><circle cx="12" cy="12" r="4"/></svg>
+      </span></span>
+    </button>
+  </div></header>
+
+<main id="main" class="wrap">
+  <p class="eyebrow">Week 42 · Restaurant Menu & Booking</p>
+  <h1>Seasonal menu & tables</h1>
+  <p class="lead">Browse the menu and reserve a table.</p>
+  <div class="menu-layout">
+    <section><div class="cats" id="cats"></div><div class="menu-grid" id="menu"></div></section>
+    <aside class="card">
+      <h2 style="margin:0 0 .75rem;font-family:var(--display);font-size:1.15rem">Reserve</h2>
+      <form id="book-form">
+        <div class="field"><label>Name</label><input id="name" required/></div>
+        <div class="field"><label>Email</label><input id="email" type="email" required/></div>
+        <div class="field"><label>Date</label><input id="date" type="date" required/></div>
+        <div class="field"><label>Time</label><select id="time"><option>18:00</option><option>18:30</option><option>19:00</option><option>19:30</option><option>20:00</option></select></div>
+        <div class="field"><label>Guests</label><select id="guests"><option>1</option><option selected>2</option><option>3</option><option>4</option><option>5</option><option>6</option></select></div>
+        <button class="btn btn-primary" type="submit" style="width:100%">Request reservation</button>
+      </form>
+      <div class="toast" id="toast"></div>
+      <div id="bookings" style="margin-top:1rem;font-size:.85rem;color:var(--muted)"></div>
+    </aside>
+  </div>
+</main>
+
+<footer class="site-footer"><div class="inner"><span>Freelancer roadmap · portfolio demo</span><span>Theme Mode</span></div></footer>
+<script src="script.js"></script>
+</body></html>

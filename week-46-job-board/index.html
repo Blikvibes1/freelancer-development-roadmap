@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="noir">
+<head>
+<meta charset="UTF-8"/><meta name="viewport" content="width=device-width,initial-scale=1"/>
+<meta name="description" content="Job board"/><title>Hireline — Jobs</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Syne:wght@600;700;800&display=swap" rel="stylesheet"/>
+<link rel="stylesheet" href="style.css"/>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <header class="site-header"><div class="header-inner">
+    <a class="brand" href="#">Hireline</a>
+    <button type="button" class="theme-switch" id="theme-switch" role="switch" aria-checked="false" aria-label="Switch theme">
+      <span class="theme-switch__track"><span class="theme-switch__thumb">
+        <svg class="icon-moon" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+        <svg class="icon-sun" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><circle cx="12" cy="12" r="4"/></svg>
+      </span></span>
+    </button>
+  </div></header>
+
+<main id="main" class="wrap">
+  <p class="eyebrow">Week 46 · Job Board</p>
+  <h1>Open roles</h1>
+  <p class="lead">Browse, apply, or post a role.</p>
+  <div class="layout46">
+    <div class="jobs" id="jobs"></div>
+    <aside>
+      <div class="card" style="margin-bottom:1rem">
+        <h2 style="margin:0 0 .75rem;font-family:var(--display);font-size:1.1rem">Apply</h2>
+        <p id="apply-for" style="color:var(--muted);font-size:.9rem">Select a job.</p>
+        <form id="apply">
+          <div class="field"><label>Name</label><input id="aname" required/></div>
+          <div class="field"><label>Email</label><input id="aemail" type="email" required/></div>
+          <div class="field"><label>Note</label><textarea id="anote" rows="3"></textarea></div>
+          <button class="btn btn-primary" type="submit" style="width:100%">Submit</button>
+        </form>
+        <p id="astatus" style="display:none;margin-top:.6rem;color:var(--ok);font-size:.9rem"></p>
+      </div>
+      <div class="card">
+        <h2 style="margin:0 0 .75rem;font-family:var(--display);font-size:1.1rem">Post a job</h2>
+        <form id="post">
+          <div class="field"><label>Title</label><input id="jtitle" required/></div>
+          <div class="field"><label>Company</label><input id="jco" required/></div>
+          <div class="field"><label>Location</label><input id="jloc" placeholder="Remote"/></div>
+          <button class="btn" type="submit" style="width:100%">Publish</button>
+        </form>
+      </div>
+    </aside>
+  </div>
+</main>
+
+<footer class="site-footer"><div class="inner"><span>Freelancer roadmap</span><span>Theme Mode</span></div></footer>
+<script src="script.js"></script>
+</body></html>

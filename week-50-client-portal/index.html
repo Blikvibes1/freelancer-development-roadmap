@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="noir">
+<head>
+<meta charset="UTF-8"/><meta name="viewport" content="width=device-width,initial-scale=1"/>
+<meta name="description" content="Client login dashboard"/><title>Desk — Client Portal</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Syne:wght@600;700;800&display=swap" rel="stylesheet"/>
+<link rel="stylesheet" href="style.css"/>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <header class="site-header"><div class="header-inner">
+    <a class="brand" href="#">Desk</a>
+    <button type="button" class="theme-switch" id="theme-switch" role="switch" aria-checked="false" aria-label="Switch theme">
+      <span class="theme-switch__track"><span class="theme-switch__thumb">
+        <svg class="icon-moon" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+        <svg class="icon-sun" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><circle cx="12" cy="12" r="4"/></svg>
+      </span></span>
+    </button>
+  </div></header>
+
+<main id="main" class="wrap">
+  <p class="eyebrow">Week 50 · Client Portal</p>
+  <section class="login-box card" id="login-view">
+    <h1 style="font-size:1.6rem">Client sign in</h1>
+    <p class="lead">Demo — any email. Password: <code>demo</code></p>
+    <form id="login" style="margin-top:1rem">
+      <div class="field"><label>Email</label><input id="email" type="email" required value="client@acme.com"/></div>
+      <div class="field"><label>Password</label><input id="pass" type="password" required placeholder="demo"/></div>
+      <button class="btn btn-primary" type="submit" style="width:100%">Sign in</button>
+      <p id="login-err" style="display:none;color:var(--danger);font-size:.9rem;margin-top:.5rem"></p>
+    </form>
+  </section>
+  <section class="dash" id="dash-view">
+    <div style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:1rem">
+      <div><h1 style="font-size:1.6rem">Project desk</h1><p class="lead" id="welcome">Welcome</p></div>
+      <button type="button" class="btn" id="logout">Sign out</button>
+    </div>
+    <div class="dash-grid">
+      <article class="card"><div class="badge">Status</div><h3 style="margin:.5rem 0">Website redesign</h3><span class="status-pill wip">In progress</span></article>
+      <article class="card"><div class="badge">Milestone</div><h3 style="margin:.5rem 0">Launch checklist</h3><p style="color:var(--muted);font-size:.9rem">Due Oct 18</p></article>
+      <article class="card"><div class="badge">Balance</div><h3 style="margin:.5rem 0">$2,400</h3><p style="color:var(--muted);font-size:.9rem">Invoice #104 due</p></article>
+    </div>
+    <div class="card"><h2 style="margin:0 0 .75rem;font-family:var(--display);font-size:1.1rem">Invoices</h2>
+      <table class="table"><thead><tr><th>Invoice</th><th>Amount</th><th>Status</th></tr></thead>
+      <tbody><tr><td>#103 Deposit</td><td>$2,400</td><td><span class="status-pill ok">Paid</span></td></tr>
+      <tr><td>#104 Milestone 2</td><td>$2,400</td><td><span class="status-pill wip">Due</span></td></tr></tbody></table>
+    </div>
+  </section>
+</main>
+
+<footer class="site-footer"><div class="inner"><span>Freelancer roadmap</span><span>Theme Mode</span></div></footer>
+<script src="script.js"></script>
+</body></html>

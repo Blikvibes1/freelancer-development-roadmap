@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="noir">
+<head>
+<meta charset="UTF-8"/><meta name="viewport" content="width=device-width,initial-scale=1"/>
+<meta name="description" content="Local business directory with map"/><title>Pinpoint — Directory</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Syne:wght@600;700;800&display=swap" rel="stylesheet"/>
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"/>
+<link rel="stylesheet" href="style.css"/>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <header class="site-header"><div class="header-inner">
+    <a class="brand" href="#">Pinpoint</a>
+    <button type="button" class="theme-switch" id="theme-switch" role="switch" aria-checked="false" aria-label="Switch theme">
+      <span class="theme-switch__track"><span class="theme-switch__thumb">
+        <svg class="icon-moon" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+        <svg class="icon-sun" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><circle cx="12" cy="12" r="4"/></svg>
+      </span></span>
+    </button>
+  </div></header>
+
+<main id="main" class="wrap">
+  <p class="eyebrow">Week 41 · Local Business Directory</p>
+  <h1>Find trusted local pros</h1>
+  <p class="lead">Search and filter. List and map stay in sync.</p>
+  <input id="q" type="search" placeholder="Search…" style="max-width:400px;margin-top:1rem"/>
+  <div class="chips" id="chips"></div>
+  <label style="display:inline-flex;gap:.4rem;align-items:center;color:var(--muted);font-size:.9rem;margin-top:.5rem"><input type="checkbox" id="openOnly"/> Open now</label>
+  <div class="workspace"><div class="results" id="results"></div><div id="map"></div></div>
+</main>
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+
+<footer class="site-footer"><div class="inner"><span>Freelancer roadmap · portfolio demo</span><span>Theme Mode</span></div></footer>
+<script src="script.js"></script>
+</body></html>

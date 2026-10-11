@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="noir">
+<head>
+<meta charset="UTF-8"/><meta name="viewport" content="width=device-width,initial-scale=1"/>
+<meta name="description" content="Appointment scheduling"/><title>Slotbook</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Syne:wght@600;700;800&display=swap" rel="stylesheet"/>
+<link rel="stylesheet" href="style.css"/>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <header class="site-header"><div class="header-inner">
+    <a class="brand" href="#">Slotbook</a>
+    <button type="button" class="theme-switch" id="theme-switch" role="switch" aria-checked="false" aria-label="Switch theme">
+      <span class="theme-switch__track"><span class="theme-switch__thumb">
+        <svg class="icon-moon" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+        <svg class="icon-sun" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><circle cx="12" cy="12" r="4"/></svg>
+      </span></span>
+    </button>
+  </div></header>
+
+<main id="main" class="wrap">
+  <p class="eyebrow">Week 47 · Appointments</p>
+  <h1>Book a consultation</h1>
+  <p class="lead">Pick a day and an open slot.</p>
+  <div class="cal-layout">
+    <section class="card"><h2 style="margin:0 0 .75rem;font-family:var(--display);font-size:1.05rem">Select a day</h2><div class="days" id="days"></div></section>
+    <section class="card">
+      <h2 style="margin:0 0 .75rem;font-family:var(--display);font-size:1.05rem">Times</h2>
+      <div class="slots" id="slots"></div>
+      <form id="book" style="margin-top:1rem">
+        <div class="field"><label>Name</label><input id="bname" required/></div>
+        <div class="field"><label>Email</label><input id="bemail" type="email" required/></div>
+        <button class="btn btn-primary" type="submit" style="width:100%">Confirm</button>
+      </form>
+      <p id="bstatus" style="display:none;margin-top:.6rem;color:var(--ok);font-size:.9rem"></p>
+    </section>
+  </div>
+</main>
+
+<footer class="site-footer"><div class="inner"><span>Freelancer roadmap</span><span>Theme Mode</span></div></footer>
+<script src="script.js"></script>
+</body></html>

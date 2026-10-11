@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="noir">
+<head>
+<meta charset="UTF-8"/><meta name="viewport" content="width=device-width,initial-scale=1"/>
+<meta name="description" content="Product reviews"/><title>Stars — Reviews</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Syne:wght@600;700;800&display=swap" rel="stylesheet"/>
+<link rel="stylesheet" href="style.css"/>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <header class="site-header"><div class="header-inner">
+    <a class="brand" href="#">Stars</a>
+    <button type="button" class="theme-switch" id="theme-switch" role="switch" aria-checked="false" aria-label="Switch theme">
+      <span class="theme-switch__track"><span class="theme-switch__thumb">
+        <svg class="icon-moon" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+        <svg class="icon-sun" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><circle cx="12" cy="12" r="4"/></svg>
+      </span></span>
+    </button>
+  </div></header>
+
+<main id="main" class="wrap">
+  <p class="eyebrow">Week 58 · Reviews</p>
+  <h1>Noir Leather Tote</h1>
+  <div class="layout">
+    <section class="card">
+      <div style="display:flex;align-items:center;gap:1rem;margin-bottom:1rem">
+        <div style="font-size:2.2rem;font-weight:800;font-family:var(--display)" id="avg">—</div>
+        <div><div class="stars" id="avg-stars"></div><div style="color:var(--muted);font-size:.85rem" id="count"></div></div>
+      </div>
+      <div id="list"></div>
+    </section>
+    <aside class="card">
+      <h2 style="margin:0 0 .75rem;font-family:var(--display);font-size:1.1rem">Write a review</h2>
+      <form id="form">
+        <div class="field"><label>Name</label><input id="name" required/></div>
+        <div class="field"><label>Rating</label><div class="star-input" id="star-input"></div><input type="hidden" id="rating" value="5"/></div>
+        <div class="field"><label>Review</label><textarea id="body" rows="3" required></textarea></div>
+        <button class="btn btn-primary" type="submit" style="width:100%">Submit</button>
+      </form>
+    </aside>
+  </div>
+</main>
+
+<footer class="site-footer"><div class="inner"><span>Phase 6 · E-commerce</span><span>Theme Mode</span></div></footer>
+<script src="script.js"></script>
+</body></html>

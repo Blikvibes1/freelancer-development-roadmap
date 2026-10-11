@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="noir">
+<head>
+<meta charset="UTF-8"/><meta name="viewport" content="width=device-width,initial-scale=1"/>
+<meta name="description" content="Coupon system"/><title>Promo</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Syne:wght@600;700;800&display=swap" rel="stylesheet"/>
+<link rel="stylesheet" href="style.css"/>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <header class="site-header"><div class="header-inner">
+    <a class="brand" href="#">Promo</a>
+    <button type="button" class="theme-switch" id="theme-switch" role="switch" aria-checked="false" aria-label="Switch theme">
+      <span class="theme-switch__track"><span class="theme-switch__thumb">
+        <svg class="icon-moon" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+        <svg class="icon-sun" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><circle cx="12" cy="12" r="4"/></svg>
+      </span></span>
+    </button>
+  </div></header>
+
+<main id="main" class="wrap">
+  <p class="eyebrow">Week 55 · Coupons</p>
+  <h1>Apply a promo code</h1>
+  <p class="lead">Try <code>SAVE10</code> or <code>FLAT20</code>.</p>
+  <div class="layout">
+    <div class="card">
+      <div style="display:flex;justify-content:space-between;margin:.4rem 0"><span>Subtotal</span><span>$212.00</span></div>
+      <div style="display:flex;justify-content:space-between;margin:.4rem 0;color:var(--muted)"><span>Discount</span><span id="disc">$0.00</span></div>
+      <div style="display:flex;justify-content:space-between;font-weight:800;margin-top:.75rem;padding-top:.75rem;border-top:1px solid var(--line)"><span>Total</span><span id="total">$212.00</span></div>
+      <div class="coupon-row" style="margin-top:1rem"><input id="code" placeholder="Enter code"/><button class="btn btn-primary" type="button" id="apply">Apply</button></div>
+      <p id="msg" style="margin-top:.6rem;font-size:.9rem;color:var(--muted)"></p>
+    </div>
+    <aside class="card"><strong>Demo codes</strong><ul style="color:var(--muted);font-size:.9rem"><li>SAVE10 — 10% off</li><li>FLAT20 — $20 off (min $100)</li><li>EXPIRED / MAXED</li></ul></aside>
+  </div>
+</main>
+
+<footer class="site-footer"><div class="inner"><span>Phase 6 · E-commerce</span><span>Theme Mode</span></div></footer>
+<script src="script.js"></script>
+</body></html>

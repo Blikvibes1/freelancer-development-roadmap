@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="noir">
+<head>
+<meta charset="UTF-8"/><meta name="viewport" content="width=device-width,initial-scale=1"/>
+<meta name="description" content="Shopping cart logic"/><title>Cartkit</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Syne:wght@600;700;800&display=swap" rel="stylesheet"/>
+<link rel="stylesheet" href="style.css"/>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <header class="site-header"><div class="header-inner">
+    <a class="brand" href="#">Cartkit</a>
+    <button type="button" class="theme-switch" id="theme-switch" role="switch" aria-checked="false" aria-label="Switch theme">
+      <span class="theme-switch__track"><span class="theme-switch__thumb">
+        <svg class="icon-moon" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+        <svg class="icon-sun" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><circle cx="12" cy="12" r="4"/></svg>
+      </span></span>
+    </button>
+  </div></header>
+
+<main id="main" class="wrap">
+  <p class="eyebrow">Week 51 · Shopping Cart</p>
+  <h1>Shop & cart</h1>
+  <p class="lead">Add items, change qty, tax at 8.25%. Cart persists.</p>
+  <div class="layout">
+    <div><div class="grid" id="grid"></div></div>
+    <aside class="card">
+      <h2 style="margin:0 0 .75rem;font-family:var(--display);font-size:1.1rem">Cart <span class="badge" id="count">0</span></h2>
+      <div id="lines"></div>
+      <div id="totals" style="margin-top:.75rem"></div>
+      <button class="btn btn-primary" id="checkout" type="button" style="width:100%;margin-top:.75rem">Checkout (demo)</button>
+      <p id="msg" style="display:none;margin-top:.6rem;color:var(--ok);font-size:.9rem"></p>
+    </aside>
+  </div>
+</main>
+
+<footer class="site-footer"><div class="inner"><span>Phase 6 · E-commerce</span><span>Theme Mode</span></div></footer>
+<script src="script.js"></script>
+</body></html>

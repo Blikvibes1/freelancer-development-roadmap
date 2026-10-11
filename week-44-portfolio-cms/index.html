@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="noir">
+<head>
+<meta charset="UTF-8"/><meta name="viewport" content="width=device-width,initial-scale=1"/>
+<meta name="description" content="Dynamic portfolio CMS"/><title>Folio CMS</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Syne:wght@600;700;800&display=swap" rel="stylesheet"/>
+<link rel="stylesheet" href="style.css"/>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <header class="site-header"><div class="header-inner">
+    <a class="brand" href="#">Folio</a>
+    <button type="button" class="theme-switch" id="theme-switch" role="switch" aria-checked="false" aria-label="Switch theme">
+      <span class="theme-switch__track"><span class="theme-switch__thumb">
+        <svg class="icon-moon" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+        <svg class="icon-sun" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><circle cx="12" cy="12" r="4"/></svg>
+      </span></span>
+    </button>
+  </div></header>
+
+<main id="main" class="wrap">
+  <p class="eyebrow">Week 44 · Portfolio CMS</p>
+  <h1>Work & writing</h1>
+  <p class="lead">Projects and posts from a lightweight browser CMS.</p>
+  <div class="tabs" id="tabs"><button type="button" class="tab is-active" data-view="projects">Projects</button><button type="button" class="tab" data-view="posts">Blog</button></div>
+  <div id="view"></div>
+  <section class="admin">
+    <h2 style="margin:0 0 .75rem;font-family:var(--display);font-size:1.1rem">CMS Admin</h2>
+    <form id="cms-form">
+      <div class="field"><label>Type</label><select id="ctype"><option value="project">Project</option><option value="post">Blog post</option></select></div>
+      <div class="field"><label>Title</label><input id="ctitle" required/></div>
+      <div class="field"><label>Summary</label><textarea id="csum" rows="2" required></textarea></div>
+      <div class="field"><label>Tag</label><input id="ctag" placeholder="Design"/></div>
+      <button class="btn btn-primary" type="submit">Publish</button>
+    </form>
+    <p id="cms-status" style="color:var(--muted);font-size:.9rem;margin-top:.75rem"></p>
+  </section>
+</main>
+
+<footer class="site-footer"><div class="inner"><span>Freelancer roadmap</span><span>Theme Mode</span></div></footer>
+<script src="script.js"></script>
+</body></html>

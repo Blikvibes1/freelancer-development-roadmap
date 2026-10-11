@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="noir">
+<head>
+<meta charset="UTF-8"/><meta name="viewport" content="width=device-width,initial-scale=1"/>
+<meta name="description" content="Product filtering"/><title>Facet</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Syne:wght@600;700;800&display=swap" rel="stylesheet"/>
+<link rel="stylesheet" href="style.css"/>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <header class="site-header"><div class="header-inner">
+    <a class="brand" href="#">Facet</a>
+    <button type="button" class="theme-switch" id="theme-switch" role="switch" aria-checked="false" aria-label="Switch theme">
+      <span class="theme-switch__track"><span class="theme-switch__thumb">
+        <svg class="icon-moon" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+        <svg class="icon-sun" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><circle cx="12" cy="12" r="4"/></svg>
+      </span></span>
+    </button>
+  </div></header>
+
+<main id="main" class="wrap">
+  <p class="eyebrow">Week 53 · Filters</p>
+  <h1>Catalog filters</h1>
+  <p class="lead">Multi-select filters sync to the URL.</p>
+  <div class="shop"><aside class="card filters" id="filters"></aside>
+  <section><div style="display:flex;justify-content:space-between;margin-bottom:.75rem"><span id="count" style="color:var(--muted)"></span>
+  <select id="sort" style="width:auto"><option value="featured">Featured</option><option value="price-asc">Price ↑</option><option value="price-desc">Price ↓</option></select></div>
+  <div class="grid" id="grid"></div></section></div>
+</main>
+
+<footer class="site-footer"><div class="inner"><span>Phase 6 · E-commerce</span><span>Theme Mode</span></div></footer>
+<script src="script.js"></script>
+</body></html>

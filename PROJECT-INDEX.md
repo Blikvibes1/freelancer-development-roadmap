@@ -68,6 +68,37 @@ Each project is a folder on `main`. Click through to browse code.
 ---
 
 
+
+## Phase 5 — Full-Stack Freelance Staples (Weeks 41–50) ✅
+
+| Week | Project | Folder |
+|------|---------|--------|
+| 41 | Local Business Directory (Pinpoint) | [week-41-local-business-directory](https://github.com/Blikvibes1/freelancer-development-roadmap/tree/main/week-41-local-business-directory) |
+| 42 | Restaurant Menu & Booking (Table & Thyme) | [week-42-restaurant-menu-booking](https://github.com/Blikvibes1/freelancer-development-roadmap/tree/main/week-42-restaurant-menu-booking) |
+| 43 | Real Estate Listings (Parcel) | [week-43-real-estate-listings](https://github.com/Blikvibes1/freelancer-development-roadmap/tree/main/week-43-real-estate-listings) |
+| 44 | Portfolio CMS (Folio) | [week-44-portfolio-cms](https://github.com/Blikvibes1/freelancer-development-roadmap/tree/main/week-44-portfolio-cms) |
+| 45 | Event Ticketing (Summit Stage) | [week-45-event-ticketing](https://github.com/Blikvibes1/freelancer-development-roadmap/tree/main/week-45-event-ticketing) |
+| 46 | Job Board (Hireline) | [week-46-job-board](https://github.com/Blikvibes1/freelancer-development-roadmap/tree/main/week-46-job-board) |
+| 47 | Appointment Scheduling (Slotbook) | [week-47-appointment-scheduling](https://github.com/Blikvibes1/freelancer-development-roadmap/tree/main/week-47-appointment-scheduling) |
+| 48 | Newsletter Landing (Dispatch) | [week-48-newsletter-landing](https://github.com/Blikvibes1/freelancer-development-roadmap/tree/main/week-48-newsletter-landing) |
+| 49 | Knowledge Base (Manual) | [week-49-knowledge-base](https://github.com/Blikvibes1/freelancer-development-roadmap/tree/main/week-49-knowledge-base) |
+| 50 | Client Portal (Desk) | [week-50-client-portal](https://github.com/Blikvibes1/freelancer-development-roadmap/tree/main/week-50-client-portal) |
+
+## Phase 6 — E-commerce & Payments (Weeks 51–60) ✅
+
+| Week | Project | Folder |
+|------|---------|--------|
+| 51 | Shopping Cart (Cartkit) | [week-51-shopping-cart](https://github.com/Blikvibes1/freelancer-development-roadmap/tree/main/week-51-shopping-cart) |
+| 52 | Stripe Checkout (Payframe) | [week-52-stripe-checkout](https://github.com/Blikvibes1/freelancer-development-roadmap/tree/main/week-52-stripe-checkout) |
+| 53 | Product Filters (Facet) | [week-53-product-filters](https://github.com/Blikvibes1/freelancer-development-roadmap/tree/main/week-53-product-filters) |
+| 54 | Wishlist (Kept) | [week-54-wishlist](https://github.com/Blikvibes1/freelancer-development-roadmap/tree/main/week-54-wishlist) |
+| 55 | Coupon System (Promo) | [week-55-coupon-system](https://github.com/Blikvibes1/freelancer-development-roadmap/tree/main/week-55-coupon-system) |
+| 56 | Order Email (Receipt) | [week-56-order-email](https://github.com/Blikvibes1/freelancer-development-roadmap/tree/main/week-56-order-email) |
+| 57 | Inventory Dashboard (Stockroom) | [week-57-inventory-dashboard](https://github.com/Blikvibes1/freelancer-development-roadmap/tree/main/week-57-inventory-dashboard) |
+| 58 | Product Reviews (Stars) | [week-58-product-reviews](https://github.com/Blikvibes1/freelancer-development-roadmap/tree/main/week-58-product-reviews) |
+| 59 | Abandoned Cart (Nudge) | [week-59-abandoned-cart](https://github.com/Blikvibes1/freelancer-development-roadmap/tree/main/week-59-abandoned-cart) |
+| 60 | Subscription Billing (Member) | [week-60-subscription-billing](https://github.com/Blikvibes1/freelancer-development-roadmap/tree/main/week-60-subscription-billing) |
+
 ## Phase 7 — Real-Time & Advanced APIs (Weeks 61–70)
 
 | Week | Project | GitHub |

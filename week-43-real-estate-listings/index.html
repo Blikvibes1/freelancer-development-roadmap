@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="noir">
+<head>
+<meta charset="UTF-8"/><meta name="viewport" content="width=device-width,initial-scale=1"/>
+<meta name="description" content="Property listings with filters"/><title>Parcel — Real Estate</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Syne:wght@600;700;800&display=swap" rel="stylesheet"/>
+
+<link rel="stylesheet" href="style.css"/>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <header class="site-header"><div class="header-inner">
+    <a class="brand" href="#">Parcel</a>
+    <button type="button" class="theme-switch" id="theme-switch" role="switch" aria-checked="false" aria-label="Switch theme">
+      <span class="theme-switch__track"><span class="theme-switch__thumb">
+        <svg class="icon-moon" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+        <svg class="icon-sun" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><circle cx="12" cy="12" r="4"/></svg>
+      </span></span>
+    </button>
+  </div></header>
+
+<main id="main" class="wrap">
+  <p class="eyebrow">Week 43 · Real Estate</p>
+  <h1>Homes on the market</h1>
+  <p class="lead">Filter by beds, price, and type. Contact an agent.</p>
+  <div class="filters">
+    <select id="beds"><option value="0">Any beds</option><option value="1">1+</option><option value="2">2+</option><option value="3">3+</option><option value="4">4+</option></select>
+    <select id="maxPrice"><option value="9999999">Any price</option><option value="400000">Under $400k</option><option value="600000">Under $600k</option><option value="900000">Under $900k</option></select>
+    <select id="type"><option value="all">All types</option><option value="house">House</option><option value="condo">Condo</option><option value="townhome">Townhome</option></select>
+  </div>
+  <div class="layout43">
+    <div class="listings" id="listings"></div>
+    <aside class="card">
+      <h2 style="margin:0 0 .75rem;font-family:var(--display);font-size:1.1rem">Contact agent</h2>
+      <p id="selected" style="color:var(--muted);font-size:.9rem">Select a listing first.</p>
+      <form id="contact">
+        <div class="field"><label>Name</label><input id="cname" required/></div>
+        <div class="field"><label>Email</label><input id="cemail" type="email" required/></div>
+        <div class="field"><label>Message</label><textarea id="cmsg" rows="3">I am interested in this property.</textarea></div>
+        <button class="btn btn-primary" type="submit" style="width:100%">Send inquiry</button>
+      </form>
+      <p id="cstatus" style="display:none;margin-top:.75rem;color:var(--ok);font-size:.9rem"></p>
+    </aside>
+  </div>
+</main>
+
+<footer class="site-footer"><div class="inner"><span>Freelancer roadmap · portfolio demo</span><span>Theme Mode</span></div></footer>
+<script src="script.js"></script>
+</body></html>
