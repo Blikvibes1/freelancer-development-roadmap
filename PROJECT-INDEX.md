@@ -67,6 +67,25 @@ Each project is a folder on `main`. Click through to browse code.
 
 ---
 
+
+## Phase 7 — Real-Time & Advanced APIs (Weeks 61–70)
+
+| Week | Project | GitHub |
+|------|---------|--------|
+| 61 | Live Chat (Relay) | [week-61-live-chat](https://github.com/Blikvibes1/freelancer-development-roadmap/tree/main/week-61-live-chat) |
+
+### Showcase repos
+| Project | Repo |
+|---------|------|
+| Relay Live Chat | https://github.com/Blikvibes1/relay-live-chat |
+| Pinpoint Directory | https://github.com/Blikvibes1/pinpoint-directory |
+| Table & Thyme | https://github.com/Blikvibes1/table-thyme |
+| Parcel Listings | https://github.com/Blikvibes1/parcel-listings |
+| Desk Client Portal | https://github.com/Blikvibes1/desk-client-portal |
+| Cartkit Commerce | https://github.com/Blikvibes1/cartkit-commerce |
+| Hireline Jobs | https://github.com/Blikvibes1/hireline-jobs |
+| Slotbook Appointments | https://github.com/Blikvibes1/slotbook-appointments |
+
 ## URL pattern
 
 ```text

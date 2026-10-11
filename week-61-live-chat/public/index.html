@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="noir">
+<head>
+  <meta charset="UTF-8"/><meta name="viewport" content="width=device-width,initial-scale=1"/>
+  <title>Relay — Live Chat</title>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;600;700&family=Syne:wght@700;800&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="style.css"/>
+</head>
+<body>
+  <header class="site-header"><div class="header-inner">
+    <a class="brand" href="/">Relay</a>
+    <div class="header-actions">
+      <span class="status-dot" id="conn-dot"></span>
+      <span id="conn-label">Offline</span>
+      <button type="button" class="theme-switch" id="theme-switch" role="switch" aria-checked="false" aria-label="Theme">
+        <span class="theme-switch__track"><span class="theme-switch__thumb"></span></span>
+      </button>
+    </div>
+  </div></header>
+  <main class="shell">
+    <section class="gate card" id="gate">
+      <p class="eyebrow">Week 61 · Live Chat</p>
+      <h1>Join a room</h1>
+      <p class="lead">Open two windows to see realtime messages, typing, and receipts.</p>
+      <form id="join-form">
+        <div class="field"><label for="name">Name</label><input id="name" required maxlength="32"/></div>
+        <div class="field"><label for="room">Room</label><input id="room" value="general" required maxlength="32"/></div>
+        <button class="btn btn-primary" type="submit">Enter chat</button>
+      </form>
+    </section>
+    <section class="chat" id="chat" hidden>
+      <aside class="sidebar card">
+        <div class="sidebar-head"><strong id="room-label">#general</strong><span class="badge" id="online-count">0</span></div>
+        <ul class="roster" id="roster"></ul>
+      </aside>
+      <div class="stage card">
+        <div class="messages" id="messages" role="log" aria-live="polite"></div>
+        <div class="typing" id="typing"></div>
+        <form class="composer" id="composer">
+          <input id="input" autocomplete="off" maxlength="2000" placeholder="Message…" disabled/>
+          <button class="btn btn-primary" id="send" type="submit" disabled>Send</button>
+        </form>
+      </div>
+    </section>
+  </main>
+  <script src="/socket.io/socket.io.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
